@@ -18,6 +18,7 @@ Complete source code (in [Java]) is provided under
 ## Contents of this document
 
 + [About SPORT](#about)
++ [How to add SPORT to an existing project](#add)
 + [How to build and run SPORT from source](#build)
 + [What's missing](#todo)
 + [History](#history)
@@ -32,6 +33,60 @@ SPORT is a Simple Physics-ORienTed graphics engine written in Java 1.8.
 In addition to [Libbulletjme],
 it uses [LWJGL], [Assimp], [GLFW], [JOML], and [OpenGL].
 It has been tested on Windows, Linux, and macOS.
+
+[Jump to the table of contents](#toc)
+
+
+<a name="add"></a>
+
+## How to add SPORT to an existing project
+
+SPORT comes pre-built as a single library that depends on [Libbulletjme].
+However, the Libbulletjme dependency is intentionally omitted from SPORT's POM
+so developers can specify *which* Libbulletjme library should be used.
+
+For projects built using [Maven] or [Gradle], it is
+*not* sufficient to specify the
+dependency on the SPORT Library.
+You must also explicitly specify the Libbulletjme dependency.
+
+### Gradle-built projects
+
+Add to the project’s "build.gradle" file:
+
+    repositories {
+        mavenCentral()
+    }
+    dependencies {
+        implementation 'com.github.stephengold:Libbulletjme:20.1.0'
+        implementation 'com.github.stephengold:sport:0.9.1'
+    }
+
+For some older versions of Gradle,
+it's necessary to replace `implementation` with `compile`.
+
+### Maven-built projects
+
+Add to the project’s "pom.xml" file:
+
+    <repositories>
+      <repository>
+        <id>mvnrepository</id>
+        <url>https://repo1.maven.org/maven2/</url>
+      </repository>
+    </repositories>
+
+    <dependency>
+      <groupId>com.github.stephengold</groupId>
+      <artifactId>Libbulletjme</artifactId>
+      <version>20.1.0</version>
+    </dependency>
+
+    <dependency>
+      <groupId>com.github.stephengold</groupId>
+      <artifactId>sport</artifactId>
+      <version>0.9.1</version>
+    </dependency>
 
 [Jump to the table of contents](#toc)
 
@@ -192,6 +247,7 @@ correct the situation: sgold@sonic.net
 [license]: https://github.com/stephengold/sport/blob/master/LICENSE "SPORT license"
 [lwjgl]: https://www.lwjgl.org "Lightweight Java Game Library"
 [markdown]: https://daringfireball.net/projects/markdown "Markdown Project"
+[maven]: https://maven.apache.org "Maven Project"
 [meld]: https://meldmerge.org "Meld merge tool"
 [mint]: https://linuxmint.com "Linux Mint Project"
 [netbeans]: https://netbeans.org "NetBeans Project"
