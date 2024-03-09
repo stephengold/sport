@@ -1,0 +1,233 @@
+// Gradle script to build the sport/apps sub-project
+
+// Note: "common.gradle" in the root project contains additional initialization
+//   for this project. This initialization is applied in the "build.gradle"
+//   of the root project.
+
+plugins {
+    id 'application' // to build Java applications
+}
+
+application {
+    mainClass = 'com.github.stephengold.sport.demo.AppChooser'
+}
+if (!hasProperty('mainClass')) {
+    ext.mainClass = application.mainClass
+}
+jar.manifest.attributes('Main-Class': application.mainClass)
+
+ext {
+    // which BTF (buildType + flavor) of the native physics library to use:
+    //btf = 'DebugSp'
+    btf = 'ReleaseSp'
+
+    fs = System.getProperty('file.separator')
+    downloadsDir = System.getProperty('user.home') + fs + 'Downloads' + fs
+
+    // URL from which native physics libraries should be copied:
+    libbulletjmeUrl = "https://github.com/stephengold/Libbulletjme/releases/download/$lbjVersion/"
+    //libbulletjmeUrl = "file:///home/sgold/NetBeansProjects/Libbulletjme/dist/"
+}
+
+// Register tasks to run specific applications:
+
+tasks.register('AppChooser', JavaExec) {
+    description 'Runs the AppChooser app.'
+    mainClass = 'com.github.stephengold.sport.demo.AppChooser'
+}
+
+// physics demos
+tasks.register('ConveyorDemo', JavaExec) {
+    description 'Runs the ConveyorDemo app.'
+    mainClass = 'com.github.stephengold.sport.demo.ConveyorDemo'
+}
+tasks.register('NewtonsCradle', JavaExec) {
+    description 'Runs the NewtonsCradle demo app.'
+    mainClass = 'com.github.stephengold.sport.demo.NewtonsCradle'
+}
+tasks.register('Pachinko', JavaExec) {
+    description 'Runs the Pachinko demo app.'
+    mainClass = 'com.github.stephengold.sport.demo.Pachinko'
+}
+tasks.register('SplitDemo', JavaExec) {
+    description 'Runs the SplitDemo app.'
+    mainClass = 'com.github.stephengold.sport.demo.SplitDemo'
+}
+tasks.register('TestGearJoint', JavaExec) {
+    description 'Runs the TestGearJoint app.'
+    mainClass = 'com.github.stephengold.sport.demo.TestGearJoint'
+}
+tasks.register('ThousandCubes', JavaExec) {
+    description 'Runs the ThousandCubes demo app.'
+    mainClass = 'com.github.stephengold.sport.demo.ThousandCubes'
+}
+tasks.register('Windlass', JavaExec) {
+    description 'Runs the Windlass demo app.'
+    mainClass = 'com.github.stephengold.sport.demo.Windlass'
+}
+
+// graphics-only tests (no physics)
+tasks.register('AssimpTest', JavaExec) {
+    description 'Runs the Assimp test app.'
+    mainClass = 'com.github.stephengold.sport.test.AssimpTest'
+}
+tasks.register('CheckerboardTest', JavaExec) {
+    description 'Runs the checkerboard test app.'
+    mainClass = 'com.github.stephengold.sport.test.CheckerboardTest'
+}
+tasks.register('ClipspaceTest', JavaExec) {
+    description 'Runs the clipspace test app.'
+    mainClass = 'com.github.stephengold.sport.test.ClipspaceTest'
+}
+tasks.register('DynamicMeshTest', JavaExec) {
+    description 'Runs the dynamic-mesh test app.'
+    mainClass = 'com.github.stephengold.sport.test.DynamicMeshTest'
+}
+tasks.register('IcosphereTest', JavaExec) {
+    description 'Runs the icosphere test app.'
+    mainClass = 'com.github.stephengold.sport.test.IcosphereTest'
+}
+tasks.register('MouseTest', JavaExec) {
+    description 'Runs the first mouse test app.'
+    mainClass = 'com.github.stephengold.sport.test.MouseTest'
+}
+tasks.register('MouseTest2', JavaExec) {
+    description 'Runs the 2nd mouse test app.'
+    mainClass = 'com.github.stephengold.sport.test.MouseTest2'
+}
+tasks.register('OctasphereTest', JavaExec) {
+    description 'Runs the octasphere test app.'
+    mainClass = 'com.github.stephengold.sport.test.OctasphereTest'
+}
+tasks.register('RainbowTest', JavaExec) {
+    description 'Runs the rainbow test app.'
+    mainClass = 'com.github.stephengold.sport.test.RainbowTest'
+}
+tasks.register('SpriteTest', JavaExec) {
+    description 'Runs the sprite test app.'
+    mainClass = 'com.github.stephengold.sport.test.SpriteTest'
+}
+tasks.register('TextureTest', JavaExec) {
+    description 'Runs the texture test app.'
+    mainClass = 'com.github.stephengold.sport.test.TextureTest'
+}
+
+import org.gradle.nativeplatform.platform.internal.DefaultNativePlatform
+OperatingSystem os = DefaultNativePlatform.currentOperatingSystem
+Boolean includeLinux = os.isLinux()
+Boolean includeMacOsX = os.isMacOsX()
+Boolean includeWindows = os.isWindows()
+
+tasks.withType(JavaExec).configureEach { // Java runtime options:
+    if (os.isMacOsX()) {
+        jvmArgs '-XstartOnFirstThread' // required for GLFW on macOS
+    }
+    classpath sourceSets.main.runtimeClasspath
+    enableAssertions true
+    jvmArgs '-XX:+UseG1GC', '-XX:MaxGCPauseMillis=10'
+
+    if (includeLinux) {
+        dependsOn 'downloadLinux64'
+        dependsOn 'downloadLinux_ARM32'
+        dependsOn 'downloadLinux_ARM64'
+    }
+    if (includeMacOsX) {
+        dependsOn 'downloadMacOSX64'
+        dependsOn 'downloadMacOSX_ARM64'
+    }
+    if (includeWindows) {
+        dependsOn 'downloadWindows32'
+        dependsOn 'downloadWindows64'
+    }
+}
+
+dependencies {
+    if (includeLinux) {
+        runtimeOnly "org.lwjgl:lwjgl:${lwjglVersion}:natives-linux"
+        runtimeOnly "org.lwjgl:lwjgl-assimp:${lwjglVersion}:natives-linux"
+        runtimeOnly "org.lwjgl:lwjgl-glfw:${lwjglVersion}:natives-linux"
+        runtimeOnly "org.lwjgl:lwjgl-opengl:${lwjglVersion}:natives-linux"
+
+        runtimeOnly "org.lwjgl:lwjgl:${lwjglVersion}:natives-linux-arm32"
+        runtimeOnly "org.lwjgl:lwjgl-assimp:${lwjglVersion}:natives-linux-arm32"
+        runtimeOnly "org.lwjgl:lwjgl-glfw:${lwjglVersion}:natives-linux-arm32"
+        runtimeOnly "org.lwjgl:lwjgl-opengl:${lwjglVersion}:natives-linux-arm32"
+
+        runtimeOnly "org.lwjgl:lwjgl:${lwjglVersion}:natives-linux-arm64"
+        runtimeOnly "org.lwjgl:lwjgl-assimp:${lwjglVersion}:natives-linux-arm64"
+        runtimeOnly "org.lwjgl:lwjgl-glfw:${lwjglVersion}:natives-linux-arm64"
+        runtimeOnly "org.lwjgl:lwjgl-opengl:${lwjglVersion}:natives-linux-arm64"
+    }
+
+    if (includeMacOsX) {
+        runtimeOnly "org.lwjgl:lwjgl:${lwjglVersion}:natives-macos"
+        runtimeOnly "org.lwjgl:lwjgl-assimp:${lwjglVersion}:natives-macos"
+        runtimeOnly "org.lwjgl:lwjgl-glfw:${lwjglVersion}:natives-macos"
+        runtimeOnly "org.lwjgl:lwjgl-opengl:${lwjglVersion}:natives-macos"
+
+        runtimeOnly "org.lwjgl:lwjgl:${lwjglVersion}:natives-macos-arm64"
+        runtimeOnly "org.lwjgl:lwjgl-assimp:${lwjglVersion}:natives-macos-arm64"
+        runtimeOnly "org.lwjgl:lwjgl-glfw:${lwjglVersion}:natives-macos-arm64"
+        runtimeOnly "org.lwjgl:lwjgl-opengl:${lwjglVersion}:natives-macos-arm64"
+    }
+
+    if (includeWindows) {
+        runtimeOnly "org.lwjgl:lwjgl:${lwjglVersion}:natives-windows"
+        runtimeOnly "org.lwjgl:lwjgl-assimp:${lwjglVersion}:natives-windows"
+        runtimeOnly "org.lwjgl:lwjgl-glfw:${lwjglVersion}:natives-windows"
+        runtimeOnly "org.lwjgl:lwjgl-opengl:${lwjglVersion}:natives-windows"
+
+        runtimeOnly "org.lwjgl:lwjgl:${lwjglVersion}:natives-windows-x86"
+        runtimeOnly "org.lwjgl:lwjgl-assimp:${lwjglVersion}:natives-windows-x86"
+        runtimeOnly "org.lwjgl:lwjgl-glfw:${lwjglVersion}:natives-windows-x86"
+        runtimeOnly "org.lwjgl:lwjgl-opengl:${lwjglVersion}:natives-windows-x86"
+    }
+
+    //implementation 'com.github.stephengold:sport:' + sportVersion // for published library
+    implementation project(':lib') // for latest sourcecode
+}
+
+// Register tasks to download/clean the native physics library for each platform:
+
+registerPlatformTasks('Linux64',     '_libbulletjme.so')
+registerPlatformTasks('Linux_ARM32', '_libbulletjme.so')
+registerPlatformTasks('Linux_ARM64', '_libbulletjme.so')
+
+registerPlatformTasks('MacOSX64',     '_libbulletjme.dylib')
+registerPlatformTasks('MacOSX_ARM64', '_libbulletjme.dylib')
+
+registerPlatformTasks('Windows32', '_bulletjme.dll')
+registerPlatformTasks('Windows64', '_bulletjme.dll')
+
+// helper method to register 'download' and 'clean' tasks:
+
+void registerPlatformTasks(String platform, String suffix) {
+    String filename = platform + btf + suffix
+
+    String cleanTaskName = 'clean' + platform
+    clean.dependsOn(cleanTaskName)
+    tasks.register(cleanTaskName, Delete) {
+        delete downloadsDir + filename
+    }
+
+    tasks.register('download' + platform, MyDownload) {
+        sourceUrl = libbulletjmeUrl + filename
+        target = file(downloadsDir + filename)
+    }
+}
+
+// helper class to wrap Ant download task:
+
+class MyDownload extends DefaultTask {
+    @Input
+    String sourceUrl
+
+    @OutputFile
+    File target
+
+    @TaskAction
+    void download() {
+        ant.get(src: sourceUrl, dest: target)
+        println sourceUrl
+    }
+}

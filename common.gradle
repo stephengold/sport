@@ -1,0 +1,27 @@
+// Gradle settings and tasks common to all SPORT subprojects
+
+apply plugin: 'checkstyle'
+apply plugin: 'java'
+
+java {
+    sourceCompatibility = JavaVersion.VERSION_1_8
+    targetCompatibility = JavaVersion.VERSION_1_8
+}
+
+checkstyle {
+    toolVersion '9.3'
+}
+
+tasks.withType(JavaCompile).configureEach { // Java compile-time options:
+    options.compilerArgs << '-Xdiags:verbose'
+    if (JavaVersion.current().isCompatibleWith(JavaVersion.VERSION_20)) {
+        // Suppress warnings that source value 8 is obsolete.
+        options.compilerArgs << '-Xlint:-options'
+    }
+    options.compilerArgs << '-Xlint:unchecked'
+    options.deprecation = true // to provide detailed deprecation warnings
+    options.encoding = 'UTF-8'
+    if (JavaVersion.current().isCompatibleWith(JavaVersion.VERSION_1_10)) {
+        options.release = 8
+    }
+}
