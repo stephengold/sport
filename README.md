@@ -88,6 +88,34 @@ Add to the project’s "pom.xml" file:
       <version>0.9.1</version>
     </dependency>
 
+### Coding a SPORT application
+
+Every SPORT application should extend the `BasePhysicsApp` class,
+which provides hooks for:
+
++ initializing the application,
++ creating and configuring the application's physics space,
++ populating the space with physics objects, and
++ updating the space before each frame is rendered.
+
+The graphics engine maintains an internal list of rendered objects,
+called *geometries*.
+Instantiating a geometry automatically adds it to the list.
+
++ To visualize world (physics-space) coordinate axes,
+  instantiate one or more `LocalAxisGeometry` objects.
+
+By default, physics objects are not visualized.
+
++ To visualize the shape of a `PhysicsCollisionObject`,
+  invoke the `visualizeShape()` method on the object.
++ To visualize the local coordinate axes of a `PhysicsCollisionObject`,
+  invoke the `visualizeAxes()` method on the object.
++ To visualize a `Constraint`,
+  instantiate one or more `ConstraintGeometry` objects.
++ To visualize the wheels of a `PhysicsVehicle`,
+  invoke the `visualizeWheels()` method on the vehicle.
+
 [Jump to the table of contents](#toc)
 
 
