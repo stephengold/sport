@@ -1,0 +1,52 @@
+---
+# GitHub Actions workflow for commits pushed to the sport repo - all branches
+
+name: CI at GitHub
+on: [push]
+
+jobs:
+  Java8-Linux:
+    if: contains(toJson(github.event.commits), '[ci skip] ') == false
+    runs-on: ubuntu-20.04
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-java@v4
+        with:
+          distribution: 'zulu'
+          java-version: 8
+      - run: ./gradlew build javadoc --console=plain --no-daemon --stacktrace
+
+  Java11-Linux:
+    if: contains(toJson(github.event.commits), '[ci skip] ') == false
+    runs-on: ubuntu-22.04
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-java@v4
+        with:
+          distribution: 'zulu'
+          java-version: 11
+      - uses: gradle/wrapper-validation-action@v2
+      - run: ./gradlew build javadoc --console=plain --no-daemon --stacktrace
+
+  Java17-MacOS:
+    if: contains(toJson(github.event.commits), '[ci skip] ') == false
+    runs-on: macOS-13
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-java@v4
+        with:
+          distribution: 'zulu'
+          java-version: 17
+      - run: ./gradlew build javadoc --console=plain --no-daemon --stacktrace
+
+  Java21-Windows:
+    if: contains(toJson(github.event.commits), '[ci skip] ') == false
+    runs-on: windows-2022
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-java@v4
+        with:
+          distribution: 'zulu'
+          java-version: 21
+      - run: ./gradlew build javadoc --console=plain --no-daemon --stacktrace
+        shell: bash
