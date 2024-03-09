@@ -120,6 +120,12 @@ Future enhancements might include:
 
 ## Acknowledgments
 
+The ThousandCubes demo app and most of the original graphics code
+were authored by Yanis Boudiaf.
+
+The IcosphereMesh class derives from source code
+published by James Khan in May 2017.
+
 The ConveyorDemo app derives from source code
 contributed by "qwq" in March 2022.
 
