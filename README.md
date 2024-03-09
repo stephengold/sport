@@ -6,7 +6,7 @@ for [the Libbulletjme 3-D physics library][libbulletjme].
 
 It contains 2 sub-projects:
 
-1. lib: the SPORT graphics engine (a single JVM library)
+1. lib: the SPORT graphics engine (a single JVM runtime library)
 2. apps: demos and non-automated test software
 
 Complete source code (in [Java]) is provided under
