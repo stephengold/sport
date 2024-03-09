@@ -145,6 +145,7 @@ contributed by "qwq" in March 2022.
 
 This project has made use of the following libraries and software tools:
 
+  + the [Checkstyle] tool
   + the [Firefox] web browser
   + the [Git] revision-control system and GitK commit viewer
   + the [GitKraken] client
@@ -175,6 +176,7 @@ correct the situation: sgold@sonic.net
 
 [adoptium]: https://adoptium.net/releases.html "Adoptium Project"
 [assimp]: https://www.assimp.org/ "The Open Asset Importer Library"
+[checkstyle]: https://checkstyle.org "Checkstyle"
 [firefox]: https://www.mozilla.org/en-US/firefox "Firefox"
 [fish]: https://fishshell.com/ "Fish command-line shell"
 [git]: https://git-scm.com "Git"
