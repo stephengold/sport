@@ -153,7 +153,9 @@ This project has made use of the following libraries and software tools:
   + the [Java] compiler, standard doclet, and runtime environment
   + [the Java OpenGL Math Library][joml]
   + [the Lightweight Java Gaming Library][lwjgl]
+  + the [Linux Mint][mint] operating system
   + the [Markdown] document-conversion tool
+  + the [Meld] visual merge tool
   + the [NetBeans] integrated development environment
   + [the Open Asset Import (Assimp) Library][assimp]
   + the [OpenGL] API
@@ -188,6 +190,8 @@ correct the situation: sgold@sonic.net
 [license]: https://github.com/stephengold/sport/blob/master/LICENSE "SPORT license"
 [lwjgl]: https://www.lwjgl.org "Lightweight Java Game Library"
 [markdown]: https://daringfireball.net/projects/markdown "Markdown Project"
+[meld]: https://meldmerge.org "Meld merge tool"
+[mint]: https://linuxmint.com "Linux Mint Project"
 [netbeans]: https://netbeans.org "NetBeans Project"
 [opengl]: https://www.khronos.org/opengl "OpenGL API"
 [project]: https://github.com/stephengold/sport "SPORT Project"
