@@ -3,7 +3,7 @@
  */
 #version 330 core
 
-in vec3 Normal_modelspace;
+in vec3 Normal_modelspace; // vertex normals from the vertex shader
 out vec3 fragColor;
 
 void main() {

@@ -10,7 +10,7 @@ uniform mat4 viewMatrix;       // global
 in vec3 vertexNormal_modelspace;
 in vec3 vertexPosition_modelspace;
 
-out vec3 Normal_modelspace; // normals to the frag shader
+out vec3 Normal_modelspace; // vertex normals to the frag shader
 
 void main() {
     // vertex position in clipspace
