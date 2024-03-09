@@ -120,7 +120,8 @@ Future enhancements might include:
 
 ## Acknowledgments
 
-The ConveyorDemo app derives from sourcecode contributed by "qwq".
+The ConveyorDemo app derives from source code
+contributed by "qwq" in March 2022.
 
 This project has made use of the following libraries and software tools:
 
