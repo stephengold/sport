@@ -20,6 +20,7 @@ Complete source code (in [Java]) is provided under
 + [About SPORT](#about)
 + [How to build and run SPORT from source](#build)
 + [What's missing](#todo)
++ [History](#history)
 + [Acknowledgments](#acks)
 
 
@@ -116,6 +117,19 @@ Future enhancements might include:
 [Jump to the table of contents](#toc)
 
 
+<a name="history"></a>
+
+## History
+
+From March 2022 to March 2024, SPORT was a sub-project of
+[the LbjExamples Project][lbjexamples].
+
+Since March 2024, SPORT has been a separate project, hosted at
+[GitHub][project].
+
+[Jump to the table of contents](#toc)
+
+
 <a name="acks"></a>
 
 ## Acknowledgments
@@ -169,6 +183,7 @@ correct the situation: sgold@sonic.net
 [imgur]: https://imgur.com/ "Imgur"
 [java]: https://en.wikipedia.org/wiki/Java_(programming_language) "Java programming language"
 [joml]: https://joml-ci.github.io/JOML "Java OpenGL Math Library"
+[lbjexamples]: https://github.com/stephengold/LbjExamples "LbjExamples Project"
 [libbulletjme]: https://stephengold.github.io/Libbulletjme/lbj-en/English/overview.html "Libbulletjme Project"
 [license]: https://github.com/stephengold/sport/blob/master/LICENSE "SPORT license"
 [lwjgl]: https://www.lwjgl.org "Lightweight Java Game Library"
