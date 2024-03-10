@@ -116,6 +116,18 @@ By default, physics objects are not visualized.
   instantiate one or more `ConstraintGeometry` objects.
 + To visualize the wheels of a `PhysicsVehicle`,
   invoke the `visualizeWheels()` method on the vehicle.
++ To visualize the bounding box of a `PhysicsCollisionObject`,
+  instantiate an `AabbGeometry` for the object.
++ To visualize a `Constraint`,
+  instantiate a `ConstraintGeometry` for each end.
++ To visualize the faces of a `PhysicsSoftBody`,
+  instantiate a `FacesGeometry` for the body.
++ To visualize the links of a `PhysicsSoftBody`,
+  instantiate a `LinksGeometry` for the body.
++ To visualize the pins of a `PhysicsSoftBody`,
+  instantiate a `PinsGeometry` for the body.
++ To visualize the wind acting on a `PhysicsSoftBody`,
+  instantiate a `WindVelocityGeometry` for the body.
 
 [Jump to the table of contents](#toc)
 
