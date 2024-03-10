@@ -99,21 +99,22 @@ which provides hooks for:
 + populating the space with physics objects, and
 + updating the space before each frame is rendered.
 
-The graphics engine maintains an internal list of rendered objects,
+The graphics engine doesn't have a scene graph.
+Instead, it maintains an internal list of renderable objects,
 called *geometries*.
-Instantiating a geometry automatically adds it to the list.
+Instantiating a geometry automatically adds it to the list
+and causes it to be visualized.
 
-+ To visualize world (physics-space) coordinate axes,
++ To visualize the world (physics-space) coordinate axes,
   instantiate one or more `LocalAxisGeometry` objects.
 
 By default, physics objects are not visualized.
 
-+ To visualize the shape of a `PhysicsCollisionObject`,
++ To visualize the shape
+  of a `PhysicsCollisionObject` other than a `PhysicsSoftBody`,
   invoke the `visualizeShape()` method on the object.
 + To visualize the local coordinate axes of a `PhysicsCollisionObject`,
   invoke the `visualizeAxes()` method on the object.
-+ To visualize a `Constraint`,
-  instantiate one or more `ConstraintGeometry` objects.
 + To visualize the wheels of a `PhysicsVehicle`,
   invoke the `visualizeWheels()` method on the vehicle.
 + To visualize the bounding box of a `PhysicsCollisionObject`,
