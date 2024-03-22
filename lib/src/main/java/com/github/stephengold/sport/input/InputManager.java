@@ -75,10 +75,12 @@ public class InputManager {
         // Set up the user-input callbacks.
         GLFW.glfwSetCursorPosCallback(
                 glfwWindowHandle, this::cursorPosCallback);
-        GLFW.glfwSetKeyCallback(glfwWindowHandle, this::keyCallback);
+        GLFW.glfwSetKeyCallback(
+                glfwWindowHandle, this::keyCallback);
         GLFW.glfwSetMouseButtonCallback(
                 glfwWindowHandle, this::mouseButtonCallback);
-        GLFW.glfwSetScrollCallback(glfwWindowHandle, this::scrollCallback);
+        GLFW.glfwSetScrollCallback(
+                glfwWindowHandle, this::scrollCallback);
     }
     // *************************************************************************
     // new methods exposed
