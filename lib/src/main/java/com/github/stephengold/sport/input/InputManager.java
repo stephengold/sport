@@ -73,6 +73,8 @@ public class InputManager {
         this.glfwWindowHandle = windowHandle;
 
         // Set up the user-input callbacks.
+        GLFW.glfwSetCharCallback(
+                glfwWindowHandle, this::charCallback);
         GLFW.glfwSetCursorPosCallback(
                 glfwWindowHandle, this::cursorPosCallback);
         GLFW.glfwSetKeyCallback(
@@ -178,6 +180,20 @@ public class InputManager {
     }
     // *************************************************************************
     // private methods
+
+    /**
+     * Callback invoked by GLFW for every character event.
+     *
+     * @param windowHandle the GLFW handle of the window that received the event
+     * (not null)
+     * @param codePoint the Unicode code point of the character
+     */
+    private void charCallback(long windowHandle, int codePoint) {
+        assert windowHandle == glfwWindowHandle;
+        if (firstProcessor != null) {
+            firstProcessor.onCharacter(codePoint);
+        }
+    }
 
     /**
      * Callback invoked by GLFW for every cursor-motion event.
