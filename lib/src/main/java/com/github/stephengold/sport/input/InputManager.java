@@ -1,5 +1,5 @@
 /*
- Copyright (c) 2022-2023, Stephen Gold and Yanis Boudiaf
+ Copyright (c) 2022-2024 Stephen Gold and Yanis Boudiaf
 
  Redistribution and use in source and binary forms, with or without
  modification, are permitted provided that the following conditions are met:
@@ -33,6 +33,7 @@ import org.joml.Vector2f;
 import org.joml.Vector2fc;
 import org.lwjgl.glfw.GLFW;
 import org.lwjgl.system.Callback;
+import org.lwjgl.system.MemoryUtil;
 
 /**
  * Provide applications with convenient access to user input (keyboard, mouse,
@@ -122,6 +123,16 @@ public class InputManager {
         }
 
         return null;
+    }
+
+    /**
+     * Return the window handle.
+     *
+     * @return the GLFW handle of the input window (not null)
+     */
+    public long getGlfwWindowHandle() {
+        assert glfwWindowHandle != MemoryUtil.NULL;
+        return glfwWindowHandle;
     }
 
     /**
