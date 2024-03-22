@@ -52,18 +52,6 @@ class Texture {
     // fields
 
     /**
-     * texture target (for binding, setting parameters, and generating mipmaps)
-     */
-    final private int target;
-    /**
-     * level-of-detail index
-     */
-    final private int level = 0;
-    /**
-     * texture internal format
-     */
-    final private int internalFormat = GL11C.GL_RGBA;
-    /**
      * texture border width (in pixels)
      */
     final private int border = 0;
@@ -72,13 +60,25 @@ class Texture {
      */
     final private int format = GL11C.GL_RGBA;
     /**
-     * texel data type
+     * texture internal format
      */
-    final private int type = GL11C.GL_FLOAT;
+    final private int internalFormat = GL11C.GL_RGBA;
+    /**
+     * level-of-detail index
+     */
+    final private int level = 0;
+    /**
+     * texture target (for binding, setting parameters, and generating mipmaps)
+     */
+    final private int target;
     /**
      * OpenGL name of the texture object (for binding or deleting)
      */
     final private int textureName;
+    /**
+     * texel data type
+     */
+    final private int type = GL11C.GL_FLOAT;
     // *************************************************************************
     // constructors
 
