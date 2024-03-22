@@ -136,6 +136,28 @@ public class InputManager {
     }
 
     /**
+     * Return the horizontal position of the mouse cursor.
+     *
+     * @return the offset from the left edge of the window's content area (in
+     * screen units)
+     */
+    public double glfwCursorX() {
+        double result = (glfwCursorPos == null) ? 0. : glfwCursorPos.x;
+        return result;
+    }
+
+    /**
+     * Return the vertical position of the mouse cursor.
+     *
+     * @return the offset from the top edge of the window's content area (in
+     * screen units)
+     */
+    public double glfwCursorY() {
+        double result = (glfwCursorPos == null) ? 0. : glfwCursorPos.y;
+        return result;
+    }
+
+    /**
      * Test whether the left mouse button (LMB) is pressed.
      *
      * @return true if pressed, otherwise false
