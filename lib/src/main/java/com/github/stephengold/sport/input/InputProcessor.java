@@ -54,6 +54,17 @@ abstract public class InputProcessor {
     // new methods exposed
 
     /**
+     * A Unicode character has been inputted. Meant to be overridden.
+     *
+     * @param codePoint the Unicode code point of the character
+     */
+    public void onCharacter(int codePoint) {
+        if (nextProcessor != null) {
+            nextProcessor.onCharacter(codePoint);
+        }
+    }
+
+    /**
      * A keyboard key has been pressed or released. GLFW_REPEAT events are
      * ignored. Meant to be overridden.
      *
