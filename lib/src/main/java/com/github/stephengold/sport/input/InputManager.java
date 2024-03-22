@@ -104,8 +104,11 @@ public class InputManager {
      * @return null
      */
     public InputManager destroy() {
-        Callback callback
-                = GLFW.glfwSetCursorPosCallback(glfwWindowHandle, null);
+        Callback callback = GLFW.glfwSetCharCallback(glfwWindowHandle, null);
+        if (callback != null) {
+            callback.free();
+        }
+        callback = GLFW.glfwSetCursorPosCallback(glfwWindowHandle, null);
         if (callback != null) {
             callback.free();
         }
