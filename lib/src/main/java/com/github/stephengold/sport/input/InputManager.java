@@ -108,18 +108,22 @@ public class InputManager {
         if (callback != null) {
             callback.free();
         }
+
         callback = GLFW.glfwSetCursorPosCallback(glfwWindowHandle, null);
         if (callback != null) {
             callback.free();
         }
+
         callback = GLFW.glfwSetKeyCallback(glfwWindowHandle, null);
         if (callback != null) {
             callback.free();
         }
+
         callback = GLFW.glfwSetMouseButtonCallback(glfwWindowHandle, null);
         if (callback != null) {
             callback.free();
         }
+
         callback = GLFW.glfwSetScrollCallback(glfwWindowHandle, null);
         if (callback != null) {
             callback.free();
