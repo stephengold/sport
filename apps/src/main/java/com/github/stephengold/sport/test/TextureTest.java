@@ -32,6 +32,7 @@ import com.github.stephengold.sport.BaseApplication;
 import com.github.stephengold.sport.Constants;
 import com.github.stephengold.sport.Geometry;
 import com.github.stephengold.sport.Mesh;
+import com.github.stephengold.sport.OverOp;
 import com.github.stephengold.sport.TextureKey;
 import com.github.stephengold.sport.UvsOption;
 import com.github.stephengold.sport.mesh.RectangleMesh;
@@ -51,6 +52,10 @@ public class TextureTest extends BaseApplication {
      * textured square in clipspace
      */
     private static Geometry squareGeometry;
+    /**
+     * OpenGL name of the transparent texture
+     */
+    private static int redBarTextureName;
     // *************************************************************************
     // constructors
 
@@ -104,6 +109,11 @@ public class TextureTest extends BaseApplication {
         String resourceName = "/Textures/TextureTest.png";
         TextureKey textureKey = new TextureKey("classpath://" + resourceName);
         squareGeometry.setTexture(textureKey);
+
+        // Load a transparent image as a texture:
+        resourceName = "/Textures/RedBar.png";
+        textureKey = new TextureKey("classpath://" + resourceName);
+        redBarTextureName = textureKey.textureName();
     }
 
     /**
@@ -113,6 +123,7 @@ public class TextureTest extends BaseApplication {
     public void render() {
         updateScales();
         super.render();
+        blendTexture(redBarTextureName, new OverOp());
     }
     // *************************************************************************
     // private methods
