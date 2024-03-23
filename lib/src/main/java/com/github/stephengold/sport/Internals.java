@@ -166,20 +166,6 @@ final class Internals {
     }
 
     /**
-     * Callback invoked by GLFW each time the framebuffer gets resized.
-     *
-     * @param window the affected window
-     * @param width the new framebuffer width (in pixels)
-     * @param height the new framebuffer height (in pixels)
-     */
-    static void framebufferSizeCallback(long window, int width, int height) {
-        framebufferWidth = width;
-        framebufferHeight = height;
-        GL11C.glViewport(0, 0, framebufferWidth, framebufferHeight);
-        Utils.checkForOglError();
-    }
-
-    /**
      * Return the height of the framebuffer.
      *
      * @return the height (in pixels, &ge;0)
@@ -197,6 +183,20 @@ final class Internals {
     static int framebufferWidth() {
         assert framebufferWidth >= 0 : framebufferWidth;
         return framebufferWidth;
+    }
+
+    /**
+     * Callback invoked by GLFW each time the framebuffer gets resized.
+     *
+     * @param window the affected window
+     * @param width the new framebuffer width (in pixels)
+     * @param height the new framebuffer height (in pixels)
+     */
+    static void framebufferSizeCallback(long window, int width, int height) {
+        framebufferWidth = width;
+        framebufferHeight = height;
+        GL11C.glViewport(0, 0, framebufferWidth, framebufferHeight);
+        Utils.checkForOglError();
     }
 
     /**
