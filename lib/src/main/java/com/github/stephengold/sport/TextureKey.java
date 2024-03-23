@@ -203,6 +203,18 @@ public class TextureKey {
     // new methods exposed
 
     /**
+     * Load the texture and return its OpenGL name.
+     *
+     * @return the name for binding
+     */
+    public int textureName() {
+        Texture texture = BaseApplication.getTexture(this);
+        int result = texture.name();
+
+        return result;
+    }
+
+    /**
      * Return the option for axis flipping.
      *
      * @return an enum value (not null)
