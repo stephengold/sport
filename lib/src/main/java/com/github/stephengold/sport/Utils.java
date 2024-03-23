@@ -295,7 +295,7 @@ final public class Utils {
      * @param capability the numeric code for the capability
      * @param newState the desired state (true to enable, false to disable)
      */
-    static void setOglCapability(int capability, boolean newState) {
+    public static void setOglCapability(int capability, boolean newState) {
         if (newState) {
             GL11C.glEnable(capability);
             checkForOglError();
