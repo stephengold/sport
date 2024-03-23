@@ -1,5 +1,5 @@
 /*
- Copyright (c) 2022-2023, Stephen Gold and Yanis Boudiaf
+ Copyright (c) 2022-2024 Stephen Gold and Yanis Boudiaf
 
  Redistribution and use in source and binary forms, with or without
  modification, are permitted provided that the following conditions are met:
@@ -732,8 +732,9 @@ public class Geometry {
             program.setUniform("BaseMaterialColor", baseColor);
         }
         if (program.hasActiveUniform("ColorMaterialTexture")) {
+            texture.bind();
+
             int unitNumber = 0;
-            texture.setUnitNumber(unitNumber);
             program.setUniform("ColorMaterialTexture", unitNumber);
         }
         if (program.hasActiveUniform("pointMaterialSize")) {

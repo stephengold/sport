@@ -1,5 +1,5 @@
 /*
- Copyright (c) 2022-2023, Stephen Gold and Yanis Boudiaf
+ Copyright (c) 2022-2024 Stephen Gold and Yanis Boudiaf
 
  Redistribution and use in source and binary forms, with or without
  modification, are permitted provided that the following conditions are met:
@@ -138,6 +138,14 @@ class Texture {
     // new methods exposed
 
     /**
+     * Prepare the texture for rendering.
+     */
+    void bind() {
+        GL11C.glBindTexture(target, textureName);
+        Utils.checkForOglError();
+    }
+
+    /**
      * Create a texture from the specified InputStream.
      *
      * @param stream the stream to read from (not null)
@@ -159,18 +167,6 @@ class Texture {
 
         Texture result = newInstance(image, key);
         return result;
-    }
-
-    /**
-     * Prepare the texture for rendering with the specified texture unit.
-     *
-     * @param unitNumber which texture unit to use (&ge;0, &le;31)
-     */
-    void setUnitNumber(int unitNumber) {
-        Validate.inRange(unitNumber, "unit number", 0, 31);
-
-        GL11C.glBindTexture(target, textureName);
-        Utils.checkForOglError();
     }
     // *************************************************************************
     // private methods
