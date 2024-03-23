@@ -1,5 +1,5 @@
 /*
- Copyright (c) 2022-2023, Stephen Gold and Yanis Boudiaf
+ Copyright (c) 2022-2024 Stephen Gold and Yanis Boudiaf
 
  Redistribution and use in source and binary forms, with or without
  modification, are permitted provided that the following conditions are met:
@@ -28,6 +28,7 @@
  */
 package com.github.stephengold.sport;
 
+import com.github.stephengold.sport.blend.BlendOp;
 import com.github.stephengold.sport.input.CameraInputProcessor;
 import com.github.stephengold.sport.input.InputManager;
 import com.github.stephengold.sport.input.InputProcessor;
@@ -39,6 +40,7 @@ import java.util.HashMap;
 import java.util.HashSet;
 import java.util.LinkedList;
 import java.util.Map;
+import jme3utilities.Validate;
 import org.joml.Vector3f;
 import org.joml.Vector4fc;
 import org.lwjgl.glfw.Callbacks;
@@ -414,6 +416,17 @@ abstract public class BaseApplication {
     }
     // *************************************************************************
     // new protected methods
+
+    /**
+     * Blend the specified texture onto the frame buffer.
+     *
+     * @param textureName the OpenGL name of the texture to read
+     * @param blendOp the blending operation to perform (not null)
+     */
+    protected static void blendTexture(int textureName, BlendOp blendOp) {
+        Validate.nonNull(blendOp, "blend op");
+        Internals.blendTexture(textureName, blendOp);
+    }
 
     /**
      * Callback invoked after the main update loop terminates.

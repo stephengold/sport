@@ -28,10 +28,16 @@
  */
 package com.github.stephengold.sport;
 
+import com.github.stephengold.sport.blend.BlendOp;
+import com.github.stephengold.sport.blend.ReplaceOp;
+import com.github.stephengold.sport.mesh.RectangleMesh;
 import java.io.PrintStream;
 import java.util.Collection;
 import java.util.Deque;
 import java.util.HashSet;
+import org.joml.Matrix4f;
+import org.joml.Matrix4fc;
+import org.joml.Vector4f;
 import org.joml.Vector4fc;
 import org.lwjgl.glfw.GLFW;
 import org.lwjgl.opengl.GL;
@@ -53,10 +59,18 @@ final class Internals {
     // constants
 
     /**
+     * default operation for blending images
+     */
+    final private static BlendOp defaultOp = new ReplaceOp();
+    /**
      * mask size for multisample anti-aliasing (MSAA) if &ge;2, or 0 to disable
      * MSAA
      */
     final private static int requestMsaaSamples = 4;
+    /**
+     * reusable 4x4 identity matrix
+     */
+    final private static Matrix4fc matrixIdentity = new Matrix4f();
     // *************************************************************************
     // fields
 
@@ -92,6 +106,10 @@ final class Internals {
      * width of the displayed frame buffer (in pixels)
      */
     private static int framebufferWidth = 800;
+    /**
+     * reusable mesh for blending textures onto the frame buffer
+     */
+    private static Mesh blendMesh;
     // *************************************************************************
     // constructors
 
@@ -103,6 +121,49 @@ final class Internals {
     }
     // *************************************************************************
     // new methods exposed
+
+    /**
+     * Blend the specified texture onto the frame buffer.
+     *
+     * @param textureName the OpenGL name of the texture to read
+     * @param blendOp the blending operation to perform (not null)
+     */
+    static void blendTexture(int textureName, BlendOp blendOp) {
+        String programName = "Unshaded/Clipspace/Texture";
+        ShaderProgram program = BaseApplication.getProgram(programName);
+        program.use();
+
+        int unitNumber = 0;
+        program.setUniform("ColorMaterialTexture", unitNumber);
+
+        program.setUniform(
+                ShaderProgram.modelMatrixUniformName, matrixIdentity);
+
+        Utils.setOglCapability(GL11C.GL_CULL_FACE, false);
+        Utils.setOglCapability(GL11C.GL_DEPTH_TEST, false);
+
+        GL11C.glPolygonMode(GL11C.GL_FRONT_AND_BACK, GL11C.GL_FILL);
+        Utils.checkForOglError();
+
+        if (blendMesh == null) {
+            blendMesh = new RectangleMesh(-1f, 1f, -1f, 1f, 1f);
+            blendMesh.generateUvs(UvsOption.Linear,
+                    new Vector4f(0.5f, 0f, 0f, 0.5f),
+                    new Vector4f(0f, -0.5f, 0f, 0.5f) // flip the vertical axis
+            );
+        }
+
+        // Prepare the texture for rendering:
+        GL11C.glBindTexture(GL11C.GL_TEXTURE_2D, textureName);
+        Utils.checkForOglError();
+
+        blendOp.setUp();
+        blendMesh.renderUsing(program);
+        defaultOp.setUp(); // tear down blending
+
+        GL11C.glBindTexture(GL11C.GL_TEXTURE_2D, 0); // tear down texture
+        Utils.checkForOglError();
+    }
 
     /**
      * Callback invoked by GLFW each time the framebuffer gets resized.
@@ -198,6 +259,7 @@ final class Internals {
         printMsaaStatus(System.out);
 
         Utils.setOglCapability(GL11C.GL_DEPTH_TEST, true);
+        defaultOp.setUp();
         /*
          * Encode fragment colors for sRGB
          * before writing them to the framebuffer.
