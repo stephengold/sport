@@ -1,5 +1,5 @@
 /*
- Copyright (c) 2023, Stephen Gold and Yanis Boudiaf
+ Copyright (c) 2023-2024 Stephen Gold and Yanis Boudiaf
 
  Redistribution and use in source and binary forms, with or without
  modification, are permitted provided that the following conditions are met:
@@ -108,8 +108,8 @@ final class Internals {
      * Callback invoked by GLFW each time the framebuffer gets resized.
      *
      * @param window the affected window
-     * @param width the new framebuffer width
-     * @param height the new framebuffer height
+     * @param width the new framebuffer width (in pixels)
+     * @param height the new framebuffer height (in pixels)
      */
     static void framebufferSizeCallback(long window, int width, int height) {
         framebufferWidth = width;

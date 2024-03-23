@@ -710,7 +710,8 @@ public class Geometry {
         if (mesh.countIndexedVertices() == 0) {
             return;
         }
-        // Ensure that the program's uniforms have been collected.
+
+        // Ensure that the program's uniforms have been collected:
         program.use();
 
         // mesh-to-world transform uniforms
