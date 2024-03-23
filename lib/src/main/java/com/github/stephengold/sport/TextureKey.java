@@ -1,5 +1,5 @@
 /*
- Copyright (c) 2022-2023, Stephen Gold and Yanis Boudiaf
+ Copyright (c) 2022-2024 Stephen Gold and Yanis Boudiaf
 
  Redistribution and use in source and binary forms, with or without
  modification, are permitted provided that the following conditions are met:
@@ -324,7 +324,7 @@ public class TextureKey {
      * Alter the default minification filter for new texture keys.
      *
      * @param filter the enum value of the filter to become the default (not
-     * null, default=GL_NEAREST_MIPMAP_LINEAR)
+     * null, default=NearestMipmapLinear)
      */
     public static void setDefaultMinFilter(Filter filter) {
         Validate.nonNull(filter, "filter");
