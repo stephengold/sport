@@ -5,8 +5,8 @@
 
 uniform sampler2D ColorMaterialTexture;
 in vec2 UV;
-out vec3 fragColor;
+out vec4 fragColor;
 
 void main() {
-    fragColor = texture(ColorMaterialTexture, UV).rgb;
+    fragColor = texture(ColorMaterialTexture, UV);
 }
