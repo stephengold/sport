@@ -60,7 +60,7 @@ Add to the project’s "build.gradle" file:
     }
     dependencies {
         implementation 'com.github.stephengold:Libbulletjme:20.2.0'
-        implementation 'com.github.stephengold:sport:0.9.1'
+        implementation 'com.github.stephengold:sport:0.9.2'
     }
 
 For some older versions of Gradle,
@@ -86,7 +86,7 @@ Add to the project’s "pom.xml" file:
     <dependency>
       <groupId>com.github.stephengold</groupId>
       <artifactId>sport</artifactId>
-      <version>0.9.1</version>
+      <version>0.9.2</version>
     </dependency>
 
 ### Coding a SPORT application
