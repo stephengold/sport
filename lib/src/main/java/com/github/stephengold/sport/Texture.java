@@ -101,8 +101,7 @@ class Texture {
         this.textureName = GL11C.glGenTextures();
         Utils.checkForOglError();
 
-        GL11C.glBindTexture(target, textureName);
-        Utils.checkForOglError();
+        bind();
 
         int magFilter = key.magFilter().code();
         setTexParameter(GL11C.GL_TEXTURE_MAG_FILTER, magFilter);
