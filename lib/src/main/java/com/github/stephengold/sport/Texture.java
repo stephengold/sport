@@ -145,6 +145,15 @@ class Texture {
     }
 
     /**
+     * Return the OpenGL name of the texture object.
+     *
+     * @return the name for binding
+     */
+    int name() {
+        return textureName;
+    }
+
+    /**
      * Create a texture from the specified InputStream.
      *
      * @param stream the stream to read from (not null)
