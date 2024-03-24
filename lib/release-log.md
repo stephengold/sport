@@ -1,17 +1,17 @@
 # release log for the SPORT Library
 
-## Version 0.9.3 released on TBD
+## Version 0.9.3 released on 23 March 2024
 
-+ Implemented texture compositing:
-  + Enhanced 2 fragment shaders to emit alpha channel.
-  + Defined the `BlendOp` interface.
-  + Added 2 classes:
-    + `OverOp`
-    + `ReplaceOp`
-  + Added 2 methods:
-    + `Texture.name()`
-    + `TextureKey.textureName()`
-  + Publicized the `Utils.setOglCapability()` method.
+Implemented texture compositing:
++ Enhanced 2 fragment shaders to emit alpha channel.
++ Defined the `BlendOp` interface.
++ Added 2 public classes:
+  + `OverOp`
+  + `ReplaceOp`
++ Added 2 public methods:
+  + `BaseApplication.blendTexture()`
+  + `TextureKey.textureName()`
++ Publicized the `Utils.setOglCapability()` method.
 
 ## Version 0.9.2 released on 22 March 2024
 
