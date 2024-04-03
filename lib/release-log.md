@@ -1,5 +1,10 @@
 # release log for the SPORT Library
 
+## Version 0.9.4 released on TBD
+
++ Bugfix: the `OverOp` class specifies the wrong package
++ Changed `BaseApplication.blendTexture()` so it doesn't flip UVs.
+
 ## Version 0.9.3 released on 23 March 2024
 
 Implemented texture compositing:
