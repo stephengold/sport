@@ -149,7 +149,7 @@ final class Internals {
             blendMesh = new RectangleMesh(-1f, 1f, -1f, 1f, 1f);
             blendMesh.generateUvs(UvsOption.Linear,
                     new Vector4f(0.5f, 0f, 0f, 0.5f),
-                    new Vector4f(0f, -0.5f, 0f, 0.5f) // flip the vertical axis
+                    new Vector4f(0f, 0.5f, 0f, 0.5f)
             );
         }
 
