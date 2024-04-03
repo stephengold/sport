@@ -1,6 +1,6 @@
 # release log for the SPORT Library
 
-## Version 0.9.4 released on TBD
+## Version 0.9.4 released on 3 April 2024
 
 + Bugfix: the `OverOp` class specifies the wrong package
 + Changed `BaseApplication.blendTexture()` so it doesn't flip UVs.
