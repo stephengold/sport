@@ -26,9 +26,9 @@
  OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
  OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
  */
-package com.github.stephengold.sport;
+package com.github.stephengold.sport.blend;
 
-import com.github.stephengold.sport.blend.BlendOp;
+import com.github.stephengold.sport.Utils;
 import org.lwjgl.opengl.GL11C;
 import org.lwjgl.opengl.GL14C;
 
