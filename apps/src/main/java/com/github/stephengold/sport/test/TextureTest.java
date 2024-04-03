@@ -30,10 +30,13 @@ package com.github.stephengold.sport.test;
 
 import com.github.stephengold.sport.BaseApplication;
 import com.github.stephengold.sport.Constants;
+import com.github.stephengold.sport.Filter;
+import com.github.stephengold.sport.FlipAxes;
 import com.github.stephengold.sport.Geometry;
 import com.github.stephengold.sport.Mesh;
 import com.github.stephengold.sport.TextureKey;
 import com.github.stephengold.sport.UvsOption;
+import com.github.stephengold.sport.WrapFunction;
 import com.github.stephengold.sport.blend.OverOp;
 import com.github.stephengold.sport.mesh.RectangleMesh;
 import com.jme3.math.Vector3f;
@@ -110,9 +113,12 @@ public class TextureTest extends BaseApplication {
         TextureKey textureKey = new TextureKey("classpath://" + resourceName);
         squareGeometry.setTexture(textureKey);
 
-        // Load a transparent image as a texture:
+        // Load a transparent image as a texture, flipping the Y axis:
         resourceName = "/Textures/RedBar.png";
-        textureKey = new TextureKey("classpath://" + resourceName);
+        textureKey = new TextureKey("classpath://" + resourceName,
+                Filter.Linear, Filter.NearestMipmapLinear,
+                WrapFunction.Repeat, WrapFunction.Repeat,
+                true, FlipAxes.flipY, 1f);
         redBarTextureName = textureKey.textureName();
     }
 
