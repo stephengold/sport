@@ -283,6 +283,16 @@ abstract public class BaseApplication {
     }
 
     /**
+     * Return the actual size of the MSAA coverage mask.
+     *
+     * @return the size (in samples) or null if MSAA is disabled
+     */
+    public static Integer msaaSamples() {
+        Integer result = Internals.msaaSamples();
+        return result;
+    }
+
+    /**
      * Alter the background color of the window.
      *
      * @param desiredColor the desired color (not null, unaffected,

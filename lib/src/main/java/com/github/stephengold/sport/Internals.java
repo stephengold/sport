@@ -285,6 +285,28 @@ final class Internals {
     }
 
     /**
+     * Return the actual size of the MSAA coverage mask.
+     *
+     * @return the size (in samples) or null if MSAA is disabled
+     */
+    static Integer msaaSamples() {
+        boolean isMsaa = GL11C.glIsEnabled(GL13C.GL_MULTISAMPLE);
+        Utils.checkForOglError();
+
+        Integer result;
+        if (isMsaa) {
+            int[] tmpArray = new int[1];
+            GL11C.glGetIntegerv(GL13C.GL_SAMPLES, tmpArray);
+            Utils.checkForOglError();
+            result = tmpArray[0];
+        } else {
+            result = null;
+        }
+
+        return result;
+    }
+
+    /**
      * Render the next frame.
      */
     static void renderNextFrame() {
@@ -364,16 +386,15 @@ final class Internals {
      * @param stream stream for output (not null)
      */
     private static void printMsaaStatus(PrintStream stream) {
-        boolean isMsaa = GL11C.glIsEnabled(GL13C.GL_MULTISAMPLE);
-        Utils.checkForOglError();
-
         stream.printf("Requested %d MSAA samples; multisample is ",
                 requestMsaaSamples);
-        if (isMsaa) {
+
+        Integer actualSamples = msaaSamples();
+        if (actualSamples != null) {
             int[] tmpArray = new int[1];
             GL11C.glGetIntegerv(GL13C.GL_SAMPLES, tmpArray);
             Utils.checkForOglError();
-            stream.printf("enabled, with samples=%d.%n", tmpArray[0]);
+            stream.printf("enabled, with samples=%d.%n", actualSamples);
         } else {
             stream.println("disabled.");
         }
