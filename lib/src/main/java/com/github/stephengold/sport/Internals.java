@@ -288,6 +288,10 @@ final class Internals {
      * Render the next frame.
      */
     static void renderNextFrame() {
+        // (Re-)enable depth write, just in case:
+        GL11C.glDepthMask(true);
+        Utils.checkForOglError();
+
         GL11C.glClear(GL11C.GL_COLOR_BUFFER_BIT | GL11C.GL_DEPTH_BUFFER_BIT);
         Utils.checkForOglError();
 
