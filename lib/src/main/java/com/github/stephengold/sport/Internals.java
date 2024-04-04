@@ -63,11 +63,6 @@ final class Internals {
      */
     final private static BlendOp defaultOp = new ReplaceOp();
     /**
-     * mask size for multisample anti-aliasing (MSAA) if &ge;2, or 0 to disable
-     * MSAA
-     */
-    final private static int requestMsaaSamples = 4;
-    /**
      * reusable 4x4 identity matrix
      */
     final private static Matrix4fc matrixIdentity = new Matrix4f();
@@ -106,6 +101,11 @@ final class Internals {
      * width of the displayed frame buffer (in pixels)
      */
     private static int framebufferWidth = 800;
+    /**
+     * mask size for multisample anti-aliasing (MSAA) if &ge;2, or 0 to disable
+     * MSAA
+     */
+    private static int requestMsaaSamples = 4;
     /**
      * reusable mesh for blending textures onto the frame buffer
      */
@@ -367,6 +367,25 @@ final class Internals {
                     "Can't alter debug settings after start().");
         } else {
             enableDebugging = newSetting;
+        }
+    }
+
+    /**
+     * Configure multisample anti-aliasing (MSAA). Not allowed after
+     * {@code start()} is invoked.
+     *
+     * @param newSetting the mask size to request if &ge;2, or 0 to disable MSAA
+     * (default=4)
+     */
+    static void setMsaaSamples(int newSetting) {
+        if (hasStarted) {
+            throw new IllegalStateException(
+                    "Can't alter MSAA settings after start().");
+        } else if (newSetting < 0 || newSetting == 1) {
+            String message = "setting must not be negative or 1.";
+            throw new IllegalArgumentException(message);
+        } else {
+            requestMsaaSamples = newSetting;
         }
     }
 

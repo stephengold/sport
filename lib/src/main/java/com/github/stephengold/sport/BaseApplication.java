@@ -467,6 +467,17 @@ abstract public class BaseApplication {
     }
 
     /**
+     * Configure multisample anti-aliasing (MSAA). Not allowed after
+     * {@code start()} is invoked.
+     *
+     * @param newSetting the mask size to request if &ge;2, or 0 to disable MSAA
+     * (default=4)
+     */
+    protected static void setMsaaSamples(int newSetting) {
+        Internals.setMsaaSamples(newSetting);
+    }
+
+    /**
      * Invoked before each frame is rendered, to update the text in the window's
      * title bar. Meant to be overridden.
      *
