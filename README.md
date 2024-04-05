@@ -283,6 +283,7 @@ This project has made use of the following libraries and software tools:
   + [the Open Asset Import (Assimp) Library][assimp]
   + the [OpenGL] API
   + Microsoft Windows
+  + the [RenderDoc] graphics debugger
 
 I am grateful to [GitHub] and [Imgur]
 for providing free hosting for this project
@@ -320,3 +321,4 @@ correct the situation: sgold@sonic.net
 [netbeans]: https://netbeans.org "NetBeans Project"
 [opengl]: https://www.khronos.org/opengl "OpenGL API"
 [project]: https://github.com/stephengold/sport "SPORT Project"
+[renderdoc]: https://renderdoc.org "RenderDoc Project"
