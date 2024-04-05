@@ -83,7 +83,7 @@ public abstract class BasePhysicsApp<T extends PhysicsSpace>
      */
     private long lastPhysicsUpdate;
     /**
-     * map summaries to auto-generated meshes, for reuse
+     * map shape summaries to auto-generated meshes, for reuse
      */
     final private static Map<ShapeSummary, Mesh> meshCache
             = new WeakHashMap<>(200);
