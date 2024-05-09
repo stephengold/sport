@@ -680,10 +680,6 @@ public class ShapeGenerator extends Generator {
                 result = nextCustomEllipsoid();
                 break;
 
-            case "frustum":
-                result = nextFrustum();
-                break;
-
             case "football":
                 result = nextFootball();
                 break;
@@ -692,12 +688,16 @@ public class ShapeGenerator extends Generator {
                 result = nextFrame();
                 break;
 
-            case "halfPipe":
-                result = nextHalfPipe();
+            case "frustum":
+                result = nextFrustum();
                 break;
 
             case "halfCylinder":
                 result = nextHalfCylinder();
+                break;
+
+            case "halfPipe":
+                result = nextHalfPipe();
                 break;
 
             case "hemisphere":
