@@ -4,7 +4,7 @@
 an [OpenGL]-based graphics engine
 for [the Libbulletjme 3-D physics library][libbulletjme].
 
-It contains 2 sub-projects:
+It contains 2 subprojects:
 
 1. lib: the SPORT graphics engine (a single JVM runtime library)
 2. apps: demos and non-automated test software
@@ -243,7 +243,7 @@ Future enhancements might include:
 
 ## History
 
-From March 2022 to March 2024, SPORT was a sub-project of
+From March 2022 to March 2024, SPORT was a subproject of
 [the LbjExamples Project][lbjexamples].
 
 Since March 2024, SPORT has been a separate project, hosted at
