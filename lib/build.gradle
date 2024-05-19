@@ -18,10 +18,6 @@ ext {
     websiteUrl = 'https://github.com/stephengold/sport'
 }
 
-java {
-    withJavadocJar()
-}
-
 dependencies {
     api(libs.libbulletjme)
     api(libs.joml)
@@ -54,6 +50,8 @@ jar {
     }
 }
 
+java.withJavadocJar()
+javadocJar { archiveBaseName = project.ext.baseName }
 tasks.register('sourcesJar', Jar) {
     archiveBaseName = project.ext.baseName
     archiveClassifier = 'sources'
