@@ -20,7 +20,6 @@ ext {
 
 java {
     withJavadocJar()
-    withSourcesJar()
 }
 
 dependencies {
@@ -53,6 +52,13 @@ jar {
     manifest {
         attributes 'Created-By': "${JavaVersion.current()} (${System.getProperty("java.vendor")})"
     }
+}
+
+tasks.register('sourcesJar', Jar) {
+    archiveBaseName = project.ext.baseName
+    archiveClassifier = 'sources'
+    description 'Creates a JAR of Java sourcecode.'
+    from sourceSets.main.allJava // default is ".allSource", which include resources
 }
 
 assemble.dependsOn('module', 'moduleAsc', 'pom', 'pomAsc')
@@ -88,6 +94,7 @@ tasks.register('pomAsc', Copy) {
 publishing {
     publications {
         maven(MavenPublication) {
+            artifact sourcesJar
             artifactId artifact
             from components.java
             groupId project.ext.group
