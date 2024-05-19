@@ -1,4 +1,4 @@
-// global settings shared by all SPORT subprojects
+// global build settings shared by all SPORT subprojects
 
 rootProject.name = 'sport'
 

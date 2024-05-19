@@ -1,5 +1,5 @@
 ---
-# GitHub Actions workflow for commits pushed to the sport repo - all branches
+# GitHub Actions workflow for commits pushed to the SPORT repo - all branches
 
 name: CI at GitHub
 on: [push]
