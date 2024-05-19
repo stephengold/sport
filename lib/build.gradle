@@ -18,6 +18,11 @@ ext {
     websiteUrl = 'https://github.com/stephengold/sport'
 }
 
+java {
+    withJavadocJar()
+    withSourcesJar()
+}
+
 dependencies {
     api(libs.libbulletjme)
     api(libs.joml)
@@ -48,19 +53,6 @@ jar {
     manifest {
         attributes 'Created-By': "${JavaVersion.current()} (${System.getProperty("java.vendor")})"
     }
-}
-tasks.register('javadocJar', Jar) {
-    archiveBaseName = project.ext.baseName
-    archiveClassifier = 'javadoc'
-    dependsOn 'javadoc'
-    description 'Creates a JAR of javadoc.'
-    from javadoc.destinationDir
-}
-tasks.register('sourcesJar', Jar) {
-    archiveBaseName = project.ext.baseName
-    archiveClassifier = 'sources'
-    description 'Creates a JAR of sourcecode.'
-    from sourceSets.main.allJava
 }
 
 assemble.dependsOn('module', 'moduleAsc', 'pom', 'pomAsc')
@@ -96,8 +88,6 @@ tasks.register('pomAsc', Copy) {
 publishing {
     publications {
         maven(MavenPublication) {
-            artifact javadocJar
-            artifact sourcesJar
             artifactId artifact
             from components.java
             groupId project.ext.group
