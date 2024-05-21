@@ -206,6 +206,7 @@ public class SplitDemo extends BasePhysicsApp<PhysicsSpace> {
 
         LineMesh lineMesh = new LineMesh(Vector3f.ZERO, Vector3f.ZERO);
         splitterGeometry = new Geometry(lineMesh)
+                .setDepthTest(false)
                 .setProgram("Unshaded/Monochrome");
     }
 
