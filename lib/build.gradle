@@ -19,7 +19,7 @@ ext {
 }
 
 dependencies {
-    api(libs.libbulletjme)
+    api(libs.libbulletjme.windows64)
     api(libs.joml)
 
     api platform(libs.lwjgl.bom)
