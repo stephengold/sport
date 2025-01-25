@@ -6,7 +6,6 @@
 
 plugins {
     id 'application' // to build JVM applications
-    alias(libs.plugins.download) // to retrieve files from URLs
 }
 
 application {
@@ -16,12 +15,6 @@ if (!hasProperty('mainClass')) {
     ext.mainClass = application.mainClass
 }
 jar.manifest.attributes('Main-Class': application.mainClass)
-
-ext {
-    fs = System.getProperty('file.separator')
-    downloadsDir = System.getProperty('user.home') + fs + 'Downloads' + fs
-    lbjVersion = libs.versions.libbulletjme.get()
-}
 
 // Register tasks to run specific applications:
 
