@@ -1,5 +1,14 @@
 # release log for the SPORT Library
 
+## Version 0.9.5 released on TBD
+
++ Enabled depth write at the start of every frame.
++ Added accessors for the size of the MSAA coverage mask.
++ Added the "high2" meshing strategy.
++ Updated the Libbulletjme library to v22.0.1 and began using jSnapLoader.
++ Updated the LWJGL library to v3.3.6 .
++ Updated the JOML library to v1.10.8 .
+
 ## Version 0.9.4 released on 3 April 2024
 
 + Bugfix: the `OverOp` class specifies the wrong package
