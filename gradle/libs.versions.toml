@@ -25,3 +25,5 @@ lwjgl-opengl = { module = "org.lwjgl:lwjgl-opengl", version.ref = "lwjgl" }
 [bundles]
 
 [plugins]
+
+validate-poms = { id = "io.freefair.maven-central.validate-poms", version = "8.12" }
