@@ -102,9 +102,12 @@ publishing {
                 developers {
                     developer {
                         email = 'sgold@sonic.net'
+                        id = 'stephengold'
                         name = 'Stephen Gold'
                     }
                     developer {
+                        email = 'yansam2003@gmail.com'
+                        id = 'YanisBDF'
                         name = 'Yanis Boudiaf'
                     }
                 }
