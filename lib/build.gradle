@@ -19,6 +19,7 @@ ext {
 }
 
 dependencies {
+    implementation(libs.jsnaploader)
     api(libs.libbulletjme.windows64)
     api(libs.joml)
 

@@ -3,12 +3,13 @@
 [versions]
 
 checkstyle = "9.3"
-libbulletjme = "22.0.0"
+libbulletjme = "22.0.1"
 lwjgl = "3.3.6"
 
 [libraries]
 
 joml = "org.joml:joml:1.10.8"
+jsnaploader = "io.github.electrostat-lab:snaploader:1.0.0-stable"
 libbulletjme-linux64 = { module = "com.github.stephengold:Libbulletjme-Linux64", version.ref = "libbulletjme" }
 libbulletjme-linuxarm32hf = { module = "com.github.stephengold:Libbulletjme-Linux_ARM32hf", version.ref = "libbulletjme" }
 libbulletjme-linuxarm64 = { module = "com.github.stephengold:Libbulletjme-Linux_ARM64", version.ref = "libbulletjme" }
