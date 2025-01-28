@@ -1,7 +1,7 @@
 // Gradle script to build the SPORT project
 
 ext {
-    sportVersion = '0.9.5'
+    sportVersion = '0.9.6-SNAPSHOT'
 }
 
 subprojects {

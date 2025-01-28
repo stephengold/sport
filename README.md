@@ -42,14 +42,15 @@ It has been tested on Windows, Linux, and macOS.
 
 ## How to add SPORT to an existing project
 
-SPORT comes pre-built as a single library that depends on [Libbulletjme].
-However, the Libbulletjme dependency is intentionally omitted from SPORT's POM
-so developers can specify *which* Libbulletjme library should be used.
+SPORT comes pre-built as a single library
+that can be downloaded from Maven Central or GitHub.
+However, the native-library dependencies are intentionally omitted from SPORT's POM
+so developers can specify *which* Libbulletjme and LWJGL natives should be used.
 
 For projects built using [Maven] or [Gradle], it is
 *not* sufficient to specify the
 dependency on the SPORT Library.
-You must also explicitly specify the Libbulletjme dependency.
+You must also explicitly specify the native-library dependencies.
 
 ### Gradle-built projects
 
@@ -59,35 +60,23 @@ Add to the project’s "build.gradle" or "build.gradle.kts" file:
         mavenCentral()
     }
     dependencies {
-        implementation("com.github.stephengold:Libbulletjme:21.2.1")
-        implementation("com.github.stephengold:sport:0.9.4")
+        // JVM library:
+        implementation("com.github.stephengold:sport:0.9.5")
+
+        // Libbuletjme native libraries:
+        runtimeOnly("com.github.stephengold:Libbulletjme-Linux64:22.0.1:SpDebug")
+          // Libbulletjme native libraries for other platforms could be added.
+
+        // LWJGL native libraries:
+        runtimeOnly("org.lwjgl:lwjgl:3.3.6:natives-linux")
+        runtimeOnly("org.lwjgl:lwjgl-assimp:3.3.6:natives-linux")
+        runtimeOnly("org.lwjgl:lwjgl-glfw:3.3.6:natives-linux")
+        runtimeOnly("org.lwjgl:lwjgl-opengl:3.3.6:natives-linux")
+          // LWJGL native libraries for other platforms could be added.
     }
 
 For some older versions of Gradle,
 it's necessary to replace `implementation` with `compile`.
-
-### Maven-built projects
-
-Add to the project’s "pom.xml" file:
-
-    <repositories>
-      <repository>
-        <id>mvnrepository</id>
-        <url>https://repo1.maven.org/maven2/</url>
-      </repository>
-    </repositories>
-
-    <dependency>
-      <groupId>com.github.stephengold</groupId>
-      <artifactId>Libbulletjme</artifactId>
-      <version>21.2.1</version>
-    </dependency>
-
-    <dependency>
-      <groupId>com.github.stephengold</groupId>
-      <artifactId>sport</artifactId>
-      <version>0.9.4</version>
-    </dependency>
 
 ### Coding a SPORT application
 

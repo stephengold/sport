@@ -1,6 +1,6 @@
 # release log for the SPORT Library
 
-## Version 0.9.5 released on TBD
+## Version 0.9.5 released on 27 January 2025
 
 + Enabled depth write at the start of every frame.
 + Added accessors for the size of the MSAA coverage mask.
