@@ -190,7 +190,7 @@ public abstract class BasePhysicsApp<T extends PhysicsSpace>
     /**
      * Visualize the collision shape of the specified collision object.
      *
-     * @param pco the rigid body to visualize (not null)
+     * @param pco the object to visualize (not null)
      * @param uvScale the UV scale factor to use (default=1)
      * @return a new, visible Geometry
      */

@@ -1,5 +1,5 @@
 /*
- Copyright (c) 2022-2023, Stephen Gold and Yanis Boudiaf
+ Copyright (c) 2022-2025 Stephen Gold and Yanis Boudiaf
 
  Redistribution and use in source and binary forms, with or without
  modification, are permitted provided that the following conditions are met:
@@ -71,7 +71,7 @@ public class AabbGeometry extends Geometry {
 
     /**
      * Instantiate a Geometry to visualize the axis-aligned bounding box of the
-     * specified collision object.
+     * specified collision object and make the Geometry visible.
      *
      * @param pco the collision object (not null, alias created)
      */
