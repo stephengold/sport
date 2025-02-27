@@ -1,5 +1,5 @@
 /*
- Copyright (c) 2022-2023, Stephen Gold and Yanis Boudiaf
+ Copyright (c) 2022-2025 Stephen Gold and Yanis Boudiaf
 
  Redistribution and use in source and binary forms, with or without
  modification, are permitted provided that the following conditions are met:
@@ -331,7 +331,7 @@ final public class IndexBuffer extends jme3utilities.lbj.IndexBuffer {
 
         bindVbo();
 
-        Buffer buffer = super.getBuffer();
+        Buffer buffer = getBuffer();
         if (buffer instanceof ByteBuffer) {
             GL15C.glBufferData(target, (ByteBuffer) buffer, usageHint);
             Utils.checkForOglError();
@@ -360,7 +360,7 @@ final public class IndexBuffer extends jme3utilities.lbj.IndexBuffer {
         bindVbo();
 
         long offset = 0L;
-        Buffer buffer = super.getBuffer();
+        Buffer buffer = getBuffer();
         if (buffer instanceof ByteBuffer) {
             GL15C.glBufferSubData(target, offset, (ByteBuffer) buffer);
             Utils.checkForOglError();
