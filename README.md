@@ -101,9 +101,9 @@ By default, physics objects are not visualized.
 
 + To visualize the shape
   of a `PhysicsCollisionObject` other than a `PhysicsSoftBody`,
-  invoke the `visualizeShape()` method on the object.
+  invoke the `visualizeShape()` method on it.
 + To visualize the local coordinate axes of a `PhysicsCollisionObject`,
-  invoke the `visualizeAxes()` method on the object.
+  invoke the `visualizeAxes()` method on it.
 + To visualize the wheels of a `PhysicsVehicle`,
   invoke the `visualizeWheels()` method on the vehicle.
 + To visualize the bounding box of a `PhysicsCollisionObject`,
@@ -111,11 +111,11 @@ By default, physics objects are not visualized.
 + To visualize a `Constraint`,
   instantiate a `ConstraintGeometry` for each end.
 + To visualize the faces of a `PhysicsSoftBody`,
-  instantiate a `FacesGeometry` for the body.
+  instantiate a `FacesGeometry` for it.
 + To visualize the links of a `PhysicsSoftBody`,
-  instantiate a `LinksGeometry` for the body.
+  instantiate a `LinksGeometry` for it.
 + To visualize the pins of a `PhysicsSoftBody`,
-  instantiate a `PinsGeometry` for the body.
+  instantiate a `PinsGeometry` for it.
 + To visualize the wind acting on a `PhysicsSoftBody`,
   instantiate a `WindVelocityGeometry` for the body.
 
