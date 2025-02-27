@@ -1,5 +1,5 @@
 /*
- Copyright (c) 2022-2023, Stephen Gold and Yanis Boudiaf
+ Copyright (c) 2022-2025 Stephen Gold and Yanis Boudiaf
 
  Redistribution and use in source and binary forms, with or without
  modification, are permitted provided that the following conditions are met:
@@ -793,7 +793,7 @@ final public class VertexBuffer {
         GL15C.glBufferData(target, dataBuffer, usageHint);
         Utils.checkForOglError();
 
-        isModified = false;
+        this.isModified = false;
 
         if (usageHint == GL15C.GL_STATIC_DRAW) {
             makeImmutable();
@@ -812,6 +812,6 @@ final public class VertexBuffer {
         GL15C.glBufferSubData(target, offset, dataBuffer);
         Utils.checkForOglError();
 
-        isModified = false;
+        this.isModified = false;
     }
 }
