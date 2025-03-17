@@ -324,7 +324,6 @@ public abstract class BasePhysicsApp<T extends PhysicsSpace>
         };
         loader.registerNativeLibraries(libraries)
                 .initPlatformLibrary()
-                .setLoggingEnabled(true)
                 .setRetryWithCleanExtraction(true);
 
         // Load the Libbulletjme native library for this platform.
