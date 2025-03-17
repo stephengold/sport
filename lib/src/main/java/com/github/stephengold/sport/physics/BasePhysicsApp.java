@@ -304,9 +304,8 @@ public abstract class BasePhysicsApp<T extends PhysicsSpace>
      */
     @Override
     protected void initialize() {
-        LibraryInfo info = new LibraryInfo(
-                new DirectoryPath("linux/x86-64/com/github/stephengold"),
-                "bulletjme", DirectoryPath.USER_DIR);
+        LibraryInfo info
+                = new LibraryInfo(null, "bulletjme", DirectoryPath.USER_DIR);
         NativeBinaryLoader loader = new NativeBinaryLoader(info);
         NativeDynamicLibrary[] libraries = new NativeDynamicLibrary[]{
             new NativeDynamicLibrary("native/linux/arm64",
