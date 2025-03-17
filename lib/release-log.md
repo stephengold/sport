@@ -1,5 +1,12 @@
 # release log for the SPORT Library
 
+## Version 0.9.6 released on TBD
+
++ Removed the `SoftMesh` class.
++ Augmented the diagnostic when `glfwCreateWindow()` fails.
++ Began using clean extraction to load native libraries.
++ Updated the jSnapLoader library to v1.1.1-stable.
+
 ## Version 0.9.5 released on 27 January 2025
 
 + Enabled depth write at the start of every frame.
