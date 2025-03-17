@@ -1,6 +1,6 @@
 # release log for the SPORT Library
 
-## Version 0.9.6 released on TBD
+## Version 0.9.6 released on 17 March 2025
 
 + Removed the `SoftMesh` class.
 + Augmented the diagnostic when `glfwCreateWindow()` fails.
