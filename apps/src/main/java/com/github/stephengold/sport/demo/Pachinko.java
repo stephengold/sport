@@ -1,5 +1,5 @@
 /*
- Copyright (c) 2022-2024 Stephen Gold and Yanis Boudiaf
+ Copyright (c) 2022-2025 Stephen Gold and Yanis Boudiaf
 
  Redistribution and use in source and binary forms, with or without
  modification, are permitted provided that the following conditions are met:
@@ -50,7 +50,7 @@ import org.joml.Random;
 import org.lwjgl.glfw.GLFW;
 
 /**
- * A physics demo that simulates a simple Pachinko machine.
+ * A 2-D physics demo that simulates a simple Pachinko machine.
  * <p>
  * https://en.wikipedia.org/wiki/Pachinko
  *
