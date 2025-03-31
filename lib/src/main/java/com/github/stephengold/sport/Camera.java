@@ -316,6 +316,24 @@ public class Camera {
      * Translate the eye to the specified location without changing its
      * orientation.
      *
+     * @param x the X component of the desired location (in worldspace, finite)
+     * @param y the Y component of the desired location (in worldspace, finite)
+     * @param z the Z component of the desired location (in worldspace, finite)
+     * @return the (modified) current instance (for chaining)
+     */
+    public Camera setLocation(float x, float y, float z) {
+        Validate.finite(x, "x");
+        Validate.finite(y, "y");
+        Validate.finite(z, "z");
+
+        eyeLocation.set(x, y, z);
+        return this;
+    }
+
+    /**
+     * Translate the eye to the specified location without changing its
+     * orientation.
+     *
      * @param location the desired location (in worldspace, not null, finite,
      * unaffected)
      * @return the (modified) current instance (for chaining)
