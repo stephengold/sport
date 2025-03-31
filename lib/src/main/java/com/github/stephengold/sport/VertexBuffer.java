@@ -282,7 +282,7 @@ final public class VertexBuffer {
      * Create a mutable color buffer from a list of vertices.
      *
      * @param vertices the vertices to use (not null, unaffected)
-     * @return a new instance (not null)
+     * @return a new buffer (not null)
      */
     static VertexBuffer newColor(List<Vertex> vertices) {
         String attribName = ShaderProgram.colorAttribName;
@@ -329,7 +329,7 @@ final public class VertexBuffer {
      * shaders (not null, not empty)
      * @param fpv the number of floats per vertex (&ge;1, &le;4)
      * @param floatBuffer the initial data (not null, unaffected)
-     * @return a new instance (not null)
+     * @return a new buffer (not null)
      */
     static VertexBuffer newInstance(
             String attribName, int fpv, FloatBuffer floatBuffer) {
@@ -354,7 +354,7 @@ final public class VertexBuffer {
      * shaders (not null, not empty)
      * @param fpv the number of floats per vertex (&ge;1, &le;4)
      * @param numVertices the desired capacity (in vertices)
-     * @return a new instance (not null)
+     * @return a new buffer (not null)
      */
     static VertexBuffer newInstance(
             String attribName, int fpv, int numVertices) {
@@ -368,7 +368,7 @@ final public class VertexBuffer {
      * @param attribName the name of the corresponding attrib variable in
      * shaders (not null, not empty)
      * @param vectors the initial data (not null, unaffected)
-     * @return a new instance (not null)
+     * @return a new buffer (not null)
      */
     static VertexBuffer newInstance(
             String attribName, com.jme3.math.Vector3f... vectors) {
@@ -387,7 +387,7 @@ final public class VertexBuffer {
      * Create a mutable normal buffer from a list of vertices.
      *
      * @param vertices the vertices to use (not null, unaffected)
-     * @return a new instance (not null)
+     * @return a new buffer (not null)
      */
     static VertexBuffer newNormal(List<Vertex> vertices) {
         String attribName = ShaderProgram.normalAttribName;
@@ -408,7 +408,7 @@ final public class VertexBuffer {
      * Create a mutable position buffer from a list of vertices.
      *
      * @param vertices the vertices to use (not null, unaffected)
-     * @return a new instance (not null)
+     * @return a new buffer (not null)
      */
     static VertexBuffer newPosition(List<Vertex> vertices) {
         String attribName = ShaderProgram.positionAttribName;
@@ -429,7 +429,7 @@ final public class VertexBuffer {
      * Create a texture-coordinates buffer from a list of vertices.
      *
      * @param vertices the vertices to use (not null, unaffected)
-     * @return a new instance (not null)
+     * @return a new buffer (not null)
      */
     static VertexBuffer newTexCoords(List<Vertex> vertices) {
         String attribName = ShaderProgram.uvAttribName;

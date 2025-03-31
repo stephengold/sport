@@ -1,5 +1,5 @@
 /*
- Copyright (c) 2022-2023, Stephen Gold and Yanis Boudiaf
+ Copyright (c) 2022-2025 Stephen Gold and Yanis Boudiaf
 
  Redistribution and use in source and binary forms, with or without
  modification, are permitted provided that the following conditions are met:
@@ -184,7 +184,8 @@ public class Mesh implements jme3utilities.lbj.Mesh {
      * positions, but no indices, colors, normals, or texture coordinates.
      *
      * @param topology the desired primitive topology (not null)
-     * @param positionsBuffer the desired vertex positions (not null)
+     * @param positionsBuffer the desired vertex positions (not null, capacity a
+     * multiple of 3)
      */
     protected Mesh(Topology topology, FloatBuffer positionsBuffer) {
         this(topology, positionsBuffer.capacity() / numAxes);
@@ -607,7 +608,7 @@ public class Mesh implements jme3utilities.lbj.Mesh {
      *
      * @param topology the desired primitive topology (not null)
      * @param vertices the vertex data to use (not null, unaffected)
-     * @return a new instance
+     * @return a new mesh
      */
     public static Mesh newInstance(Topology topology, List<Vertex> vertices) {
         Validate.nonNull(topology, "topology");

@@ -1,4 +1,6 @@
 /*
+
+
  Redistribution and use in source and binary forms, with or without
  modification, are permitted provided that the following conditions are met:
 
@@ -221,7 +223,8 @@ public class IcosphereMesh extends Mesh {
     }
 
     /**
-     * Return the shared mesh with the specified number of refinement steps.
+     * Return the immutable shared mesh with the specified number of refinement
+     * steps.
      *
      * @param numSteps number of refinement steps (&ge;0, &le;13)
      * @return the shared mesh (immutable)
@@ -285,9 +288,7 @@ public class IcosphereMesh extends Mesh {
      * @return the midpoint index (&ge;0)
      */
     private int midpointIndex(int p1, int p2) {
-        /*
-         * Check whether the midpoint has already been assigned an index.
-         */
+        // Check whether the midpoint has already been assigned an index.
         boolean firstIsSmaller = p1 < p2;
         long smallerIndex = firstIsSmaller ? p1 : p2;
         long greaterIndex = firstIsSmaller ? p2 : p1;

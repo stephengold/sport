@@ -1,5 +1,5 @@
 /*
- Copyright (c) 2022-2024 Stephen Gold and Yanis Boudiaf
+ Copyright (c) 2022-2025 Stephen Gold and Yanis Boudiaf
 
  Redistribution and use in source and binary forms, with or without
  modification, are permitted provided that the following conditions are met:
@@ -227,7 +227,7 @@ public class TextureKey {
     /**
      * Load/generate the Texture for this key.
      *
-     * @return a new instance
+     * @return a new object
      */
     Texture load() {
         Texture result;
@@ -479,7 +479,7 @@ public class TextureKey {
      * Generate a square texture for a 2-by-2 checkerboard pattern.
      *
      * @param argMap to map argument names to values (not null, unaffected)
-     * @return a new instance
+     * @return a new object
      */
     private Texture synthesizeCheckerboard(Map<String, String> argMap) {
         String sizeDecimal = argMap.get("size");

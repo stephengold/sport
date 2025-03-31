@@ -94,8 +94,8 @@ abstract public class BaseApplication {
      */
     private static int frameCount;
     /**
-     * JVM time of the most recent FPS update (in nanoseconds) or null if no
-     * update yet
+     * JVM time of the most recent FPS update (in nanoseconds) or {@code null}
+     * if no update yet
      */
     private static Long previousFpsUpdateNanoTime;
     /**

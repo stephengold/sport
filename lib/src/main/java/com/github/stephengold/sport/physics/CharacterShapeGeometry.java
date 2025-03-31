@@ -1,5 +1,5 @@
 /*
- Copyright (c) 2022-2023, Stephen Gold and Yanis Boudiaf
+ Copyright (c) 2022-2025 Stephen Gold and Yanis Boudiaf
 
  Redistribution and use in source and binary forms, with or without
  modification, are permitted provided that the following conditions are met:
@@ -50,8 +50,8 @@ public class CharacterShapeGeometry extends Geometry {
     // fields
 
     /**
-     * true to automatically update the color based on the properties of the
-     * character, false for constant color
+     * {@code true} to automatically update the color based on properties of
+     * the character, {@code false} for custom color
      */
     private boolean automaticColor = true;
     /**
@@ -59,7 +59,7 @@ public class CharacterShapeGeometry extends Geometry {
      */
     final private PhysicsCharacter character;
     /**
-     * data used to generate the current Mesh
+     * auxiliary data used to generate the current mesh
      */
     private ShapeSummary summary;
     // *************************************************************************
@@ -121,7 +121,7 @@ public class CharacterShapeGeometry extends Geometry {
      * CollisionSpace.
      *
      * @param space the space to test (not null, unaffected)
-     * @return true if removed, otherwise false
+     * @return {@code true} if removed, otherwise {@code false}
      */
     @Override
     public boolean wasRemovedFrom(CollisionSpace space) {

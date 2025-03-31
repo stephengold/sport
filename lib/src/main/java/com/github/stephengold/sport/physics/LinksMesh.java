@@ -1,5 +1,5 @@
 /*
- Copyright (c) 2022-2024 Stephen Gold and Yanis Boudiaf
+ Copyright (c) 2022-2025 Stephen Gold and Yanis Boudiaf
 
  Redistribution and use in source and binary forms, with or without
  modification, are permitted provided that the following conditions are met:
@@ -50,14 +50,14 @@ class LinksMesh extends Mesh {
      */
     final private IntBuffer copyIndices;
     /**
-     * body being visualized
+     * soft body being visualized
      */
     final private PhysicsSoftBody softBody;
     // *************************************************************************
     // constructors
 
     /**
-     * Auto-generate a mutable mesh for the specified soft body.
+     * Auto-generate a mutable line mesh for the specified soft body.
      *
      * @param softBody the soft body from which to generate the mesh (not null,
      * alias created)
@@ -67,11 +67,11 @@ class LinksMesh extends Mesh {
 
         this.softBody = softBody;
 
-        // Create the VertexBuffer for node locations.
+        // Create the VertexBuffer for vertex positions.
         VertexBuffer positions = super.createPositions();
         positions.setDynamic();
 
-        // Create the IndexBuffer for line indices.
+        // Create the IndexBuffer for vertex indices.
         int numLines = softBody.countLinks();
         int numIndices = vpe * numLines;
         IndexBuffer indices = super.createIndices(numIndices);
@@ -82,11 +82,13 @@ class LinksMesh extends Mesh {
 
         update();
     }
+    // *************************************************************************
+    // new methods exposed
 
     /**
      * Update this Mesh to match the soft body.
      *
-     * @return true if successful, otherwise false
+     * @return {@code true} if successful, otherwise {@code false}
      */
     boolean update() {
         int numNodes = softBody.countNodes();

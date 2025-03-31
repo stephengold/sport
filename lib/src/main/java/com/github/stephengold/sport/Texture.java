@@ -1,5 +1,5 @@
 /*
- Copyright (c) 2022-2024 Stephen Gold and Yanis Boudiaf
+ Copyright (c) 2022-2025 Stephen Gold and Yanis Boudiaf
 
  Redistribution and use in source and binary forms, with or without
  modification, are permitted provided that the following conditions are met:
@@ -184,7 +184,7 @@ class Texture {
      *
      * @param image the image to use (not null)
      * @param key the key for this texture (not null)
-     * @return a new instance (not null)
+     * @return a new object (not null)
      */
     private static Texture newInstance(BufferedImage image, TextureKey key) {
         /*

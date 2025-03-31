@@ -253,7 +253,7 @@ public class Geometry {
     }
 
     /**
-     * Return a copy of the location of the mesh origin.
+     * Copy the location of the mesh origin.
      *
      * @param storeResult storage for the result (modified if not null)
      * @return a location vector in worldspace (either {@code storeResult} or a

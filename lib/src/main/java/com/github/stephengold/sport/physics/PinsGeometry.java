@@ -1,5 +1,5 @@
 /*
- Copyright (c) 2022-2024 Stephen Gold and Yanis Boudiaf
+ Copyright (c) 2022-2025 Stephen Gold and Yanis Boudiaf
 
  Redistribution and use in source and binary forms, with or without
  modification, are permitted provided that the following conditions are met:
@@ -102,7 +102,7 @@ public class PinsGeometry extends Geometry {
      * Test whether the body has been removed from the specified CollisionSpace.
      *
      * @param space the space to test (not null, unaffected)
-     * @return true if removed, otherwise false
+     * @return {@code true} if removed, otherwise {@code false}
      */
     @Override
     public boolean wasRemovedFrom(CollisionSpace space) {

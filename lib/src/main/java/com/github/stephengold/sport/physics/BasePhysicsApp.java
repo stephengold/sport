@@ -110,7 +110,7 @@ public abstract class BasePhysicsApp<T extends PhysicsSpace>
     /**
      * Create the PhysicsSpace during initialization.
      *
-     * @return a new instance
+     * @return a new object
      */
     protected abstract T createSpace();
 
@@ -143,7 +143,7 @@ public abstract class BasePhysicsApp<T extends PhysicsSpace>
     abstract protected void populateSpace();
 
     /**
-     * Advance the physics simulation by the specified amount. Invoked during
+     * Advance the physics simulation by the specified interval. Invoked during
      * each update.
      *
      * @param intervalSeconds the elapsed (real) time since the previous
@@ -156,7 +156,7 @@ public abstract class BasePhysicsApp<T extends PhysicsSpace>
     /**
      * Visualize the local axes of the specified collision object.
      *
-     * @param pco the object to visualize
+     * @param pco the object to visualize (or null for world axes)
      * @param axisLength how much of each axis to visualize (in world units,
      * &ge;0)
      * @return an array of new, visible geometries
@@ -175,9 +175,9 @@ public abstract class BasePhysicsApp<T extends PhysicsSpace>
     }
 
     /**
-     * Visualize the collision shape of the specified collision object.
+     * Visualize the shape of the specified collision object.
      *
-     * @param pco the rigid body to visualize (not null)
+     * @param pco the collision object to visualize (not null)
      * @return a new, visible Geometry
      */
     public static Geometry visualizeShape(PhysicsCollisionObject pco) {
@@ -188,9 +188,9 @@ public abstract class BasePhysicsApp<T extends PhysicsSpace>
     }
 
     /**
-     * Visualize the collision shape of the specified collision object.
+     * Visualize the shape of the specified collision object.
      *
-     * @param pco the object to visualize (not null)
+     * @param pco the collision object to visualize (not null)
      * @param uvScale the UV scale factor to use (default=1)
      * @return a new, visible Geometry
      */
@@ -269,7 +269,7 @@ public abstract class BasePhysicsApp<T extends PhysicsSpace>
     /**
      * Visualize the wheels of the specified vehicle.
      *
-     * @param vehicle the vehicle to visualize
+     * @param vehicle the vehicle to visualize (not null)
      * @return an array of new, visible geometries
      */
     public static Geometry[] visualizeWheels(PhysicsVehicle vehicle) {
@@ -368,7 +368,11 @@ public abstract class BasePhysicsApp<T extends PhysicsSpace>
     private void cleanUpGeometries() {
         Collection<Geometry> geometriesToHide
                 = new ArrayList<>(); // TODO garbage
+        //System.out.println();
         for (Geometry geometry : listVisible()) {
+            //System.out.println(
+            //       "geometry type=" + geometry.getClass().getSimpleName());
+            //System.out.println("  " + geometry.toString());
             if (geometry.wasRemovedFrom(physicsSpace)) {
                 geometriesToHide.add(geometry);
             }

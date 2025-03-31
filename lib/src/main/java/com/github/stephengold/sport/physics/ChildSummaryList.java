@@ -1,5 +1,5 @@
 /*
- Copyright (c) 2022, Stephen Gold and Yanis Boudiaf
+ Copyright (c) 2022-2025 Stephen Gold and Yanis Boudiaf
 
  Redistribution and use in source and binary forms, with or without
  modification, are permitted provided that the following conditions are met:
@@ -91,7 +91,7 @@ class ChildSummaryList {
      *
      * @param childIndex (&ge;0)
      * @param ccs the child shape to compare (not null, unaffected)
-     * @return true for a match, otherwise false
+     * @return {@code true} for a match, otherwise {@code false}
      */
     boolean matchesChild(int childIndex, ChildCollisionShape ccs) {
         boolean result = summaries[childIndex].matches(ccs);

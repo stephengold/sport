@@ -1,5 +1,5 @@
 /*
- Copyright (c) 2022-2023, Stephen Gold and Yanis Boudiaf
+ Copyright (c) 2022-2025 Stephen Gold and Yanis Boudiaf
 
  Redistribution and use in source and binary forms, with or without
  modification, are permitted provided that the following conditions are met:
@@ -50,14 +50,14 @@ class FacesMesh extends Mesh {
      */
     final private IntBuffer copyIndices;
     /**
-     * body being visualized
+     * soft body being visualized
      */
     final private PhysicsSoftBody softBody;
     // *************************************************************************
     // constructors
 
     /**
-     * Auto-generate a mutable mesh for the specified soft body.
+     * Auto-generate a mutable triangle mesh for the specified soft body.
      *
      * @param softBody the soft body from which to generate the mesh (not null,
      * alias created)
@@ -75,7 +75,7 @@ class FacesMesh extends Mesh {
         VertexBuffer normals = super.createNormals();
         normals.setDynamic();
 
-        // Create the IndexBuffer for triangle indices.
+        // Create the IndexBuffer for vertex indices.
         int numFaces = softBody.countFaces();
         int numIndices = vpt * numFaces;
         IndexBuffer indices = super.createIndices(numIndices);
@@ -86,11 +86,13 @@ class FacesMesh extends Mesh {
 
         update();
     }
+    // *************************************************************************
+    // new methods exposed
 
     /**
      * Update this Mesh to match the soft body.
      *
-     * @return true if successful, otherwise false
+     * @return {@code true} if successful, otherwise {@code false}
      */
     boolean update() {
         int numNodes = softBody.countNodes();

@@ -127,7 +127,7 @@ public class AabbGeometry extends Geometry {
      * CollisionSpace.
      *
      * @param space the space to test (not null, unaffected)
-     * @return true if removed, otherwise false
+     * @return {@code true} if removed, otherwise {@code false}
      */
     @Override
     public boolean wasRemovedFrom(CollisionSpace space) {

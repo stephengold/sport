@@ -1,5 +1,5 @@
 /*
- Copyright (c) 2022-2024 Stephen Gold and Yanis Boudiaf
+ Copyright (c) 2022-2025 Stephen Gold and Yanis Boudiaf
 
  Redistribution and use in source and binary forms, with or without
  modification, are permitted provided that the following conditions are met:
@@ -229,7 +229,7 @@ final public class Utils {
      * Load an AWT BufferedImage from the named classpath resource.
      *
      * @param resourceName the name of the resource (not null)
-     * @return a new instance
+     * @return a new object
      */
     public static BufferedImage loadResourceAsImage(String resourceName) {
         InputStream inputStream = Utils.class.getResourceAsStream(resourceName);

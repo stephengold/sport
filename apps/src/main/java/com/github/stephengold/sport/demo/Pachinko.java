@@ -123,7 +123,7 @@ public class Pachinko
     /**
      * Create the PhysicsSpace. Invoked once during initialization.
      *
-     * @return a new instance
+     * @return a new object
      */
     @Override
     public PhysicsSpace createSpace() {
@@ -181,7 +181,7 @@ public class Pachinko
      * Callback from Bullet, invoked just after each simulation step.
      *
      * @param space the space that was just stepped (not null)
-     * @param timeStep the time per simulation step (in seconds, &ge;0)
+     * @param timeStep the duration of the simulation step (in seconds, &ge;0)
      */
     @Override
     public void physicsTick(PhysicsSpace space, float timeStep) {
@@ -192,7 +192,7 @@ public class Pachinko
      * Callback from Bullet, invoked just before each simulation step.
      *
      * @param space the space that's about to be stepped (not null)
-     * @param timeStep the time per simulation step (in seconds, &ge;0)
+     * @param timeStep the duration of the simulation step (in seconds, &ge;0)
      */
     @Override
     public void prePhysicsTick(PhysicsSpace space, float timeStep) {
@@ -320,7 +320,7 @@ public class Pachinko
 
         physicsSpace.destroy();
 
-        // Estimate the number of child shapes in the playing field.
+        // Estimate the number of child shapes in the playing field:
         int estNumChildren = numRows * (numRows + 1) + 3;
         CompoundCollisionShape fieldShape
                 = new CompoundCollisionShape(estNumChildren);
@@ -329,7 +329,7 @@ public class Pachinko
         int lastRow = numRows - 1;
         Vector3f tmpOffset = new Vector3f();
 
-        // Add child shapes for the pins.
+        // Add child shapes for the pins:
         float pinHalfHeight = 1f;
         float pinHalfWidth = MyMath.rootHalf * barHalfWidth;
         BoxCollisionShape pinShape = new BoxCollisionShape(
@@ -352,7 +352,7 @@ public class Pachinko
             }
         }
 
-        // Add child shapes for the vertical bars.
+        // Add child shapes for the vertical bars:
         float barHalfLength = 0.5f * rowSpacing * (11 - numRows);
         BoxCollisionShape barShape = new BoxCollisionShape(
                 barHalfWidth, barHalfLength, pinHalfHeight);
@@ -364,7 +364,7 @@ public class Pachinko
             fieldShape.addChildShape(barShape, x, yBar, 0f);
         }
 
-        // Add a child shape for the horizontal stop at the bottom.
+        // Add a child shape for the horizontal stop at the bottom:
         float yStop = yBar - barHalfLength;
         float stopHalfWidth = pinSpacing * (numBars - 1) / 2f + barHalfWidth;
         BoxCollisionShape stopShape = new BoxCollisionShape(
@@ -381,6 +381,9 @@ public class Pachinko
         timeSinceAdded = addInterval;
     }
 
+    /**
+     * Toggle the physics simulation: paused/running.
+     */
     private static void togglePause() {
         physicsSpeed = (physicsSpeed <= PAUSED_SPEED) ? 1f : PAUSED_SPEED;
     }
