@@ -313,10 +313,10 @@ public class Pachinko
     /**
      * Restart the simulation with the specified number of rows of pins.
      *
-     * @param numRows (&ge;1, &le;10)
+     * @param numRows (&ge;4, &le;9)
      */
     private void restartSimulation(int numRows) {
-        assert numRows > 0 && numRows <= 10 : numRows;
+        assert numRows >= 4 && numRows <= 9 : numRows;
 
         physicsSpace.destroy();
 
