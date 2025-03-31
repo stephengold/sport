@@ -819,6 +819,23 @@ public class Geometry {
         storeBuffer.position(startPosition);
     }
     // *************************************************************************
+    // Object methods
+
+    /**
+     * Describe the geometry in a string of text.
+     *
+     * @return a descriptive string of text (not null, not empty)
+     */
+    @Override
+    public String toString() {
+        String result = String.format("adt=%g meshToWorld[%s]"
+                + " baseColor[%s] isBackCulling=%s depthTest=%s"
+                + " isFrontCulling=%s wireframe=%s pointSize=%g",
+                alphaDiscardThreshold, meshToWorld, baseColor,
+                isBackCulling, depthTest, isFrontCulling, wireframe, pointSize);
+        return result;
+    }
+    // *************************************************************************
     // private methods
 
     /**
