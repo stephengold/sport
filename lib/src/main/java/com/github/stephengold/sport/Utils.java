@@ -65,6 +65,18 @@ final public class Utils {
     // new methods exposed
 
     /**
+     * Test whether assertions are enabled.
+     *
+     * @return true if enabled, otherwise false
+     */
+    public static boolean areAssertionsEnabled() {
+        boolean enabled = false;
+        assert enabled = true; // Note: intentional side effect.
+
+        return enabled;
+    }
+
+    /**
      * Throw a runtime exception if OpenGL has detected an error since the
      * previous invocation of this method.
      */
