@@ -53,6 +53,13 @@ import org.lwjgl.opengl.GL20C;
  */
 final public class Utils {
     // *************************************************************************
+    // constants
+
+    /**
+     * {@code true} if assertions are enabled, otherwise {@code false}
+     */
+    final private static boolean assertions = areAssertionsEnabled();
+    // *************************************************************************
     // constructors
 
     /**
@@ -81,9 +88,11 @@ final public class Utils {
      * previous invocation of this method.
      */
     public static void checkForOglError() {
-        int errorCode = GL11C.glGetError();
-        if (errorCode != GL11C.GL_NO_ERROR) {
-            throw new IllegalStateException("errorCode = " + errorCode);
+        if (assertions) {
+            int errorCode = GL11C.glGetError();
+            if (errorCode != GL11C.GL_NO_ERROR) {
+                throw new IllegalStateException("errorCode = " + errorCode);
+            }
         }
     }
 
