@@ -31,6 +31,7 @@ package com.github.stephengold.sport.demo;
 import com.github.stephengold.sport.Constants;
 import com.github.stephengold.sport.Geometry;
 import com.github.stephengold.sport.Mesh;
+import com.github.stephengold.sport.Utils;
 import com.github.stephengold.sport.input.InputProcessor;
 import com.github.stephengold.sport.input.RotateMode;
 import com.github.stephengold.sport.mesh.CrosshairsMesh;
@@ -43,6 +44,7 @@ import com.jme3.bullet.collision.shapes.PlaneCollisionShape;
 import com.jme3.bullet.collision.shapes.SphereCollisionShape;
 import com.jme3.bullet.objects.PhysicsBody;
 import com.jme3.bullet.objects.PhysicsRigidBody;
+import com.jme3.bullet.util.NativeLibrary;
 import com.jme3.math.FastMath;
 import com.jme3.math.Plane;
 import com.jme3.math.Vector3f;
@@ -124,6 +126,17 @@ public class ThousandCubes extends BasePhysicsApp<PhysicsSpace> {
      */
     @Override
     public PhysicsSpace createSpace() {
+        // because this app might be used to evaluate performance:
+        if (Utils.areAssertionsEnabled()) {
+            System.out.println("Warning:  Assertions are enabled.");
+        }
+        if (NativeLibrary.isDebug()) {
+            System.out.println("Warning:  using a Debug native library");
+        }
+        if (NativeLibrary.isDoublePrecision()) {
+            System.out.println("Warning:  using a Dp native library");
+        }
+
         PhysicsSpace result
                 = new PhysicsSpace(PhysicsSpace.BroadphaseType.DBVT);
         return result;
