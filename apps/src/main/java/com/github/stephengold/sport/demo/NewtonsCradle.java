@@ -198,7 +198,7 @@ public class NewtonsCradle extends BasePhysicsApp<PhysicsSpace> {
         cip.setRotationMode(RotateMode.DragLMB);
         cip.setMoveSpeed(30f);
 
-        cam.setLocation(new Vector3f(72f, 35f, 140f))
+        cam.setLocation(72f, 35f, 140f)
                 .setAzimuth(-2f)
                 .setUpAngle(-0.2f);
     }

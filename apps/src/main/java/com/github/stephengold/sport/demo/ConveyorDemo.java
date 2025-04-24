@@ -69,10 +69,6 @@ public class ConveyorDemo extends BasePhysicsApp<PhysicsSpace> {
      */
     final private static float beltWidth = 0.5f;
     /**
-     * simulation speed when "paused"
-     */
-    final private static float PAUSED_SPEED = 1e-9f;
-    /**
      * half the thickness of each belt and wall (in physics-space units)
      */
     final private static float thickness = 0.02f;
@@ -399,6 +395,7 @@ public class ConveyorDemo extends BasePhysicsApp<PhysicsSpace> {
      * Toggle the physics simulation: paused/running.
      */
     private static void togglePause() {
-        physicsSpeed = (physicsSpeed <= PAUSED_SPEED) ? 1f : PAUSED_SPEED;
+        float pausedSpeed = 1e-9f;
+        physicsSpeed = (physicsSpeed <= pausedSpeed) ? 1f : pausedSpeed;
     }
 }

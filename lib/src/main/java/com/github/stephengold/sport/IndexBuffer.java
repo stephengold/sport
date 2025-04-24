@@ -331,7 +331,7 @@ final public class IndexBuffer extends jme3utilities.lbj.IndexBuffer {
 
         bindVbo();
 
-        Buffer buffer = getBuffer();
+        Buffer buffer = super.getBuffer();
         if (buffer instanceof ByteBuffer) {
             GL15C.glBufferData(target, (ByteBuffer) buffer, usageHint);
             Utils.checkForOglError();
@@ -360,7 +360,7 @@ final public class IndexBuffer extends jme3utilities.lbj.IndexBuffer {
         bindVbo();
 
         long offset = 0L;
-        Buffer buffer = getBuffer();
+        Buffer buffer = super.getBuffer();
         if (buffer instanceof ByteBuffer) {
             GL15C.glBufferSubData(target, offset, (ByteBuffer) buffer);
             Utils.checkForOglError();

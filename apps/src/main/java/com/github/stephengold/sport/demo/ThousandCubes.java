@@ -30,6 +30,7 @@ package com.github.stephengold.sport.demo;
 
 import com.github.stephengold.sport.Constants;
 import com.github.stephengold.sport.Geometry;
+import com.github.stephengold.sport.Mesh;
 import com.github.stephengold.sport.input.InputProcessor;
 import com.github.stephengold.sport.input.RotateMode;
 import com.github.stephengold.sport.mesh.CrosshairsMesh;
@@ -48,6 +49,7 @@ import com.jme3.math.Vector3f;
 import java.util.Random;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import org.joml.Vector3fc;
 import org.joml.Vector4f;
 import org.lwjgl.glfw.GLFW;
 
@@ -56,13 +58,6 @@ import org.lwjgl.glfw.GLFW;
  * launches balls at them.
  */
 public class ThousandCubes extends BasePhysicsApp<PhysicsSpace> {
-    // *************************************************************************
-    // constants
-
-    /**
-     * simulation speed when "paused"
-     */
-    final private static float PAUSED_SPEED = 1e-9f;
     // *************************************************************************
     // fields
 
@@ -116,7 +111,8 @@ public class ThousandCubes extends BasePhysicsApp<PhysicsSpace> {
      */
     public static void main(String[] arguments) {
         Logger.getLogger("").setLevel(Level.WARNING);
-        new ThousandCubes().start();
+        ThousandCubes app = new ThousandCubes();
+        app.start();
     }
     // *************************************************************************
     // BasePhysicsApp methods
@@ -128,7 +124,9 @@ public class ThousandCubes extends BasePhysicsApp<PhysicsSpace> {
      */
     @Override
     public PhysicsSpace createSpace() {
-        return new PhysicsSpace(PhysicsSpace.BroadphaseType.DBVT);
+        PhysicsSpace result
+                = new PhysicsSpace(PhysicsSpace.BroadphaseType.DBVT);
+        return result;
     }
 
     /**
@@ -174,7 +172,7 @@ public class ThousandCubes extends BasePhysicsApp<PhysicsSpace> {
      */
     @Override
     public void render() {
-        updateScale();
+        updateScales();
         super.render();
     }
 
@@ -224,11 +222,15 @@ public class ThousandCubes extends BasePhysicsApp<PhysicsSpace> {
      */
     private static void addCrosshairs() {
         float crossWidth = 0.1f;
-        cross = new Geometry(new CrosshairsMesh(crossWidth, crossWidth))
+        Mesh crossMesh = new CrosshairsMesh(crossWidth, crossWidth);
+        cross = new Geometry(crossMesh)
                 .setColor(Constants.YELLOW)
                 .setProgram("Unshaded/Clipspace/Monochrome");
-        loop = new Geometry(
-                new LoopMesh(32, 0.3f * crossWidth, 0.3f * crossWidth))
+
+        int numLines = 32;
+        float loopRadius = 0.3f * crossWidth;
+        Mesh loopMesh = new LoopMesh(numLines, loopRadius, loopRadius);
+        loop = new Geometry(loopMesh)
                 .setColor(Constants.YELLOW)
                 .setProgram("Unshaded/Clipspace/Monochrome");
     }
@@ -238,7 +240,7 @@ public class ThousandCubes extends BasePhysicsApp<PhysicsSpace> {
      */
     private static void configureCamera() {
         getCameraInputProcessor().setRotationMode(RotateMode.Immediate);
-        cam.setLocation(new Vector3f(60f, 15f, 28f))
+        cam.setLocation(60f, 15f, 28f)
                 .setAzimuth(-2.7f)
                 .setUpAngle(-0.25f);
     }
@@ -299,18 +301,19 @@ public class ThousandCubes extends BasePhysicsApp<PhysicsSpace> {
      * Toggle the physics simulation: paused/running.
      */
     private static void togglePause() {
-        physicsSpeed = (physicsSpeed <= PAUSED_SPEED) ? 1f : PAUSED_SPEED;
+        float pausedSpeed = 1e-9f;
+        physicsSpeed = (physicsSpeed <= pausedSpeed) ? 1f : pausedSpeed;
     }
 
     /**
      * Scale the crosshair geometries so they will render as an equal-armed
      * cross and a circle, regardless of the window's aspect ratio.
      */
-    private static void updateScale() {
+    private static void updateScales() {
         float aspectRatio = aspectRatio();
         float yScale = Math.min(1f, aspectRatio);
         float xScale = yScale / aspectRatio;
-        Vector3f newScale = new Vector3f(xScale, yScale, 1f);
+        Vector3fc newScale = new org.joml.Vector3f(xScale, yScale, 1f);
 
         cross.setScale(newScale);
         loop.setScale(newScale);

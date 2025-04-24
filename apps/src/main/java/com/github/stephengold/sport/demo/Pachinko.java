@@ -66,10 +66,6 @@ public class Pachinko
      * time interval between balls (in simulated seconds)
      */
     final private static float addInterval = 3f;
-    /**
-     * simulation speed when "paused"
-     */
-    final private static float PAUSED_SPEED = 1e-9f;
     // *************************************************************************
     // fields
 
@@ -198,7 +194,7 @@ public class Pachinko
     public void prePhysicsTick(PhysicsSpace space, float timeStep) {
         if (timeSinceAdded >= addInterval) {
             addBall();
-            timeSinceAdded = 0;
+            timeSinceAdded = 0f;
         }
         timeSinceAdded += timeStep;
     }
@@ -210,23 +206,23 @@ public class Pachinko
      */
     private void addBall() {
         float mass = 1f;
-        PhysicsRigidBody result = new PhysicsRigidBody(ballShape, mass);
-        physicsSpace.addCollisionObject(result);
+        PhysicsRigidBody body = new PhysicsRigidBody(ballShape, mass);
+        physicsSpace.addCollisionObject(body);
 
-        result.setAngularDamping(0.9f);
-        result.setEnableSleep(false);
-        result.setPhysicsLocation(new Vector3f(0f, 4f, 0f));
-        result.setRestitution(0.4f);
+        body.setAngularDamping(0.9f);
+        body.setEnableSleep(false);
+        body.setPhysicsLocation(new Vector3f(0f, 4f, 0f));
+        body.setRestitution(0.4f);
 
         // Restrict the ball's motion to the X-Y plane.
-        result.setAngularFactor(new Vector3f(0f, 0f, 1f));
-        result.setLinearFactor(new Vector3f(1f, 1f, 0f));
+        body.setAngularFactor(new Vector3f(0f, 0f, 1f));
+        body.setLinearFactor(new Vector3f(1f, 1f, 0f));
 
         // Apply a random horizontal impulse.
-        float xImpulse = (1f - 2f * generator.nextFloat());
-        result.applyCentralImpulse(new Vector3f(xImpulse, 0f, 0f));
+        float xImpulse = 1f - 2f * generator.nextFloat();
+        body.applyCentralImpulse(new Vector3f(xImpulse, 0f, 0f));
 
-        visualizeShape(result);
+        visualizeShape(body);
     }
 
     /**
@@ -237,7 +233,7 @@ public class Pachinko
         cip.setRotationMode(RotateMode.DragLMB);
         cip.setMoveSpeed(30f);
 
-        cam.setLocation(new Vector3f(0f, -23f, 83f));
+        cam.setLocation(0f, -23f, 83f);
     }
 
     /**
@@ -385,6 +381,7 @@ public class Pachinko
      * Toggle the physics simulation: paused/running.
      */
     private static void togglePause() {
-        physicsSpeed = (physicsSpeed <= PAUSED_SPEED) ? 1f : PAUSED_SPEED;
+        float pausedSpeed = 1e-9f;
+        physicsSpeed = (physicsSpeed <= pausedSpeed) ? 1f : pausedSpeed;
     }
 }
