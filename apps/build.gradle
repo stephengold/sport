@@ -120,19 +120,19 @@ tasks.withType(JavaExec).configureEach { // Java runtime options:
 
 dependencies {
     if (includeLinux) {
-        runtimeOnly(variantOf(libs.libbulletjme.linux64){ classifier(bft) })
+        runtimeOnly(variantOf(libs.libbulletjme.linux64){classifier(bft)})
         runtimeOnly(variantOf(libs.lwjgl){classifier("natives-linux")})
         runtimeOnly(variantOf(libs.lwjgl.assimp){classifier("natives-linux")})
         runtimeOnly(variantOf(libs.lwjgl.glfw){classifier("natives-linux")})
         runtimeOnly(variantOf(libs.lwjgl.opengl){classifier("natives-linux")})
 
-        runtimeOnly(variantOf(libs.libbulletjme.linuxarm64){ classifier(bft) })
+        runtimeOnly(variantOf(libs.libbulletjme.linuxarm64){classifier(bft)})
         runtimeOnly(variantOf(libs.lwjgl){classifier("natives-linux-arm64")})
         runtimeOnly(variantOf(libs.lwjgl.assimp){classifier("natives-linux-arm64")})
         runtimeOnly(variantOf(libs.lwjgl.glfw){classifier("natives-linux-arm64")})
         runtimeOnly(variantOf(libs.lwjgl.opengl){classifier("natives-linux-arm64")})
 
-        runtimeOnly(variantOf(libs.libbulletjme.linuxarm32hf){ classifier(bft) })
+        runtimeOnly(variantOf(libs.libbulletjme.linuxarm32hf){classifier(bft)})
         runtimeOnly(variantOf(libs.lwjgl){classifier("natives-linux-arm32")})
         runtimeOnly(variantOf(libs.lwjgl.assimp){classifier("natives-linux-arm32")})
         runtimeOnly(variantOf(libs.lwjgl.glfw){classifier("natives-linux-arm32")})
@@ -140,13 +140,13 @@ dependencies {
     }
 
     if (includeMacOsX) {
-        runtimeOnly(variantOf(libs.libbulletjme.macosx64){ classifier(bft) })
+        runtimeOnly(variantOf(libs.libbulletjme.macosx64){classifier(bft)})
         runtimeOnly(variantOf(libs.lwjgl){classifier("natives-macos")})
         runtimeOnly(variantOf(libs.lwjgl.assimp){classifier("natives-macos")})
         runtimeOnly(variantOf(libs.lwjgl.glfw){classifier("natives-macos")})
         runtimeOnly(variantOf(libs.lwjgl.opengl){classifier("natives-macos")})
 
-        runtimeOnly(variantOf(libs.libbulletjme.macosxarm64){ classifier(bft) })
+        runtimeOnly(variantOf(libs.libbulletjme.macosxarm64){classifier(bft)})
         runtimeOnly(variantOf(libs.lwjgl){classifier("natives-macos-arm64")})
         runtimeOnly(variantOf(libs.lwjgl.assimp){classifier("natives-macos-arm64")})
         runtimeOnly(variantOf(libs.lwjgl.glfw){classifier("natives-macos-arm64")})
@@ -154,7 +154,7 @@ dependencies {
     }
 
     if (includeWindows) {
-        runtimeOnly(variantOf(libs.libbulletjme.windows64){ classifier(bft) })
+        runtimeOnly(variantOf(libs.libbulletjme.windows64){classifier(bft)})
         runtimeOnly(variantOf(libs.lwjgl){classifier("natives-windows")})
         runtimeOnly(variantOf(libs.lwjgl.assimp){classifier("natives-windows")})
         runtimeOnly(variantOf(libs.lwjgl.glfw){classifier("natives-windows")})
