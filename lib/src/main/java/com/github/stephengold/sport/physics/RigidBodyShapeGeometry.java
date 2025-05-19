@@ -74,6 +74,7 @@ public class RigidBodyShapeGeometry extends Geometry {
     RigidBodyShapeGeometry(
             PhysicsRigidBody rigidBody, MeshingStrategy meshingStrategy) {
         super();
+
         Validate.nonNull(rigidBody, "rigid body");
         Validate.nonNull(meshingStrategy, "meshing strategy");
 
