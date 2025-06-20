@@ -1,4 +1,4 @@
-// Gradle script to build/publish the "lib" subproject of SPORT
+// Gradle script to build and publish the "lib" subproject of SPORT
 
 // Note: "common.gradle" in the root project contains additional initialization
 //   for this project. This initialization is applied in the "build.gradle"
@@ -151,7 +151,7 @@ publishMavenPublicationToMavenLocal.doLast {
 }
 publishMavenPublicationToCentralRepository.dependsOn('assemble')
 
-// Register signing tasks:
+// Register tasks to sign artifacts for publication:
 
 // Signing relies on the existence of 3 properties
 // (signing.keyId, signing.password, and signing.secretKeyRingFile)
