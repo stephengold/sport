@@ -1,5 +1,5 @@
 /*
- Copyright (c) 2022-2024 Stephen Gold and Yanis Boudiaf
+ Copyright (c) 2022-2025 Stephen Gold and Yanis Boudiaf
 
  Redistribution and use in source and binary forms, with or without
  modification, are permitted provided that the following conditions are met:
@@ -388,10 +388,6 @@ public class Windlass
      * @param cableRadius the radius of the cable (&gt;0)
      */
     private void addHook(PhysicsRigidBody endSegment, float cableRadius) {
-        // Locate the final pivot.
-        Transform endTransform = endSegment.getTransform(null);
-        Vector3f pivotLocation
-                = MyMath.transform(endTransform, localPivot, null);
         /*
          * Collision shape is composed of 11 overlapping 2-sphere shapes,
          * arranged in a circular arc.
@@ -444,6 +440,11 @@ public class Windlass
         PhysicsRigidBody hook = new PhysicsRigidBody(shape, hookMass);
         hook.setAngularDamping(0.7f);
         hook.setLinearDamping(0.4f);
+
+        // Locate the final pivot.
+        Transform endTransform = endSegment.getTransform(null);
+        Vector3f pivotLocation
+                = MyMath.transform(endTransform, localPivot, null);
 
         float pivotY = hookRadius + maxThick / 2f;
         Vector3f center = pivotLocation.subtract(0f, pivotY, 0f);
