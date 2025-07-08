@@ -79,6 +79,10 @@ public abstract class BasePhysicsApp<T extends PhysicsSpace>
     // fields
 
     /**
+     * total time simulated (in simulated seconds)
+     */
+    private static double totalSimulatedTime;
+    /**
      * how many times render() has been invoked
      */
     private int renderCount;
@@ -156,6 +160,7 @@ public abstract class BasePhysicsApp<T extends PhysicsSpace>
      * invocation of {@code updatePhysics} (in seconds, &ge;0)
      */
     public void updatePhysics(float intervalSeconds) {
+        totalSimulatedTime += intervalSeconds;
         physicsSpace.update(intervalSeconds);
     }
 
@@ -378,6 +383,15 @@ public abstract class BasePhysicsApp<T extends PhysicsSpace>
      */
     protected static long totalPhysicsNanos() {
         return totalPhysicsNanos;
+    }
+
+    /**
+     * Return the total time simulated.
+     *
+     * @return the total time (in simulated seconds)
+     */
+    protected static double totalSimulatedTime() {
+        return totalSimulatedTime;
     }
     // *************************************************************************
     // private methods
