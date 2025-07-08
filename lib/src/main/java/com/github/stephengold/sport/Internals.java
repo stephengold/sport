@@ -1,5 +1,5 @@
 /*
- Copyright (c) 2023-2024 Stephen Gold and Yanis Boudiaf
+ Copyright (c) 2023-2025 Stephen Gold and Yanis Boudiaf
 
  Redistribution and use in source and binary forms, with or without
  modification, are permitted provided that the following conditions are met:
@@ -38,7 +38,6 @@ import java.util.HashSet;
 import org.joml.Matrix4f;
 import org.joml.Matrix4fc;
 import org.joml.Vector4f;
-import org.joml.Vector4fc;
 import org.lwjgl.glfw.GLFW;
 import org.lwjgl.opengl.GL;
 import org.lwjgl.opengl.GL11C;
@@ -343,15 +342,14 @@ final class Internals {
     /**
      * Alter the background color of the window.
      *
-     * @param desiredColor the desired color (not null, unaffected,
-     * default=black)
+     * @param red the red component of the desired color (default=0)
+     * @param green the green component of the desired color (default=0)
+     * @param blue the blue component of the desired color (default=0)
+     * @param opacity the opacity component of the desired color (default=0)
      */
-    static void setBackgroundColor(Vector4fc desiredColor) {
-        float red = desiredColor.x();
-        float green = desiredColor.y();
-        float blue = desiredColor.z();
-        float alpha = desiredColor.w();
-        GL11C.glClearColor(red, green, blue, alpha);
+    static void setBackgroundColor(
+            float red, float green, float blue, float opacity) {
+        GL11C.glClearColor(red, green, blue, opacity);
         Utils.checkForOglError();
     }
 
