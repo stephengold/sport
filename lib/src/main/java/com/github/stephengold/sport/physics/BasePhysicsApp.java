@@ -83,7 +83,8 @@ public abstract class BasePhysicsApp<T extends PhysicsSpace>
      */
     private int renderCount;
     /**
-     * timestamp of the previous render() if renderCount > 0
+     * timestamp of the previous render() (for {@code renderCount>0}, in
+     * nanoseconds)
      */
     private long lastPhysicsUpdate;
     /**
@@ -115,7 +116,7 @@ public abstract class BasePhysicsApp<T extends PhysicsSpace>
     protected abstract T createSpace();
 
     /**
-     * Return a Mesh to visualize the summarized CollisionShape.
+     * Return a Mesh to visualize the summarized shape.
      *
      * @param shape the shape to visualize (not null, unaffected)
      * @param summary a summary of the shape (not null)
@@ -144,7 +145,7 @@ public abstract class BasePhysicsApp<T extends PhysicsSpace>
 
     /**
      * Advance the physics simulation by the specified interval. Invoked during
-     * each update.
+     * each update. Meant to be overridden.
      *
      * @param intervalSeconds the elapsed (real) time since the previous
      * invocation of {@code updatePhysics} (in seconds, &ge;0)
@@ -224,7 +225,7 @@ public abstract class BasePhysicsApp<T extends PhysicsSpace>
                     "procedural:///checkerboard?size=2&color0=999999ff",
                     Filter.Nearest, Filter.Nearest);
 
-        } else {
+        } else { // shape isn't a plane or sphere:
             programName = "Phong/Distant/Monochrome";
             textureKey = null;
 
@@ -291,6 +292,7 @@ public abstract class BasePhysicsApp<T extends PhysicsSpace>
     protected void cleanUp() {
         physicsSpace.destroy();
 
+        // Discard all meshes auto-generated for collision shapes:
         for (Mesh mesh : meshCache.values()) {
             mesh.cleanUp();
         }
