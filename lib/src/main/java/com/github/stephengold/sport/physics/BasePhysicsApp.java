@@ -88,6 +88,11 @@ public abstract class BasePhysicsApp<T extends PhysicsSpace>
      */
     private long lastPhysicsUpdate;
     /**
+     * accumulated wall-clock time spent in physics simulation, including step
+     * listeners (in nanoseconds)
+     */
+    private static long totalPhysicsNanos;
+    /**
      * map shape summaries to auto-generated meshes, for reuse
      */
     final private static Map<ShapeSummary, Mesh> meshCache
@@ -354,11 +359,25 @@ public abstract class BasePhysicsApp<T extends PhysicsSpace>
             long nanoseconds = nanoTime - lastPhysicsUpdate;
             float seconds = 1e-9f * nanoseconds;
             updatePhysics(seconds);
+
+            long nanoTimeAfter = System.nanoTime();
+            long updateNanos = nanoTimeAfter - nanoTime;
+            totalPhysicsNanos += updateNanos;
         }
         this.lastPhysicsUpdate = nanoTime;
 
         cleanUpGeometries();
         super.render();
+    }
+
+    /**
+     * Return the accumulated wall-clock time spent in physics simulation,
+     * including step listeners.
+     *
+     * @return the total time (in nanoseconds)
+     */
+    protected static long totalPhysicsNanos() {
+        return totalPhysicsNanos;
     }
     // *************************************************************************
     // private methods
