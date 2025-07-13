@@ -205,7 +205,6 @@ public class Windlass
          * Determine the segment length, which is also the distance between
          * successive pivots.
          */
-        int numSegmentsPerCoil = 12;
         float deltaPhi = FastMath.TWO_PI / numSegmentsPerCoil;
         float z0 = attachPoint.z;
         float deltaX = 2.1f * cableRadius / numSegmentsPerCoil;
