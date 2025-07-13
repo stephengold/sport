@@ -136,7 +136,7 @@ public class Pachinko
      * Initialize the application.
      */
     @Override
-    public void initialize() {
+    protected void initialize() {
         Quaternion q = new Quaternion().fromAngles(0f, 0f, FastMath.PI / 4f);
         rot45.set(q);
 
@@ -151,7 +151,7 @@ public class Pachinko
      * Populate the PhysicsSpace. Invoked once during initialization.
      */
     @Override
-    public void populateSpace() {
+    protected void populateSpace() {
         float ballRadius = 1f;
         ballShape = new SphereCollisionShape(ballRadius);
 
@@ -166,7 +166,7 @@ public class Pachinko
      * invocation of {@code updatePhysics} (in seconds, &ge;0)
      */
     @Override
-    public void updatePhysics(float wallClockSeconds) {
+    protected void updatePhysics(float wallClockSeconds) {
         float simulateSeconds = physicsSpeed * wallClockSeconds;
         physicsSpace.update(simulateSeconds);
     }

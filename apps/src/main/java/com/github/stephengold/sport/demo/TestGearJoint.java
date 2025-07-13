@@ -1,5 +1,5 @@
 /*
- Copyright (c) 2022-2024 Stephen Gold and Yanis Boudiaf
+ Copyright (c) 2022-2025 Stephen Gold and Yanis Boudiaf
 
  Redistribution and use in source and binary forms, with or without
  modification, are permitted provided that the following conditions are met:
@@ -109,7 +109,7 @@ public class TestGearJoint
      * @return a new instance
      */
     @Override
-    public PhysicsSpace createSpace() {
+    protected PhysicsSpace createSpace() {
         PhysicsSpace result
                 = new PhysicsSpace(PhysicsSpace.BroadphaseType.DBVT);
 
@@ -124,7 +124,7 @@ public class TestGearJoint
      * Initialize the application.
      */
     @Override
-    public void initialize() {
+    protected void initialize() {
         super.initialize();
 
         configureCamera();
@@ -179,7 +179,7 @@ public class TestGearJoint
      * invocation of {@code updatePhysics} (in seconds, &ge;0)
      */
     @Override
-    public void updatePhysics(float wallClockSeconds) {
+    protected void updatePhysics(float wallClockSeconds) {
         float simulateSeconds = physicsSpeed * wallClockSeconds;
         physicsSpace.update(simulateSeconds);
     }

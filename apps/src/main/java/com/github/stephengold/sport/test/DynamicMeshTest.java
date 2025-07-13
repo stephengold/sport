@@ -1,5 +1,5 @@
 /*
- Copyright (c) 2022-2024 Stephen Gold and Yanis Boudiaf
+ Copyright (c) 2022-2025 Stephen Gold and Yanis Boudiaf
 
  Redistribution and use in source and binary forms, with or without
  modification, are permitted provided that the following conditions are met:
@@ -84,7 +84,7 @@ public class DynamicMeshTest extends BaseApplication {
      * Callback invoked after the main update loop terminates.
      */
     @Override
-    public void cleanUp() {
+    protected void cleanUp() {
         // do nothing
     }
 
@@ -92,7 +92,7 @@ public class DynamicMeshTest extends BaseApplication {
      * Initialize the application.
      */
     @Override
-    public void initialize() {
+    protected void initialize() {
         setBackgroundColor(Constants.SKY_BLUE);
 
         float radius = 0.5f; // as a multiple of half the window size
@@ -115,7 +115,7 @@ public class DynamicMeshTest extends BaseApplication {
      * Callback invoked during each iteration of the main update loop.
      */
     @Override
-    public void render() {
+    protected void render() {
         // Modify the X-Y position of the first vertex.
         float time = 1e-9f * System.nanoTime(); // in sec
         VertexBuffer pos = quadGeometry.getMesh().getPositions();

@@ -1,5 +1,5 @@
 /*
- Copyright (c) 2023-2024 Stephen Gold and Yanis Boudiaf
+ Copyright (c) 2023-2025 Stephen Gold and Yanis Boudiaf
 
  Redistribution and use in source and binary forms, with or without
  modification, are permitted provided that the following conditions are met:
@@ -92,7 +92,7 @@ public class AssimpTest extends BaseApplication {
      * Callback invoked by SPORT after the main update loop terminates.
      */
     @Override
-    public void cleanUp() {
+    protected void cleanUp() {
         // do nothing
     }
 
@@ -100,7 +100,7 @@ public class AssimpTest extends BaseApplication {
      * Initialize the application.
      */
     @Override
-    public void initialize() {
+    protected void initialize() {
         // Load the viking_room model using Assimp:
         String modelName = "/Models/viking_room/viking_room.obj";
         int postFlags = Assimp.aiProcess_FlipUVs;

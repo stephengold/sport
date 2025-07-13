@@ -148,7 +148,7 @@ public class Windlass
      * @return a new object
      */
     @Override
-    public PhysicsSpace createSpace() {
+    protected PhysicsSpace createSpace() {
         PhysicsSpace result
                 = new PhysicsSpace(PhysicsSpace.BroadphaseType.DBVT);
 
@@ -167,9 +167,10 @@ public class Windlass
      * Initialize the application.
      */
     @Override
-    public void initialize() {
+    protected void initialize() {
         super.initialize();
 
+        setVsync(false);
         configureCamera();
         configureInput();
         setBackgroundColor(Constants.SKY_BLUE);
@@ -179,7 +180,7 @@ public class Windlass
      * Populate the PhysicsSpace. Invoked once during initialization.
      */
     @Override
-    public void populateSpace() {
+    protected void populateSpace() {
         float cableRadius = 1f; // should be much larger than collision margin
         Vector3f attachPoint = addBarrel(cableRadius);
         /*
@@ -266,7 +267,7 @@ public class Windlass
      * invocation of {@code updatePhysics} (in seconds, &ge;0)
      */
     @Override
-    public void updatePhysics(float wallClockSeconds) {
+    protected void updatePhysics(float wallClockSeconds) {
         float simulateSeconds = physicsSpeed * wallClockSeconds;
         physicsSpace.update(simulateSeconds);
     }

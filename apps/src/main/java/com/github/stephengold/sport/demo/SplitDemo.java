@@ -1,5 +1,5 @@
 /*
- Copyright (c) 2020-2024 Stephen Gold and Yanis Boudiaf
+ Copyright (c) 2020-2025 Stephen Gold and Yanis Boudiaf
 
  Redistribution and use in source and binary forms, with or without
  modification, are permitted provided that the following conditions are met:
@@ -184,7 +184,7 @@ public class SplitDemo extends BasePhysicsApp<PhysicsSpace> {
      * @return a new instance
      */
     @Override
-    public PhysicsSpace createSpace() {
+    protected PhysicsSpace createSpace() {
         PhysicsBody.setDeactivationEnabled(false); // avoid a distraction
         PhysicsSpace result
                 = new PhysicsSpace(PhysicsSpace.BroadphaseType.DBVT);
@@ -197,7 +197,7 @@ public class SplitDemo extends BasePhysicsApp<PhysicsSpace> {
      * Initialize the application.
      */
     @Override
-    public void initialize() {
+    protected void initialize() {
         super.initialize();
 
         configureCamera();
@@ -214,7 +214,7 @@ public class SplitDemo extends BasePhysicsApp<PhysicsSpace> {
      * Populate the PhysicsSpace. Invoked once during initialization.
      */
     @Override
-    public void populateSpace() {
+    protected void populateSpace() {
         restartScenario();
     }
 
@@ -245,7 +245,7 @@ public class SplitDemo extends BasePhysicsApp<PhysicsSpace> {
      * invocation of {@code updatePhysics} (in seconds, &ge;0)
      */
     @Override
-    public void updatePhysics(float wallClockSeconds) {
+    protected void updatePhysics(float wallClockSeconds) {
         float simulateSeconds = physicsSpeed * wallClockSeconds;
         physicsSpace.update(simulateSeconds);
     }

@@ -151,7 +151,7 @@ public class ConveyorDemo extends BasePhysicsApp<PhysicsSpace> {
      * @return a new instance
      */
     @Override
-    public PhysicsSpace createSpace() {
+    protected PhysicsSpace createSpace() {
         PhysicsSpace result = new PhysicsSpace(
                 PhysicsSpace.BroadphaseType.DBVT) {
             @Override
@@ -199,7 +199,7 @@ public class ConveyorDemo extends BasePhysicsApp<PhysicsSpace> {
      * Initialize the application.
      */
     @Override
-    public void initialize() {
+    protected void initialize() {
         super.initialize();
 
         configureCamera();
@@ -211,7 +211,7 @@ public class ConveyorDemo extends BasePhysicsApp<PhysicsSpace> {
      * Populate the PhysicsSpace. Invoked once during initialization.
      */
     @Override
-    public void populateSpace() {
+    protected void populateSpace() {
         addConveyorBelts();
         addInnerWalls();
         addOuterWalls();
@@ -225,7 +225,7 @@ public class ConveyorDemo extends BasePhysicsApp<PhysicsSpace> {
      * invocation of {@code updatePhysics} (in seconds, &ge;0)
      */
     @Override
-    public void updatePhysics(float wallClockSeconds) {
+    protected void updatePhysics(float wallClockSeconds) {
         float simulateSeconds = physicsSpeed * wallClockSeconds;
         int maxSteps = physicsSpace.maxSubSteps();
         boolean doEnded = false;
