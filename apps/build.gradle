@@ -99,6 +99,8 @@ tasks.register('TextureTest', JavaExec) {
     mainClass = 'com.github.stephengold.sport.test.TextureTest'
 }
 
+Boolean assertions = rootProject.getProperty('assertions').equals('true')
+
 import org.gradle.nativeplatform.platform.internal.DefaultNativePlatform
 OperatingSystem os = DefaultNativePlatform.currentOperatingSystem
 Boolean includeLinux = os.isLinux()
@@ -111,7 +113,7 @@ tasks.withType(JavaExec).configureEach { // Java runtime options:
         jvmArgs '-XstartOnFirstThread' // required for GLFW on macOS
     }
     classpath sourceSets.main.runtimeClasspath
-    enableAssertions = true
+    enableAssertions = assertions
     if (enableNativeAccess) {
         jvmArgs '--enable-native-access=ALL-UNNAMED' // suppress System::load() warning
     }
