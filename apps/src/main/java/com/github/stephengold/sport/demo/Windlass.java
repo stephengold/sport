@@ -195,7 +195,7 @@ public class Windlass
         float segmentLength = MyMath.hypotenuse(deltaX, deltaY);
 
         // The segment shape is a Z-axis capsule.
-        assert segmentLength > 2f * cableRadius; // alternate segments collide!
+        assert segmentLength > 2f * cableRadius : "alternate segments collide!";
         segmentShape = new CapsuleCollisionShape(
                 cableRadius, segmentLength, PhysicsSpace.AXIS_Z);
         localPivot.set(0f, 0f, segmentLength / 2f);
