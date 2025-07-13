@@ -202,6 +202,7 @@ public class ConveyorDemo extends BasePhysicsApp<PhysicsSpace> {
     protected void initialize() {
         super.initialize();
 
+        setVsync(true);
         configureCamera();
         configureInput();
         setBackgroundColor(Constants.GRAY);

@@ -149,6 +149,7 @@ public class ThousandCubes extends BasePhysicsApp<PhysicsSpace> {
     protected void initialize() {
         super.initialize();
 
+        setVsync(true);
         addCrosshairs();
         configureCamera();
         configureInput();

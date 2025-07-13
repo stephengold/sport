@@ -142,6 +142,7 @@ public class Pachinko
 
         super.initialize();
 
+        setVsync(true);
         configureCamera();
         configureInput();
         setBackgroundColor(Constants.SKY_BLUE);
