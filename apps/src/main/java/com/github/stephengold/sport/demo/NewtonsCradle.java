@@ -111,8 +111,10 @@ public class NewtonsCradle extends BasePhysicsApp<PhysicsSpace> {
     protected PhysicsSpace createSpace() {
         PhysicsSpace result
                 = new PhysicsSpace(PhysicsSpace.BroadphaseType.DBVT);
-        result.setAccuracy(0.01f);
         result.setGravity(new Vector3f(0f, -150f, 0f));
+
+        // Reduce the timestep for better accuracy:
+        result.setAccuracy(0.01f);
 
         return result;
     }
@@ -195,11 +197,11 @@ public class NewtonsCradle extends BasePhysicsApp<PhysicsSpace> {
      */
     private static void configureCamera() {
         CameraInputProcessor cip = getCameraInputProcessor();
-        cip.setRotationMode(RotateMode.DragLMB);
         cip.setMoveSpeed(30f);
+        cip.setRotationMode(RotateMode.DragLMB);
 
-        cam.setLocation(72f, 35f, 140f)
-                .setAzimuth(-2f)
+        cam.setAzimuth(-2f)
+                .setLocation(72f, 35f, 140f)
                 .setUpAngle(-0.2f);
     }
 
@@ -266,6 +268,19 @@ public class NewtonsCradle extends BasePhysicsApp<PhysicsSpace> {
     }
 
     /**
+     * Test whether physics simulation is paused.
+     *
+     * @return {@code true} if paused, otherwise {@code false}
+     */
+    private static boolean isPaused() {
+        if (physicsSpeed <= PAUSED_SPEED) {
+            return true;
+        } else {
+            return false;
+        }
+    }
+
+    /**
      * Restart the simulation (paused) with the specified number of balls.
      *
      * @param numBalls (&ge;1)
@@ -294,6 +309,6 @@ public class NewtonsCradle extends BasePhysicsApp<PhysicsSpace> {
      * Toggle the physics simulation: paused/running.
      */
     private static void togglePause() {
-        physicsSpeed = (physicsSpeed <= PAUSED_SPEED) ? 1f : PAUSED_SPEED;
+        physicsSpeed = isPaused() ? 1f : PAUSED_SPEED;
     }
 }

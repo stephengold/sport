@@ -479,13 +479,13 @@ public class Windlass
      * Configure the camera and CIP during initialization.
      */
     private static void configureCamera() {
-        cam.setLocation(30f, 25f, 135f);
-        cam.setAzimuth(-1.78f);
-        cam.setUpAngle(-0.28f);
-
         CameraInputProcessor cip = getCameraInputProcessor();
         cip.setMoveSpeed(20f);
         cip.setRotationMode(RotateMode.DragLMB);
+
+        cam.setAzimuth(-1.78f)
+                .setLocation(30f, 25f, 135f)
+                .setUpAngle(-0.28f);
     }
 
     /**

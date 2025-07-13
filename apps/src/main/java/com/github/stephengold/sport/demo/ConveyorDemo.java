@@ -336,8 +336,7 @@ public class ConveyorDemo extends BasePhysicsApp<PhysicsSpace> {
         addBoxBody(he24, center2, PhysicsBody.massForStatic, null);
 
         float x3 = x0 + beltLength + beltWidth;
-        Vector3f center3
-                = new Vector3f(x3, y0, -(2 * beltLength + beltWidth));
+        Vector3f center3 = new Vector3f(x3, y0, -(2 * beltLength + beltWidth));
         addBoxBody(he13, center3, PhysicsBody.massForStatic, null);
 
         Vector3f center4 = new Vector3f(x0, y0, -beltLength);
@@ -349,12 +348,12 @@ public class ConveyorDemo extends BasePhysicsApp<PhysicsSpace> {
      */
     private static void configureCamera() {
         CameraInputProcessor cip = getCameraInputProcessor();
-        cip.setRotationMode(RotateMode.DragLMB);
         cip.setMoveSpeed(5f);
+        cip.setRotationMode(RotateMode.DragLMB);
 
-        cam.setLocation(new Vector3f(12f, 6f, 5f));
-        cam.setAzimuth(-2.36f);
-        cam.setUpAngle(-0.43f);
+        cam.setAzimuth(-2.36f)
+                .setLocation(12f, 6f, 5f)
+                .setUpAngle(-0.43f);
     }
 
     /**

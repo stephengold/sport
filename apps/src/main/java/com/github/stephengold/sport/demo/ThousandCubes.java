@@ -253,8 +253,8 @@ public class ThousandCubes extends BasePhysicsApp<PhysicsSpace> {
      */
     private static void configureCamera() {
         getCameraInputProcessor().setRotationMode(RotateMode.Immediate);
-        cam.setLocation(60f, 15f, 28f)
-                .setAzimuth(-2.7f)
+        cam.setAzimuth(-2.7f)
+                .setLocation(60f, 15f, 28f)
                 .setUpAngle(-0.25f);
     }
 
