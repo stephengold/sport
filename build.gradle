@@ -1,9 +1,5 @@
 // Gradle script to build the SPORT project
 
-ext {
-    sportVersion = '0.9.7-SNAPSHOT'
-}
-
 subprojects {
     apply from: rootProject.file('common.gradle')
 }
