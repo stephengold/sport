@@ -38,3 +38,7 @@ tasks.register('ThousandCubes') {
     dependsOn ':apps:ThousandCubes'
     description = 'Runs the ThousandCubes demo app.'
 }
+tasks.register('Windlass') {
+    dependsOn ':apps:Windlass'
+    description = 'Runs the Windlass demo app.'
+}
