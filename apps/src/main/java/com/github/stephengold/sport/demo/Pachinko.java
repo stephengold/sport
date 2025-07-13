@@ -122,7 +122,7 @@ public class Pachinko
      * @return a new object
      */
     @Override
-    public PhysicsSpace createSpace() {
+    protected PhysicsSpace createSpace() {
         PhysicsSpace result
                 = new PhysicsSpace(PhysicsSpace.BroadphaseType.DBVT);
 

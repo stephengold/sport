@@ -125,7 +125,7 @@ public class ThousandCubes extends BasePhysicsApp<PhysicsSpace> {
      * @return a new object
      */
     @Override
-    public PhysicsSpace createSpace() {
+    protected PhysicsSpace createSpace() {
         // because this app might be used to evaluate performance:
         if (Utils.areAssertionsEnabled()) {
             System.out.println("Warning:  Assertions are enabled.");
