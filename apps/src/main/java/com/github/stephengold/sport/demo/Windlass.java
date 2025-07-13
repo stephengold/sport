@@ -79,6 +79,22 @@ public class Windlass
      * simulation time step (in seconds)
      */
     final private static float timeStep = 0.0015f;
+    /**
+     * initial number of times the cable coils around the barrel
+     */
+    final private static int numCoils = 4;
+    /**
+     * number of cable segments in the pendant section
+     */
+    final private static int numPendantSegments = 4;
+    /**
+     * number of cable segments per coil
+     */
+    final private static int numSegmentsPerCoil = 12;
+    /**
+     * number of cable segments in the initially coiled portion
+     */
+    final private static int numCoiledSegments = numCoils * numSegmentsPerCoil;
     // *************************************************************************
     // fields
 
@@ -154,9 +170,11 @@ public class Windlass
 
         // To enable the callbacks, register the application as a tick listener.
         result.addTickListener(this);
-        result.setAccuracy(timeStep);
+
         result.setGravity(new Vector3f(0f, -981f, 0f)); // 1 psu = 1 cm
 
+        // Reduce the timestep for better accuracy:
+        result.setAccuracy(timeStep);
         int maxStepsPerUpdate = (int) Math.ceil(0.1 / timeStep);
         result.setMaxSubSteps(maxStepsPerUpdate); // default=4
 
@@ -219,8 +237,6 @@ public class Windlass
         physicsSpace.addJoint(fixed);
 
         Quaternion rotatePhi = new Quaternion().fromAngles(deltaPhi, 0f, 0f);
-        int numCoils = 4;
-        int numCoiledSegments = numCoils * numSegmentsPerCoil;
 
         // Attach successive segments in a spiral coiling around the barrel:
         float phi = FastMath.HALF_PI;
@@ -242,7 +258,6 @@ public class Windlass
         }
 
         orientation.fromAngles(FastMath.HALF_PI, 0f, 0f);
-        int numPendantSegments = 4;
 
         // Attach successive segments in a vertical drop chain:
         for (int segmentI = 0; segmentI < numPendantSegments; ++segmentI) {
@@ -405,7 +420,7 @@ public class Windlass
         float xAngle = 0f; // in radians
         for (int sphereI = 0; sphereI < numSpheres; ++sphereI) {
             float p = sphereI / (float) (numSpheres - 1); // goes from 0 to 1
-            float p3 = FastMath.pow(p, 3f);
+            float p3 = p * p * p;
             float thickness = maxThick - p3 * (maxThick - minThick);
             radius[sphereI] = thickness / 2f;
             if (sphereI > 0) {
