@@ -150,7 +150,7 @@ public abstract class BasePhysicsApp<T extends PhysicsSpace>
     // protected methods
 
     /**
-     * Add physics objects to the PhysicsSpace during initialization.
+     * Populate the PhysicsSpace. Invoked once during initialization.
      */
     abstract protected void populateSpace();
 
@@ -312,7 +312,6 @@ public abstract class BasePhysicsApp<T extends PhysicsSpace>
             mesh.cleanUp();
         }
         meshCache.clear();
-        //physicsThread.stop();
     }
 
     /**
