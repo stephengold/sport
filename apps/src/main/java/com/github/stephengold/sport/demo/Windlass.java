@@ -343,10 +343,10 @@ public class Windlass
 
         float barrelMass = 100f;
         barrel = new PhysicsRigidBody(barrelShape, barrelMass);
-        barrel.setKinematic(true);
-        barrel.setAnisotropicFriction(new Vector3f(900f, 10f, 10f),
-                AfMode.basic);
+        barrel.setAnisotropicFriction(
+                new Vector3f(900f, 10f, 10f), AfMode.basic);
         barrel.setFriction(0f); // disable normal friction
+        barrel.setKinematic(true);
 
         physicsSpace.addCollisionObject(barrel);
         visualizeShape(barrel);
@@ -464,7 +464,7 @@ public class Windlass
      * Configure the camera and CIP during initialization.
      */
     private static void configureCamera() {
-        cam.setLocation(new Vector3f(30f, 25f, 135f));
+        cam.setLocation(30f, 25f, 135f);
         cam.setAzimuth(-1.78f);
         cam.setUpAngle(-0.28f);
 
