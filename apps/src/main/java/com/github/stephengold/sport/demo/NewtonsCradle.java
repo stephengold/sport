@@ -48,10 +48,9 @@ import org.joml.Vector4fc;
 import org.lwjgl.glfw.GLFW;
 
 /**
- * A physics demo that simulates a Newton's cradle.
- * <p>
- * https://en.wikipedia.org/wiki/Newton%27s_cradle
+ * A physics demo that simulates a "Newton's cradle" toy.
  *
+ * @see <a href="https://en.wikipedia.org/wiki/Newton%27s_cradle">Wikipedia</a>
  * @author Stephen Gold sgold@sonic.net
  */
 public class NewtonsCradle extends BasePhysicsApp<PhysicsSpace> {
@@ -133,7 +132,8 @@ public class NewtonsCradle extends BasePhysicsApp<PhysicsSpace> {
     }
 
     /**
-     * Populate the PhysicsSpace. Invoked once during initialization.
+     * Populate the PhysicsSpace with bodies and constraints. Invoked once
+     * during initialization.
      */
     @Override
     protected void populateSpace() {
@@ -210,7 +210,7 @@ public class NewtonsCradle extends BasePhysicsApp<PhysicsSpace> {
     }
 
     /**
-     * Configure the Camera and CIP during startup.
+     * Configure the Camera and CIP during initialization.
      */
     private static void configureCamera() {
         CameraInputProcessor cip = getCameraInputProcessor();
@@ -223,7 +223,7 @@ public class NewtonsCradle extends BasePhysicsApp<PhysicsSpace> {
     }
 
     /**
-     * Configure keyboard input during startup.
+     * Configure keyboard input during initialization.
      */
     private void configureInput() {
         getInputManager().add(new InputProcessor() {

@@ -242,7 +242,7 @@ public class Windlass
         PhysicsRigidBody endSegment = segment;
         Vector3f center = attachPoint.clone();
         for (int segmentI = 0; segmentI < numCoiledSegments; ++segmentI) {
-            // Calculate the position of the next segment.
+            // Calculate the position of the next segment:
             center.x += deltaX;
             phi += deltaPhi;
             center.y = z0 * FastMath.cos(phi);
