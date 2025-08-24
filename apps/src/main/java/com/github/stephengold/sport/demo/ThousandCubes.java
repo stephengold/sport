@@ -171,7 +171,7 @@ public class ThousandCubes extends BasePhysicsApp<PhysicsSpace> {
         physicsSpace.addCollisionObject(floor);
         visualizeShape(floor, 0.05f);
 
-        // Create 1000 boxes, arranged in a cube:
+        // Create many boxes, arranged in a rectangular grid:
         for (int i = 0; i < 10; ++i) {
             for (int j = 0; j < 10; ++j) {
                 for (int k = 0; k < 10; ++k) {
@@ -250,7 +250,7 @@ public class ThousandCubes extends BasePhysicsApp<PhysicsSpace> {
     }
 
     /**
-     * Configure the Camera and CIP during startup.
+     * Configure the Camera and CIP during initialization.
      */
     private static void configureCamera() {
         getCameraInputProcessor().setRotationMode(RotateMode.Immediate);
@@ -260,7 +260,7 @@ public class ThousandCubes extends BasePhysicsApp<PhysicsSpace> {
     }
 
     /**
-     * Configure keyboard input during startup.
+     * Configure keyboard input during initialization.
      */
     private void configureInput() {
         getInputManager().add(new InputProcessor() {

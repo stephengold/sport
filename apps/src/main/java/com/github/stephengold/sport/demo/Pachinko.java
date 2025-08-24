@@ -51,9 +51,8 @@ import org.lwjgl.glfw.GLFW;
 
 /**
  * A 2-D physics demo that simulates a simple Pachinko machine.
- * <p>
- * https://en.wikipedia.org/wiki/Pachinko
  *
+ * @see <a href="https://en.wikipedia.org/wiki/Pachinko">Wikipedia</a>
  * @author Stephen Gold sgold@sonic.net
  */
 public class Pachinko
@@ -126,7 +125,7 @@ public class Pachinko
         PhysicsSpace result
                 = new PhysicsSpace(PhysicsSpace.BroadphaseType.DBVT);
 
-        // To enable the callbacks, register the application as a tick listener.
+        // To enable the callbacks, register this app as a tick listener:
         result.addTickListener(this);
 
         return result;
@@ -219,7 +218,7 @@ public class Pachinko
         body.setAngularFactor(new Vector3f(0f, 0f, 1f));
         body.setLinearFactor(new Vector3f(1f, 1f, 0f));
 
-        // Apply a random horizontal impulse.
+        // Apply a random horizontal impulse:
         float xImpulse = 1f - 2f * generator.nextFloat();
         body.applyCentralImpulse(new Vector3f(xImpulse, 0f, 0f));
 
@@ -227,7 +226,7 @@ public class Pachinko
     }
 
     /**
-     * Configure the Camera and CIP during startup.
+     * Configure the camera and CIP during initialization.
      */
     private static void configureCamera() {
         CameraInputProcessor cip = getCameraInputProcessor();
@@ -238,7 +237,7 @@ public class Pachinko
     }
 
     /**
-     * Configure keyboard input during startup.
+     * Configure keyboard input during initialization.
      */
     private void configureInput() {
         getInputManager().add(new InputProcessor() {
