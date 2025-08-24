@@ -122,7 +122,7 @@ public abstract class BasePhysicsApp<T extends PhysicsSpace>
      *
      * @return a new object
      */
-    protected abstract T createSpace();
+    abstract protected T createSpace();
 
     /**
      * Return a Mesh to visualize the summarized shape.
