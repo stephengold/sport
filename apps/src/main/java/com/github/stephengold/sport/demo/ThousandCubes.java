@@ -128,7 +128,7 @@ public class ThousandCubes extends BasePhysicsApp<PhysicsSpace> {
     protected PhysicsSpace createSpace() {
         // because this app might be used to evaluate performance:
         if (Utils.areAssertionsEnabled()) {
-            System.out.println("Warning:  Assertions are enabled.");
+            System.out.println("Warning:  assertions are enabled.");
         }
         if (NativeLibrary.isDebug()) {
             System.out.println("Warning:  using a Debug native library");
