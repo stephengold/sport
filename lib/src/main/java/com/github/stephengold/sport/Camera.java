@@ -1,5 +1,5 @@
 /*
- Copyright (c) 2022-2023, Stephen Gold and Yanis Boudiaf
+ Copyright (c) 2022-2025 Stephen Gold and Yanis Boudiaf
 
  Redistribution and use in source and binary forms, with or without
  modification, are permitted provided that the following conditions are met:
@@ -114,20 +114,23 @@ public class Camera {
     public com.jme3.math.Vector3f clipToWorld(
             Vector2fc clipXy, float clipZ, com.jme3.math.Vector3f storeResult) {
         Projection projection = BaseApplication.getProjection();
-        com.jme3.math.Vector3f cameraXyz
+        com.jme3.math.Vector3f result
                 = projection.clipToCamera(clipXy, clipZ, storeResult);
 
-        float right = cameraXyz.x;
-        float up = cameraXyz.y;
-        float forward = -cameraXyz.z;
+        float right = result.x;
+        float up = result.y;
+        float forward = -result.z;
 
-        Vector3f worldXyz
-                = new Vector3f(eyeLocation.x, eyeLocation.y, eyeLocation.z);
-        worldXyz.fma(right, rightDirection);
-        worldXyz.fma(up, upDirection);
-        worldXyz.fma(forward, lookDirection);
+        Vector3f sum = new Vector3f(eyeLocation);
+        Vector3f product = new Vector3f(rightDirection).mul(right);
+        sum.add(product);
+        product.set(upDirection).mul(up);
+        sum.add(product);
+        product.set(lookDirection).mul(forward);
+        sum.add(product);
+        result.set(sum.x, sum.y, sum.z);
 
-        return Utils.toJmeVector(worldXyz);
+        return result;
     }
 
     /**
