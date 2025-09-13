@@ -422,6 +422,7 @@ abstract public class BaseApplication {
             // Clean up this class.
             cleanUpBase();
         }
+        System.exit(0);
     }
 
     /**
