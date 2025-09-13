@@ -1,5 +1,25 @@
 # release log for the SPORT Library
 
+## Version 0.9.7 released on TBD
+
++ De-publicized 5 `BasePhysicsApp` methods.
++ Bugfix:  performance degraded by `glGetError()`
++ Bugfix:  logic error in `Camera.clipToWorld()`
++ Added methods:
+  + `BaseApplication.initialWindowTitle()`
+  + `BasePhysicsApp.totalPhysicsNanos()`
+  + `BasePhysicsApp.totalSimulatedTime()`
+  + `Camera.setLocation(float, float, float)`
+  + `Utils.areAssertionsEnabled()`
+  + `Utils.setBackgroudColor(float, float, float, float)`
+  + `Utils.setLightColor(Vector4fc)`
++ Enhanced the "KEY_C" handler to also print projection properties.
++ Enhanced `BasePhysicsApp.cleanUp()` to hide all geometries.
++ Altered `BaseApplication.start()` so it never returns.
++ Altered `BaseApplication.cleanUpBase()` to preserve the input manager.
++ Overrode the `Geometry.toString()` method.
++ Updated the Libbulletjme library to v22.0.3 .
+
 ## Version 0.9.6 released on 17 March 2025
 
 + Removed the `SoftMesh` class.
