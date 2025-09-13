@@ -1,6 +1,6 @@
 # release log for the SPORT Library
 
-## Version 0.9.7 released on TBD
+## Version 0.9.7 released on 13 Sepetmber 2025
 
 + De-publicized 5 `BasePhysicsApp` methods.
 + Bugfix:  performance degraded by `glGetError()`
