@@ -61,6 +61,13 @@ import org.lwjgl.glfw.GLFW;
  */
 public class ThousandCubes extends BasePhysicsApp<PhysicsSpace> {
     // *************************************************************************
+    // constants
+
+    /**
+     * simulation speed when "paused"
+     */
+    final private static float pausedSpeed = 1e-9f;
+    // *************************************************************************
     // fields
 
     /**
@@ -268,7 +275,7 @@ public class ThousandCubes extends BasePhysicsApp<PhysicsSpace> {
             public void onKeyboard(int keyId, boolean isPressed) {
                 switch (keyId) {
                     case GLFW.GLFW_KEY_E:
-                        if (isPressed) {
+                        if (isPressed && !isPaused()) {
                             launchRedBall();
                         }
                         return;
@@ -285,6 +292,19 @@ public class ThousandCubes extends BasePhysicsApp<PhysicsSpace> {
                 super.onKeyboard(keyId, isPressed);
             }
         });
+    }
+
+    /**
+     * Test whether physics simulation is paused.
+     *
+     * @return {@code true} if paused, otherwise {@code false}
+     */
+    private static boolean isPaused() {
+        if (physicsSpeed <= pausedSpeed) {
+            return true;
+        } else {
+            return false;
+        }
     }
 
     /**
@@ -315,8 +335,7 @@ public class ThousandCubes extends BasePhysicsApp<PhysicsSpace> {
      * Toggle the physics simulation: paused/running.
      */
     private static void togglePause() {
-        float pausedSpeed = 1e-9f;
-        physicsSpeed = (physicsSpeed <= pausedSpeed) ? 1f : pausedSpeed;
+        physicsSpeed = isPaused() ? 1f : pausedSpeed;
     }
 
     /**
