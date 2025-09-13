@@ -67,6 +67,18 @@ public class ThousandCubes extends BasePhysicsApp<PhysicsSpace> {
      * simulation speed when "paused"
      */
     final private static float pausedSpeed = 1e-9f;
+    /**
+     * how many columns of boxes (along the system's Z axis)
+     */
+    final private static int numColumns = 10;
+    /**
+     * how many layers of boxes (along the system's Y axis)
+     */
+    final private static int numLayers = 10;
+    /**
+     * how many rows of boxes (along the system's X axis)
+     */
+    final private static int numRows = 10;
     // *************************************************************************
     // fields
 
@@ -179,9 +191,9 @@ public class ThousandCubes extends BasePhysicsApp<PhysicsSpace> {
         visualizeShape(floor, 0.05f);
 
         // Create many boxes, arranged in a rectangular grid:
-        for (int i = 0; i < 10; ++i) {
-            for (int j = 0; j < 10; ++j) {
-                for (int k = 0; k < 10; ++k) {
+        for (int i = 0; i < numRows; ++i) {
+            for (int j = 0; j < numLayers; ++j) {
+                for (int k = 0; k < numColumns; ++k) {
                     addBox(2f * i, 2f * j, 2f * k - 2.5f);
                 }
             }
