@@ -65,6 +65,14 @@ public class Pachinko
      * time interval between balls (in simulated seconds)
      */
     final private static float addInterval = 3f;
+    /**
+     * radius of each ball (in meters)
+     */
+    final private static float ballRadius = 1f;
+    /**
+     * simulation speed when "paused"
+     */
+    final private static float pausedSpeed = 1e-9f;
     // *************************************************************************
     // fields
 
@@ -152,9 +160,7 @@ public class Pachinko
      */
     @Override
     protected void populateSpace() {
-        float ballRadius = 1f;
         ballShape = new SphereCollisionShape(ballRadius);
-
         restartSimulation(7);
     }
 
@@ -307,6 +313,19 @@ public class Pachinko
     }
 
     /**
+     * Test whether physics simulation is paused.
+     *
+     * @return {@code true} if paused, otherwise {@code false}
+     */
+    private static boolean isPaused() {
+        if (physicsSpeed <= pausedSpeed) {
+            return true;
+        } else {
+            return false;
+        }
+    }
+
+    /**
      * Restart the simulation with the specified number of rows of pins.
      *
      * @param numRows (&ge;4, &le;9)
@@ -331,7 +350,6 @@ public class Pachinko
         BoxCollisionShape pinShape = new BoxCollisionShape(
                 pinHalfWidth, pinHalfWidth, pinHalfHeight);
 
-        float ballRadius = ballShape.maxRadius();
         float pinSpacing = 2f * (barHalfWidth + ballRadius);
         float rowSpacing = 2f * pinSpacing;
 
@@ -381,7 +399,6 @@ public class Pachinko
      * Toggle the physics simulation: paused/running.
      */
     private static void togglePause() {
-        float pausedSpeed = 1e-9f;
         physicsSpeed = (physicsSpeed <= pausedSpeed) ? 1f : pausedSpeed;
     }
 }
