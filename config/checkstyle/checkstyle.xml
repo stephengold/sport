@@ -2,7 +2,7 @@
 <!DOCTYPE module PUBLIC
     "-//Checkstyle//DTD Checkstyle Configuration 1.3//EN"
     "https://checkstyle.org/dtds/configuration_1_3.dtd">
-<!-- Checkstyle configuration for the SPORT project. -->
+<!-- Checkstyle configuration for the SPORT project -->
 
 <module name="Checker">
     <property name="charset" value="UTF-8"/>
@@ -21,8 +21,8 @@
     <!-- See https://checkstyle.org/checks/javadoc/javadocpackage.html -->
     <module name="JavadocPackage"/>
 
-    <!-- Check for trailing whitespace:                                 -->
-    <!-- See https://checkstyle.org/checks/regexp/regexpsingleline.html -->
+    <!-- Regexp checks:                           -->
+    <!-- See https://checkstyle.org/checks/regexp -->
     <module name="RegexpSingleline">
         <property name="format" value="\s$"/>
         <property name="message" value="Line has trailing whitespace."/>
