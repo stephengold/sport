@@ -21,6 +21,10 @@
     <!-- See https://checkstyle.org/checks/javadoc/javadocpackage.html -->
     <module name="JavadocPackage"/>
 
+    <!-- Miscellaneous checks:                  -->
+    <!-- See https://checkstyle.org/checks/misc -->
+    <module name="NewlineAtEndOfFile"/>
+
     <!-- Regexp checks:                           -->
     <!-- See https://checkstyle.org/checks/regexp -->
     <module name="RegexpSingleline">
@@ -65,6 +69,7 @@
 
         <!-- Checks for blocks:                       -->
         <!-- See https://checkstyle.org/checks/blocks -->
+        <module name="AvoidNestedBlocks"/>
         <module name="EmptyBlock">
             <property name="option" value="TEXT"/>
             <property name="tokens" value="LITERAL_TRY, LITERAL_FINALLY, LITERAL_IF, LITERAL_ELSE, LITERAL_SWITCH, ARRAY_INIT, INSTANCE_INIT, LITERAL_CASE, LITERAL_CATCH, LITERAL_DEFAULT, LITERAL_DO, LITERAL_FOR, LITERAL_SYNCHRONIZED, LITERAL_WHILE, STATIC_INIT"/>
@@ -103,6 +108,7 @@
 
         <!-- Checks for common coding problems:       -->
         <!-- See https://checkstyle.org/checks/coding -->
+        <module name="AvoidDoubleBraceInitialization"/>
         <module name="AvoidNoArgumentSuperConstructorCall"/>
         <module name="ConstructorsDeclarationGrouping"/>
         <module name="CovariantEquals"/>
@@ -110,6 +116,9 @@
         <module name="EmptyStatement"/>
         <module name="EqualsHashCode"/>
         <module name="FallThrough"/>
+        <module name="HiddenField">
+            <property name="tokens" value="VARIABLE_DEF, PATTERN_VARIABLE_DEF, LAMBDA, RECORD_COMPONENT_DEF"/>
+        </module>
         <module name="IllegalInstantiation"/>
         <module name="IllegalThrows"/>
         <module name="IllegalToken">
@@ -122,6 +131,7 @@
         </module>
         <module name="IllegalType"/>
         <module name="MissingSwitchDefault"/>
+        <module name="ModifiedControlVariable"/>
         <module name="MultipleVariableDeclarations"/>
         <module name="NoFinalizer"/>
         <module name="OneStatementPerLine"/>
@@ -189,6 +199,7 @@
         <module name="CommentsIndentation">
             <property name="tokens" value="SINGLE_LINE_COMMENT, BLOCK_COMMENT_BEGIN"/>
         </module>
+        <module name="HexLiteralCase"/>
         <module name="Indentation">
             <property name="arrayInitIndent" value="4"/>
             <property name="basicOffset" value="4"/>
