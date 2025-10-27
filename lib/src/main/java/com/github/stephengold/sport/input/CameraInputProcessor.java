@@ -1,5 +1,5 @@
 /*
- Copyright (c) 2022-2023, Stephen Gold and Yanis Boudiaf
+ Copyright (c) 2022-2025 Stephen Gold and Yanis Boudiaf
 
  Redistribution and use in source and binary forms, with or without
  modification, are permitted provided that the following conditions are met:
@@ -222,6 +222,9 @@ public class CameraInputProcessor extends InputProcessor {
     // *************************************************************************
     // private methods
 
+    /**
+     * Activate camera rotation.
+     */
     private void activateRotation() {
         this.savedCursorInputMode
                 = GLFW.glfwGetInputMode(windowHandle, GLFW.GLFW_CURSOR);
@@ -230,6 +233,9 @@ public class CameraInputProcessor extends InputProcessor {
         this.isRotationActive = true;
     }
 
+    /**
+     * Deactivate camera rotation.
+     */
     private void deactivateRotation() {
         GLFW.glfwSetInputMode(
                 windowHandle, GLFW.GLFW_CURSOR, savedCursorInputMode);
@@ -288,6 +294,9 @@ public class CameraInputProcessor extends InputProcessor {
         return result;
     }
 
+    /**
+     * Update whether camera rotation is active.
+     */
     private void updateRotationActive() {
         boolean makeActive;
 

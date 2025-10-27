@@ -1,5 +1,5 @@
 /*
- Copyright (c) 2022-2023, Stephen Gold and Yanis Boudiaf
+ Copyright (c) 2022-2025 Stephen Gold and Yanis Boudiaf
 
  Redistribution and use in source and binary forms, with or without
  modification, are permitted provided that the following conditions are met:
@@ -567,8 +567,10 @@ class ShaderProgram {
         Utils.checkForOglError();
     }
 
+    /**
+     * Link the program object.
+     */
     private void linkProgram() {
-        // Link the program object.
         GL20C.glLinkProgram(programId);
         Utils.checkForOglError();
         int success = GL20C.glGetProgrami(programId, GL20C.GL_LINK_STATUS);

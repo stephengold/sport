@@ -560,10 +560,18 @@ public class SplitDemo extends BasePhysicsApp<PhysicsSpace> {
         }
     }
 
+    /**
+     * Toggle the physics simulation: paused/running.
+     */
     private static void togglePause() {
         physicsSpeed = (physicsSpeed <= PAUSED_SPEED) ? 1f : PAUSED_SPEED;
     }
 
+    /**
+     * Update the splitter before each render.
+     *
+     * @param tpf time interal since the previous update (in seconds)
+     */
     private void updateSplitter(float tpf) {
         splitAngle += tpf * (signalCcw - signalCw);
         splitAngle = MyMath.modulo(splitAngle, FastMath.PI);
