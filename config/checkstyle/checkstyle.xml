@@ -37,9 +37,7 @@
     <module name="FileLength">
         <property name="max" value="1200"/>
     </module>
-    <module name="LineLength">
-        <property name="fileExtensions" value="java"/>
-    </module>
+    <module name="LineLength"/>
 
     <!-- Checks for whitespace:                       -->
     <!-- See https://checkstyle.org/checks/whitespace -->
@@ -177,9 +175,10 @@
         <module name="JavadocVariable"/>
         <module name="MissingJavadocMethod">
             <property name="allowedAnnotations" value=""/>
+            <property name="scope" value="private"/>
         </module>
         <module name="MissingJavadocType">
-            <property name="scope" value="protected"/>
+            <property name="scope" value="private"/>
         </module>
         <module name="NonEmptyAtclauseDescription"/>
         <module name="RequireEmptyLineBeforeBlockTagGroup"/>
