@@ -1,5 +1,12 @@
 # release log for the SPORT Library
 
+## Version 0.9.8 released on TBD
+
++ Updated the LWJGL libraries to v3.4.0 .
++ Added chaining to 3 `CameraInputProcessor` setters.
++ Added a `Geometry.setColor()` method that accepts scalars.
++ Added argument validation to `Geometry.setScale()` .
+
 ## Version 0.9.7 released on 13 Sepetmber 2025
 
 + De-publicized 5 `BasePhysicsApp` methods.
