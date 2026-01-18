@@ -1,5 +1,5 @@
 /*
- Copyright (c) 2022-2025 Stephen Gold and Yanis Boudiaf
+ Copyright (c) 2022-2026 Stephen Gold and Yanis Boudiaf
 
  Redistribution and use in source and binary forms, with or without
  modification, are permitted provided that the following conditions are met:
@@ -646,6 +646,7 @@ public class Geometry {
      * @return the (modified) current geometry (for chaining)
      */
     public Geometry setScale(float scaleFactor) {
+        Validate.finite(scaleFactor, "scale factor");
         meshToWorld.setScale(scaleFactor);
         return this;
     }
