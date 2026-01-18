@@ -111,6 +111,7 @@ publishing {
                         name = 'Yanis Boudiaf'
                     }
                 }
+                inceptionYear = '2022'
                 licenses {
                     license {
                         distribution = 'repo'
