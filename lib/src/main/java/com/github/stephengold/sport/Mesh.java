@@ -1,5 +1,5 @@
 /*
- Copyright (c) 2022-2025 Stephen Gold and Yanis Boudiaf
+ Copyright (c) 2022-2026 Stephen Gold and Yanis Boudiaf
 
  Redistribution and use in source and binary forms, with or without
  modification, are permitted provided that the following conditions are met:
@@ -85,10 +85,10 @@ public class Mesh implements jme3utilities.lbj.Mesh {
      */
     final private int vertexCount;
     /**
-     * OpenGL name of the VAO (for binding or deleting) or null if it hasn't
-     * been generated yet TODO rename
+     * OpenGL name of the VAO (for binding or deleting) or {@code null} if it
+     * hasn't been generated yet
      */
-    private Integer vaoId;
+    private Integer vaoName;
     /**
      * how vertices are organized into primitives (not null)
      */
@@ -229,11 +229,11 @@ public class Mesh implements jme3utilities.lbj.Mesh {
      * Delete the VAO and all its VBOs.
      */
     public void cleanUp() {
-        if (vaoId == null) {
+        if (vaoName == null) {
             return;
         }
 
-        GL30C.glBindVertexArray(vaoId);
+        GL30C.glBindVertexArray(vaoName);
         Utils.checkForOglError();
 
         if (indexBuffer != null) {
@@ -252,7 +252,7 @@ public class Mesh implements jme3utilities.lbj.Mesh {
             texCoordsBuffer.cleanUp();
         }
 
-        GL30C.glDeleteVertexArrays(vaoId);
+        GL30C.glDeleteVertexArrays(vaoName);
         Utils.checkForOglError();
     }
 
@@ -589,7 +589,7 @@ public class Mesh implements jme3utilities.lbj.Mesh {
         program.use();
         enableAttributes(program);
 
-        GL30C.glBindVertexArray(vaoId);
+        GL30C.glBindVertexArray(vaoName);
         Utils.checkForOglError();
 
         if (indexBuffer == null) {
@@ -1081,11 +1081,11 @@ public class Mesh implements jme3utilities.lbj.Mesh {
      * @param program (not null)
      */
     private void enableAttributes(ShaderProgram program) {
-        if (vaoId == null) {
-            this.vaoId = GL30C.glGenVertexArrays();
+        if (vaoName == null) {
+            this.vaoName = GL30C.glGenVertexArrays();
             Utils.checkForOglError();
 
-            GL30C.glBindVertexArray(vaoId);
+            GL30C.glBindVertexArray(vaoName);
             Utils.checkForOglError();
 
             this.mutable = false;
@@ -1094,7 +1094,7 @@ public class Mesh implements jme3utilities.lbj.Mesh {
             assert !mutable;
 
             // Use the existing VAO.
-            GL30C.glBindVertexArray(vaoId);
+            GL30C.glBindVertexArray(vaoName);
             Utils.checkForOglError();
         }
 
