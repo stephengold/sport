@@ -1,5 +1,5 @@
 /*
- * fragment shader for the Debug/Uvs program
+ * fragment shader for the Debug/Uvs program in SPORT
  */
 #version 330 core
 

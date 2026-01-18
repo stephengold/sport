@@ -1,5 +1,5 @@
 /*
- * vertex shader for the Debug/Uvs program
+ * vertex shader for the Debug/Uvs program in SPORT
  */
 #version 330 core
 
@@ -13,9 +13,9 @@ in vec3 vertexPosition_modelspace;
 out vec2 UV; // UVs to the frag shader
 
 void main() {
-    // vertex position in clipspace
+    // vertex position in clipspace:
     gl_Position = projectionMatrix * viewMatrix * modelMatrix * vec4(vertexPosition_modelspace, 1.0);
 
-    // vertex texture coordinates
+    // vertex texture coordinates:
     UV = vertexUV;
 }

@@ -1,5 +1,5 @@
 /*
- * vertex shader for the Unshaded/Sprite program
+ * vertex shader for the Unshaded/Sprite program in SPORT
  * The alpha discard threshold and point size are set on a per-geometry basis.
  */
 #version 330 core
@@ -12,9 +12,9 @@ uniform mat4 viewMatrix;       // global
 in vec3 vertexPosition_modelspace;
 
 void main() {
-    // vertex point size, in pixels
+    // vertex point size, in pixels:
     gl_PointSize = pointMaterialSize;
 
-    // vertex position in clipspace
+    // vertex position in clipspace:
     gl_Position = projectionMatrix * viewMatrix * modelMatrix * vec4(vertexPosition_modelspace, 1.0);
 }

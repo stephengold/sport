@@ -1,5 +1,5 @@
 /*
- * fragment shader for the Unshaded/Sprite program
+ * fragment shader for the Unshaded/Sprite program in SPORT
  * The alpha discard threshold and point size are set on a per-geometry basis.
  */
 #version 330 core

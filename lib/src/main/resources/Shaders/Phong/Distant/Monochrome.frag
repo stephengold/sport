@@ -1,5 +1,5 @@
 /*
- * fragment shader for the Phong/Distant/Monochrome program:
+ * fragment shader for the Phong/Distant/Monochrome program in SPORT:
  *  Phong shading with a single distant light, alpha=8
  */
 #version 330 core
@@ -16,10 +16,10 @@ in vec3 Normal_cameraspace;
 out vec3 fragColor;
 
 void main() {
-    // normal of the fragment, in worldspace
+    // normal of the fragment, in worldspace:
     vec3 N = normalize(Normal_cameraspace);
 
-    // direction from the fragment to the light, in cameraspace
+    // direction from the fragment to the light, in cameraspace:
     vec3 L = normalize(LightDirection_cameraspace);
 
     // cosine of the angle between the normal and the light direction,
@@ -29,10 +29,10 @@ void main() {
     //  - light is behind the triangle -> 0
     float cosTheta = clamp(dot(N, L), 0, 1);
 
-    // eye vector (towards the camera)
+    // eye vector (towards the camera):
     vec3 E = normalize(EyeDirection_cameraspace);
 
-    // direction in which the triangle reflects the light
+    // direction in which the triangle reflects the light:
     vec3 R = reflect(-L, N);
 
     // cosine of the angle between the Eye vector and the Reflect vector,

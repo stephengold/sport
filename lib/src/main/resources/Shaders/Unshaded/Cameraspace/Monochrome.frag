@@ -1,5 +1,5 @@
 /*
- * fragment shader for the Unshaded/Cameraspace/Monochrome program
+ * fragment shader for the Unshaded/Cameraspace/Monochrome program in SPORT
  */
 #version 330 core
 
