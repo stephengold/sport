@@ -257,7 +257,7 @@ public class Mesh implements jme3utilities.lbj.Mesh {
     }
 
     /**
-     * Copy a single vertex from the mesh.
+     * Copy a single vertex from the mesh, which is unaffected.
      *
      * @param vertexIndex the vertex index (&ge;0, &lt;vertexCount)
      * @return a new vertex
@@ -288,7 +288,7 @@ public class Mesh implements jme3utilities.lbj.Mesh {
 
     /**
      * Count how many vertices the mesh renders, taking indexing into account,
-     * but not the topology.
+     * but not the topology. The mesh is unaffected.
      *
      * @return the count (&ge;0)
      */
@@ -300,7 +300,7 @@ public class Mesh implements jme3utilities.lbj.Mesh {
 
     /**
      * Count how many line primitives the mesh contains, taking indexing and
-     * topology into account.
+     * topology into account. The mesh is unaffected.
      *
      * @return the count (&ge;0)
      */
@@ -323,7 +323,7 @@ public class Mesh implements jme3utilities.lbj.Mesh {
 
     /**
      * Count how many point primitives the mesh contains, taking indexing and
-     * topology into account.
+     * topology into account. The mesh is unaffected.
      *
      * @return the count (&ge;0)
      */
@@ -340,7 +340,7 @@ public class Mesh implements jme3utilities.lbj.Mesh {
 
     /**
      * Count how many triangle primitives the mesh contains, taking indexing and
-     * topology into account.
+     * topology into account. The mesh is unaffected.
      *
      * @return the count (&ge;0)
      */
@@ -360,7 +360,7 @@ public class Mesh implements jme3utilities.lbj.Mesh {
 
     /**
      * Count how many vertices the mesh contains, based on buffer capacities,
-     * unmodified by primitive topology and indexing.
+     * unmodified by primitive topology and indexing. The mesh is unaffected.
      *
      * @return the count (&ge;0)
      */
@@ -449,16 +449,20 @@ public class Mesh implements jme3utilities.lbj.Mesh {
             case Facet:
                 generateFacetNormals();
                 break;
+
             case None:
                 this.normalBuffer = null;
                 break;
+
             case Smooth:
                 generateFacetNormals();
                 smoothNormals();
                 break;
+
             case Sphere:
                 generateSphereNormals();
                 break;
+
             default:
                 throw new IllegalArgumentException("option = " + option);
         }
@@ -513,11 +517,13 @@ public class Mesh implements jme3utilities.lbj.Mesh {
             switch (option) {
                 case Linear:
                     break;
+
                 case Spherical:
                     Utils.toSpherical(tmpVector);
                     tmpVector.y /= FastMath.PI;
                     tmpVector.z /= FastMath.PI;
                     break;
+
                 default:
                     throw new IllegalArgumentException("option = " + option);
             }
@@ -544,7 +550,7 @@ public class Mesh implements jme3utilities.lbj.Mesh {
     }
 
     /**
-     * Test whether the mesh is indexed.
+     * Test whether the mesh is indexed. It is unaffected.
      *
      * @return true if indexed, otherwise false
      */
@@ -688,7 +694,7 @@ public class Mesh implements jme3utilities.lbj.Mesh {
 
     /**
      * Return the primitive topology, which indicates how mesh vertices/indices
-     * are organized into primitives.
+     * are organized into primitives. The mesh is unaffected.
      *
      * @return an enum value (not null)
      */
