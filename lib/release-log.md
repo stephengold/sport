@@ -1,6 +1,6 @@
 # release log for the SPORT Library
 
-## Version 0.9.8 released on TBD
+## Version 0.9.8 released on 18 January 2026
 
 + Updated the LWJGL libraries to v3.4.0 .
 + Added chaining to 3 `CameraInputProcessor` setters.
