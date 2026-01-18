@@ -48,7 +48,7 @@ public class CameraInputProcessor extends InputProcessor {
 
     /**
      * maximum magnitude of the camera's up angle after mouse rotation is
-     * applied. This prevents the camera from looking to straight up or straight
+     * applied. This prevents the camera from looking straight up or straight
      * down.
      */
     final private static float maxUpAngleRadians = MyMath.toRadians(85f);
@@ -230,7 +230,7 @@ public class CameraInputProcessor extends InputProcessor {
     // private methods
 
     /**
-     * Activate camera rotation.
+     * Update the state when camera rotation becomes active.
      */
     private void activateRotation() {
         this.savedCursorInputMode
@@ -241,7 +241,7 @@ public class CameraInputProcessor extends InputProcessor {
     }
 
     /**
-     * Deactivate camera rotation.
+     * Update the state when camera rotation becomes inactive.
      */
     private void deactivateRotation() {
         GLFW.glfwSetInputMode(
@@ -302,7 +302,7 @@ public class CameraInputProcessor extends InputProcessor {
     }
 
     /**
-     * Update whether camera rotation is active.
+     * Check whether rotation has become active or ceased to be active.
      */
     private void updateRotationActive() {
         boolean makeActive;
