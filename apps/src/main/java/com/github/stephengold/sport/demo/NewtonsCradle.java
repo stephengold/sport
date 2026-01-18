@@ -1,5 +1,5 @@
 /*
- Copyright (c) 2020-2025 Stephen Gold and Yanis Boudiaf
+ Copyright (c) 2020-2026 Stephen Gold and Yanis Boudiaf
 
  Redistribution and use in source and binary forms, with or without
  modification, are permitted provided that the following conditions are met:
@@ -190,7 +190,8 @@ public class NewtonsCradle extends BasePhysicsApp<PhysicsSpace> {
         physicsSpace.addCollisionObject(result);
 
         // Visualize the ball:
-        visualizeShape(result).setColor(BALL_COLOR);
+        visualizeShape(result).setColor(BALL_COLOR)
+                .setProgram("Phong/Distant/Monochrome");
 
         float wireLength = 80f;
         float yOffset = wireLength * MyMath.rootHalf;
