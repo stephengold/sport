@@ -29,7 +29,6 @@
 package com.github.stephengold.sport.demo;
 
 import com.github.stephengold.sport.Constants;
-import com.github.stephengold.sport.input.CameraInputProcessor;
 import com.github.stephengold.sport.input.InputProcessor;
 import com.github.stephengold.sport.input.RotateMode;
 import com.github.stephengold.sport.physics.BasePhysicsApp;
@@ -215,9 +214,9 @@ public class NewtonsCradle extends BasePhysicsApp<PhysicsSpace> {
      * Configure the Camera and CIP during initialization.
      */
     private static void configureCamera() {
-        CameraInputProcessor cip = getCameraInputProcessor();
-        cip.setMoveSpeed(30f);
-        cip.setRotationMode(RotateMode.DragLMB);
+        getCameraInputProcessor()
+                .setMoveSpeed(30f)
+                .setRotationMode(RotateMode.DragLMB);
 
         cam.setAzimuth(-2f)
                 .setLocation(72f, 35f, 140f)

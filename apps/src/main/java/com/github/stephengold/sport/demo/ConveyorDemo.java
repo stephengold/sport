@@ -1,5 +1,5 @@
 /*
- Copyright (c) 2020-2025 Stephen Gold and Yanis Boudiaf
+ Copyright (c) 2020-2026 Stephen Gold and Yanis Boudiaf
 
  Redistribution and use in source and binary forms, with or without
  modification, are permitted provided that the following conditions are met:
@@ -30,7 +30,6 @@ package com.github.stephengold.sport.demo;
 
 import com.github.stephengold.sport.Constants;
 import com.github.stephengold.sport.Geometry;
-import com.github.stephengold.sport.input.CameraInputProcessor;
 import com.github.stephengold.sport.input.InputProcessor;
 import com.github.stephengold.sport.input.RotateMode;
 import com.github.stephengold.sport.physics.BasePhysicsApp;
@@ -348,9 +347,9 @@ public class ConveyorDemo extends BasePhysicsApp<PhysicsSpace> {
      * Configure the Camera and CIP during startup.
      */
     private static void configureCamera() {
-        CameraInputProcessor cip = getCameraInputProcessor();
-        cip.setMoveSpeed(5f);
-        cip.setRotationMode(RotateMode.DragLMB);
+        getCameraInputProcessor()
+                .setMoveSpeed(5f)
+                .setRotationMode(RotateMode.DragLMB);
 
         cam.setAzimuth(-2.36f)
                 .setLocation(12f, 6f, 5f)

@@ -1,5 +1,5 @@
 /*
- Copyright (c) 2023-2025 Stephen Gold and Yanis Boudiaf
+ Copyright (c) 2023-2026 Stephen Gold and Yanis Boudiaf
 
  Redistribution and use in source and binary forms, with or without
  modification, are permitted provided that the following conditions are met:
@@ -35,7 +35,6 @@ import com.github.stephengold.sport.TextureKey;
 import com.github.stephengold.sport.Topology;
 import com.github.stephengold.sport.Vertex;
 import com.github.stephengold.sport.importers.AssimpUtils;
-import com.github.stephengold.sport.input.CameraInputProcessor;
 import com.github.stephengold.sport.input.RotateMode;
 import java.util.ArrayList;
 import java.util.List;
@@ -132,8 +131,8 @@ public class AssimpTest extends BaseApplication {
         Vector3fc target = new Vector3f(0f, 0f, 0f);
         getCamera().reposition(eye, target);
 
-        CameraInputProcessor cip = getCameraInputProcessor();
-        cip.setMoveSpeed(2f);
-        cip.setRotationMode(RotateMode.DragLMB);
+        getCameraInputProcessor()
+                .setMoveSpeed(2f)
+                .setRotationMode(RotateMode.DragLMB);
     }
 }

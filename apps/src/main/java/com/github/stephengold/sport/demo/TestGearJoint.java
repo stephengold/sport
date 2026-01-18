@@ -1,5 +1,5 @@
 /*
- Copyright (c) 2022-2025 Stephen Gold and Yanis Boudiaf
+ Copyright (c) 2022-2026 Stephen Gold and Yanis Boudiaf
 
  Redistribution and use in source and binary forms, with or without
  modification, are permitted provided that the following conditions are met:
@@ -29,7 +29,6 @@
 package com.github.stephengold.sport.demo;
 
 import com.github.stephengold.sport.Constants;
-import com.github.stephengold.sport.input.CameraInputProcessor;
 import com.github.stephengold.sport.input.InputProcessor;
 import com.github.stephengold.sport.input.RotateMode;
 import com.github.stephengold.sport.physics.BasePhysicsApp;
@@ -217,9 +216,9 @@ public class TestGearJoint
      * Configure the Camera and CIP during startup.
      */
     private void configureCamera() {
-        CameraInputProcessor cip = getCameraInputProcessor();
-        cip.setMoveSpeed(4f);
-        cip.setRotationMode(RotateMode.DragLMB);
+        getCameraInputProcessor()
+                .setMoveSpeed(4f)
+                .setRotationMode(RotateMode.DragLMB);
 
         cam.setAzimuth(-1.82f)
                 .setLocation(2.2f, 2f, 7.7f)
