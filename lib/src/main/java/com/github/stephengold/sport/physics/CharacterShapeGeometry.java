@@ -1,5 +1,5 @@
 /*
- Copyright (c) 2022-2025 Stephen Gold and Yanis Boudiaf
+ Copyright (c) 2022-2026 Stephen Gold and Yanis Boudiaf
 
  Redistribution and use in source and binary forms, with or without
  modification, are permitted provided that the following conditions are met:
@@ -88,6 +88,22 @@ public class CharacterShapeGeometry extends Geometry {
     }
     // *************************************************************************
     // Geometry methods
+
+    /**
+     * Alter the color and disable automatic updating of it.
+     *
+     * @param r the desired red component (in the Linear colorspace)
+     * @param g the desired green component (in the Linear colorspace)
+     * @param b the desired blue component (in the Linear colorspace)
+     * @return the (modified) current geometry (for chaining)
+     */
+    @Override
+    public Geometry setColor(float r, float g, float b) {
+        this.automaticColor = false;
+        super.setColor(r, g, b);
+
+        return this;
+    }
 
     /**
      * Alter the color and disable automatic updating of it.
