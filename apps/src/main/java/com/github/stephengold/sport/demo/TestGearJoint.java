@@ -219,7 +219,6 @@ public class TestGearJoint
         getCameraInputProcessor()
                 .setMoveSpeed(4f)
                 .setRotationMode(RotateMode.DragLMB);
-
         cam.setAzimuth(-1.82f)
                 .setLocation(2.2f, 2f, 7.7f)
                 .setUpAngle(-0.23f);

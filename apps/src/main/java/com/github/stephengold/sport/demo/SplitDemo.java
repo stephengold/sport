@@ -278,7 +278,6 @@ public class SplitDemo extends BasePhysicsApp<PhysicsSpace> {
         getCameraInputProcessor()
                 .setMoveSpeed(2f)
                 .setRotationMode(RotateMode.DragLMB);
-
         cam.setLocation(0f, 0f, 6.8f);
     }
 

@@ -480,7 +480,6 @@ public class Windlass
         getCameraInputProcessor()
                 .setMoveSpeed(20f)
                 .setRotationMode(RotateMode.DragLMB);
-
         cam.setAzimuth(-1.78f)
                 .setLocation(30f, 25f, 135f)
                 .setUpAngle(-0.28f);

@@ -237,7 +237,6 @@ public class Pachinko
         getCameraInputProcessor()
                 .setMoveSpeed(30f)
                 .setRotationMode(RotateMode.DragLMB);
-
         cam.setLocation(0f, -23f, 83f);
     }
 

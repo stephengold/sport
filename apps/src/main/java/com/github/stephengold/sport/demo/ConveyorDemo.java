@@ -350,7 +350,6 @@ public class ConveyorDemo extends BasePhysicsApp<PhysicsSpace> {
         getCameraInputProcessor()
                 .setMoveSpeed(5f)
                 .setRotationMode(RotateMode.DragLMB);
-
         cam.setAzimuth(-2.36f)
                 .setLocation(12f, 6f, 5f)
                 .setUpAngle(-0.43f);

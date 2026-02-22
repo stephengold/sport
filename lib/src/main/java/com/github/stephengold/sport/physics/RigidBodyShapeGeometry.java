@@ -93,7 +93,7 @@ public class RigidBodyShapeGeometry extends Geometry {
     // Geometry methods
 
     /**
-     * Alter the color and disable automatic updating of it.
+     * Alter the base color and disable automatic updating of it.
      *
      * @param r the desired red component (in the Linear colorspace)
      * @param g the desired green component (in the Linear colorspace)
@@ -109,10 +109,11 @@ public class RigidBodyShapeGeometry extends Geometry {
     }
 
     /**
-     * Alter the color and disable automatic updating of it.
+     * Alter the base color and disable automatic updating of it.
      *
-     * @param newColor the desired color (not null)
-     * @return the (modified) current instance (for chaining)
+     * @param newColor the desired color (in the Linear colorspace, not null,
+     * unaffected)
+     * @return the (modified) current geometry (for chaining)
      */
     @Override
     public Geometry setColor(Vector4fc newColor) {
