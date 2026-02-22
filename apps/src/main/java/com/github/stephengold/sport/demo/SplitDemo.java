@@ -100,7 +100,7 @@ public class SplitDemo extends BasePhysicsApp<PhysicsSpace> {
      * angle between the normal of the splitting plane and default camera's "up"
      * vector (in radians, &ge;0, &lt;Pi)
      */
-    private static float splitAngle = 0f;
+    private static float splitAngle;
     /**
      * visualize the splitting plane
      */
