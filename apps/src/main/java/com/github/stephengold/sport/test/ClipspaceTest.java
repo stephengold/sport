@@ -115,7 +115,7 @@ public class ClipspaceTest extends BaseApplication {
      * Scale the Geometry so it will render as a square, regardless of the
      * window's aspect ratio.
      */
-    private void updateScales() {
+    private static void updateScales() {
         float aspectRatio = aspectRatio();
         float yScale = Math.min(1f, aspectRatio);
         float xScale = yScale / aspectRatio;
