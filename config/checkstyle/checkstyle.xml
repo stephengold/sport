@@ -99,7 +99,7 @@
         <module name="OneTopLevelClass"/>
         <module name="ThrowsCount">
             <property name="ignorePrivateMethods" value="false"/>
-            <property name="max" value="1"/>
+            <property name="max" value="0"/>
         </module>
 
         <!-- Checks for common coding problems:       -->
@@ -292,7 +292,7 @@
         <!-- Checks for size violations:             -->
         <!-- See https://checkstyle.org/checks/sizes -->
         <module name="MethodLength">
-            <property name="max" value="170"/>
+            <property name="max" value="156"/>
         </module>
         <module name="ParameterNumber">
             <property name="max" value="8"/>
