@@ -44,11 +44,6 @@
     <module name="FileTabCharacter">
         <property name="eachLine" value="true"/>
     </module>
-    <module name="SuppressionSingleFilter">
-        <property name="checks" value="Header"/>
-        <property name="files" value="IcosphereMesh.java"/>
-        <property name="lines" value="3"/>
-    </module>
 
     <module name="TreeWalker">
         <!-- Checks for annotations:                      -->
