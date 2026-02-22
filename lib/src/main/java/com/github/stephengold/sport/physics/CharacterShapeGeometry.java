@@ -98,7 +98,7 @@ public class CharacterShapeGeometry extends Geometry {
      * @return the (modified) current geometry (for chaining)
      */
     @Override
-    public Geometry setColor(float r, float g, float b) {
+    public CharacterShapeGeometry setColor(float r, float g, float b) {
         this.automaticColor = false;
         super.setColor(r, g, b);
 
@@ -113,7 +113,7 @@ public class CharacterShapeGeometry extends Geometry {
      * @return the (modified) current geometry (for chaining)
      */
     @Override
-    public Geometry setColor(Vector4fc newColor) {
+    public CharacterShapeGeometry setColor(Vector4fc newColor) {
         this.automaticColor = false;
         super.setColor(newColor);
 
