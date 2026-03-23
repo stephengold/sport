@@ -34,6 +34,14 @@ tasks.register('Pachinko') {
     dependsOn ':apps:Pachinko'
     description = 'Runs the Pachinko demo app.'
 }
+tasks.register('SplitDemo') {
+    dependsOn ':apps:SplitDemo'
+    description = 'Runs the SplitDemo demo app.'
+}
+tasks.register('TestGearJoint') {
+    dependsOn ':apps:TestGearJoint'
+    description = 'Runs the TestGearJoint demo app.'
+}
 tasks.register('ThousandCubes') {
     dependsOn ':apps:ThousandCubes'
     description = 'Runs the ThousandCubes demo app.'
