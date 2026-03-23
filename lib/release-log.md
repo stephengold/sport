@@ -1,6 +1,6 @@
 # release log for the SPORT Library
 
-## Version 0.9.9 released on TBD
+## Version 0.9.9 released on 22 March 2026
 
 + Bugfix: `setColor(float, float, float)` has no effect on some geometries
 + Refined the return types of 4 public methods:
