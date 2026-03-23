@@ -1,5 +1,14 @@
 # release log for the SPORT Library
 
+## Version 0.9.9 released on TBD
+
++ Bugfix: `setColor(float, float, float)` has no effect on some geometries
++ Refined the return types of 4 public methods:
+  + `CharacterShapeGeometry.setColor()` - 2 signatures
+  + `RigidBodyShapeGeometry.setColor()` - 2 signatures
++ Updated the Libbulletjme library to v23.0.0 .
++ Updated the LWJGL libraries to v3.4.1 .
+
 ## Version 0.9.8 released on 18 January 2026
 
 + Updated the LWJGL libraries to v3.4.0 .
