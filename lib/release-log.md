@@ -1,5 +1,17 @@
 # release log for the SPORT Library
 
+## Version 1.0.0 released on TBD
+
++ Renamed 3 enum values, because `None` is a reserved word in Python:
+  + `NormalsOption.None` -> `NormalsOption.NoNormals`
+  + `RotateMode.None` -> `RotateMode.Off`
+  + `UvsOption.None` -> `UvsOption.NoUvs`
++ Bugfix:  logic error in `Projections.setZNear()` argument validation
++ Added support for the Windows_ARM64 platform.
++ Added an alternative signature for `Camera.setLookDirection()`.
++ Updated the Libbulletjme library to v23.0.1 .
++ Updated the JOML library to v1.10.9 .
+
 ## Version 0.9.9 released on 22 March 2026
 
 + Bugfix: `setColor(float, float, float)` has no effect on some geometries
@@ -16,7 +28,7 @@
 + Added a `Geometry.setColor()` method that accepts scalars.
 + Added argument validation to `Geometry.setScale()` .
 
-## Version 0.9.7 released on 13 Sepetmber 2025
+## Version 0.9.7 released on 13 September 2025
 
 + De-publicized 5 `BasePhysicsApp` methods.
 + Bugfix:  performance degraded by `glGetError()`
