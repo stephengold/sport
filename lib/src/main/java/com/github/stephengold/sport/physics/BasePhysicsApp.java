@@ -1,5 +1,5 @@
 /*
- Copyright (c) 2022-2025 Stephen Gold and Yanis Boudiaf
+ Copyright (c) 2022-2026 Stephen Gold and Yanis Boudiaf
 
  Redistribution and use in source and binary forms, with or without
  modification, are permitted provided that the following conditions are met:
@@ -338,6 +338,8 @@ abstract public class BasePhysicsApp<T extends PhysicsSpace>
                 "native/osx/arm64", PlatformPredicate.MACOS_ARM_64),
             new NativeDynamicLibrary(
                 "native/osx/x86_64", PlatformPredicate.MACOS_X86_64),
+            new NativeDynamicLibrary(
+                "native/windows/arm64", PlatformPredicate.WIN_ARM_64),
             new NativeDynamicLibrary(
                 "native/windows/x86_64", PlatformPredicate.WIN_X86_64)
         };
