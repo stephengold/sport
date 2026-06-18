@@ -61,10 +61,10 @@ Add to the project’s "build.gradle" or "build.gradle.kts" file:
     }
     dependencies {
         // JVM library:
-        implementation("com.github.stephengold:sport:0.9.9")
+        implementation("com.github.stephengold:sport:1.0.0")
 
         // Libbulletjme native libraries:
-        runtimeOnly("com.github.stephengold:Libbulletjme-Linux64:23.0.0:SpDebug")
+        runtimeOnly("com.github.stephengold:Libbulletjme-Linux64:23.0.1:SpDebug")
           // Libbulletjme native libraries for other platforms could be added.
 
         // LWJGL native libraries:

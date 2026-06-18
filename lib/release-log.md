@@ -1,6 +1,6 @@
 # release log for the SPORT Library
 
-## Version 1.0.0 released on TBD
+## Version 1.0.0 released on 18 June 2026
 
 + Renamed 3 enum values, because `None` is a reserved word in Python:
   + `NormalsOption.None` -> `NormalsOption.NoNormals`
