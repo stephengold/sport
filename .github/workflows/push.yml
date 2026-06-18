@@ -50,4 +50,3 @@ jobs:
           java-version: 26
       - uses: actions/checkout@v6
       - run: ./gradlew build install javadoc --console=plain --stacktrace
-

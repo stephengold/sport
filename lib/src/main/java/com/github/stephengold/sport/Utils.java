@@ -1,5 +1,5 @@
 /*
- Copyright (c) 2022-2025 Stephen Gold and Yanis Boudiaf
+ Copyright (c) 2022-2026 Stephen Gold and Yanis Boudiaf
 
  Redistribution and use in source and binary forms, with or without
  modification, are permitted provided that the following conditions are met:
@@ -84,8 +84,8 @@ final public class Utils {
     }
 
     /**
-     * Throw a runtime exception if OpenGL has detected an error since the
-     * previous invocation of this method.
+     * Throw a runtime exception if assertions are enabled and OpenGL has
+     * detected an error since the previous invocation of this method.
      */
     public static void checkForOglError() {
         if (assertions) {
@@ -185,8 +185,8 @@ final public class Utils {
     /**
      * Load raw bytes from the named classpath resource.
      *
-     * @param resourceName the name of the resource (not null)
-     * @return a new array
+     * @param resourceName the name of the resource (not {@code null})
+     * @return a new direct buffer
      */
     public static ByteBuffer loadResourceAsBytes(String resourceName) {
         // Read the resource to determine its size in bytes:
@@ -249,7 +249,7 @@ final public class Utils {
     /**
      * Load an AWT BufferedImage from the named classpath resource.
      *
-     * @param resourceName the name of the resource (not null)
+     * @param resourceName the name of the resource (not {@code null})
      * @return a new object
      */
     public static BufferedImage loadResourceAsImage(String resourceName) {
@@ -274,7 +274,8 @@ final public class Utils {
     /**
      * Load UTF-8 text from the named resource.
      *
-     * @param resourceName the name of the classpath resource to load (not null)
+     * @param resourceName the name of the classpath resource to load (not
+     * {@code null})
      * @return the text (possibly multiple lines)
      */
     public static String loadResourceAsString(String resourceName) {
@@ -329,8 +330,8 @@ final public class Utils {
     /**
      * Copy the specified FloatBuffer to an array.
      *
-     * @param buffer the buffer to copy (not null, unaffected)
-     * @return a new array (not null)
+     * @param buffer the buffer to copy (not {@code null}, unaffected)
+     * @return a new array
      */
     public static float[] toArray(FloatBuffer buffer) {
         float[] array = new float[buffer.limit()];
@@ -344,7 +345,7 @@ final public class Utils {
     /**
      * Convert a BufferedImage to an array of heights.
      *
-     * @param image the image to use (not null, unaffected)
+     * @param image the image to use (not {@code null}, unaffected)
      * @param maxHeight the vertical scaling factor
      * @return a new array of values in the range [0, maxHeight], one element
      * for each pixel in the image
@@ -401,7 +402,8 @@ final public class Utils {
     }
 
     /**
-     * Convert an sRGB color string to a color in the linear colorspace.
+     * Convert the specified sRGB color string to a color in the linear
+     * colorspace.
      *
      * @param hexString the input color (hexadecimal string with red channel in
      * the most-significant byte, alpha channel in the least significant byte)
@@ -445,7 +447,7 @@ final public class Utils {
      * -PI to PI and is stored in the 3rd (Z) vector component.
      * </ul>
      *
-     * @param vec the vector to convert (not null, modified)
+     * @param vec the vector to convert (not {@code null}, modified)
      */
     public static void toSpherical(com.jme3.math.Vector3f vec) {
         double xx = vec.x;
