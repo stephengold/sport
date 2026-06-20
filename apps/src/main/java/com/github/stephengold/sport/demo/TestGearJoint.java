@@ -150,7 +150,7 @@ public class TestGearJoint
         visualizeAxes(driveshaft, 1f);
         visualizeShape(driveshaft);
 
-        // Add a flattened dynamic body for the wheel.
+        // Add a flattened dynamic body for the wheel:
         radius = 2f;
         height = 0.5f;
         CollisionShape wheelShape = new CylinderCollisionShape(
@@ -205,7 +205,7 @@ public class TestGearJoint
      */
     @Override
     public void prePhysicsTick(PhysicsSpace space, float timeStep) {
-        // Apply torque to the driveshaft based on user-input signals.
+        // Apply torque to the driveshaft based on user-input signals:
         float yTorque = signalCcw - signalCw;
         driveshaft.applyTorque(new Vector3f(0f, yTorque, 0f));
     }

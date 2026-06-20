@@ -167,7 +167,7 @@ public class Windlass
         PhysicsSpace result
                 = new PhysicsSpace(PhysicsSpace.BroadphaseType.DBVT);
 
-        // To enable the callbacks, register the application as a tick listener.
+        // To enable the callbacks, register the application as a tick listener:
         result.addTickListener(this);
 
         result.setGravity(new Vector3f(0f, -981f, 0f)); // 1 psu = 1 cm
@@ -217,7 +217,7 @@ public class Windlass
         localPivot.set(0f, 0f, segmentLength / 2f);
         /*
          * Make the first cable segment tangent to the +Z side of the barrel
-         * and attach it with a fixed joint (all DOFs locked).
+         * and attach it with a fixed joint (all DOFs locked):
          */
         float zRotation = FastMath.atan2(deltaX, deltaY);
         Quaternion orientation = new Quaternion().fromAngles(0f, zRotation, 0f);
@@ -257,7 +257,7 @@ public class Windlass
 
         orientation.fromAngles(FastMath.HALF_PI, 0f, 0f);
 
-        // Attach successive segments in a vertical drop chain:
+        // Attach successive segments in vertical drop:
         for (int segmentI = 0; segmentI < numPendantSegments; ++segmentI) {
             // Calculate the location of the next segment:
             center.y -= segmentLength;
