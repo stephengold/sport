@@ -181,7 +181,7 @@ public class Windlass
     }
 
     /**
-     * Initialize the application.
+     * Initialize the application. Invoked once.
      */
     @Override
     protected void initialize() {

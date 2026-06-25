@@ -91,7 +91,7 @@ public class MouseTest2 extends BaseApplication {
     }
 
     /**
-     * Initialize the application.
+     * Initialize the application. Invoked once.
      */
     @Override
     protected void initialize() {

@@ -139,7 +139,7 @@ public class Pachinko
     }
 
     /**
-     * Initialize the application.
+     * Initialize the application. Invoked once.
      */
     @Override
     protected void initialize() {

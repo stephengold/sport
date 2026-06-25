@@ -79,7 +79,7 @@ public class OctasphereTest extends BaseApplication {
     }
 
     /**
-     * Initialize the application.
+     * Initialize the application. Invoked once.
      */
     @Override
     protected void initialize() {

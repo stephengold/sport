@@ -195,7 +195,7 @@ public class ConveyorDemo extends BasePhysicsApp<PhysicsSpace> {
     }
 
     /**
-     * Initialize the application.
+     * Initialize the application. Invoked once.
      */
     @Override
     protected void initialize() {
