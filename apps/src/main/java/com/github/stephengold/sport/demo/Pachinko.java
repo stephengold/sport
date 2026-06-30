@@ -88,10 +88,6 @@ public class Pachinko
      */
     private static float timeSinceAdded;
     /**
-     * rotation matrix for pins
-     */
-    final private static Matrix3f rot45 = new Matrix3f();
-    /**
      * randomize ball motion
      */
     final private static Random generator = new Random();
@@ -143,9 +139,6 @@ public class Pachinko
      */
     @Override
     protected void initialize() {
-        Quaternion q = new Quaternion().fromAngles(0f, 0f, FastMath.PI / 4f);
-        rot45.set(q);
-
         super.initialize();
 
         setVsync(true);
@@ -351,6 +344,10 @@ public class Pachinko
         float pinSpacing = 2f * (barHalfWidth + ballRadius);
         float rowSpacing = 2f * pinSpacing;
 
+        Quaternion q = new Quaternion().fromAngles(0f, 0f, FastMath.PI / 4f);
+        Matrix3f rot45 = new Matrix3f();
+        rot45.set(q);
+
         for (int rowIndex = 0; rowIndex < numRows; ++rowIndex) {
             float y = -rowSpacing * rowIndex;
             int numPins = numRows - (rowIndex % 2);
@@ -397,6 +394,6 @@ public class Pachinko
      * Toggle the physics simulation: paused/running.
      */
     private static void togglePause() {
-        physicsSpeed = (physicsSpeed <= pausedSpeed) ? 1f : pausedSpeed;
+        physicsSpeed = isPaused() ? 1f : pausedSpeed;
     }
 }
