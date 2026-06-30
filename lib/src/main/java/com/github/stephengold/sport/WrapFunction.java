@@ -1,5 +1,5 @@
 /*
- Copyright (c) 2023, Stephen Gold and Yanis Boudiaf
+ Copyright (c) 2023-2026 Stephen Gold and Yanis Boudiaf
 
  Redistribution and use in source and binary forms, with or without
  modification, are permitted provided that the following conditions are met:
@@ -35,7 +35,6 @@ import org.lwjgl.opengl.GL14C;
 
 /**
  * Options for handling texture coordinates that fall outside the 0..1 range.
- * Corresponds to the native type {@code VkSamplerAddressMode}.
  *
  * @author Stephen Gold sgold@sonic.net
  */

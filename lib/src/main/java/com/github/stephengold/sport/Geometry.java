@@ -237,7 +237,7 @@ public class Geometry {
     }
 
     /**
-     * Return a copy of the location of the mesh origin.
+     * Copy the location of the mesh origin.
      *
      * @param storeResult storage for the result (modified if not null)
      * @return a location vector in worldspace (either {@code storeResult} or a
@@ -551,6 +551,7 @@ public class Geometry {
 
         com.jme3.math.Vector3f axis = new com.jme3.math.Vector3f(x, y, z);
         meshToWorld.getRotation().fromAngleNormalAxis(angle, axis);
+
         return this;
     }
 
@@ -677,6 +678,7 @@ public class Geometry {
 
         meshToWorld.getScale()
                 .set(scaleFactors.x(), scaleFactors.y(), scaleFactors.z());
+
         return this;
     }
 
