@@ -374,10 +374,12 @@ public class Geometry {
     /**
      * Uniformly scale the model by the specified factor.
      *
-     * @param factor the scaling factor (1&rarr;no effect)
+     * @param factor the scaling factor (finite, 1&rarr;no effect)
      * @return the (modified) current geometry (for chaining)
      */
     public Geometry scale(float factor) {
+        Validate.finite(factor, "factor");
+
         meshToWorld.getScale().multLocal(factor);
         return this;
     }
