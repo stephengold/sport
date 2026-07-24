@@ -33,7 +33,7 @@ Complete source code (in [Java]) is provided under
 SPORT is a Simple Physics-ORienTed graphics engine written in Java 1.8.
 In addition to [Libbulletjme],
 it uses [LWJGL], [Assimp], [GLFW], [JOML], [jSnapLoader], and [OpenGL].
-It has been tested on Windows, Linux, and macOS.
+It has been tested on Linux, macOS, and Windows.
 
 [Jump to the table of contents](#toc)
 
@@ -44,8 +44,9 @@ It has been tested on Windows, Linux, and macOS.
 
 SPORT comes pre-built as a single library
 that can be downloaded from Maven Central or GitHub.
-However, the native-library dependencies are intentionally omitted from SPORT's POM
-so developers can specify *which* Libbulletjme and LWJGL natives should be used.
+However, the native-library dependencies are intentionally omitted
+from SPORT's POM
+so developers can precisely specify *which* Libbulletjme and LWJGL natives should be used.
 
 For projects built using [Maven] or [Gradle], it is
 *not* sufficient to specify the
@@ -89,7 +90,7 @@ The graphics engine doesn't have a scene graph.
 Instead, it maintains an internal list of renderable objects,
 called *geometries*.
 Instantiating a geometry automatically adds it to the list
-and causes it to be visualized.
+and causes it to be rendered.
 
 + To visualize the world (physics-space) coordinate axes,
   instantiate one or more `LocalAxisGeometry` objects.
@@ -179,7 +180,7 @@ To run the chooser:
 
 ### Cleanup
 
-You can restore the project to a pristine state:
+At any time, you can restore the project to a pristine state:
 + using Bash or Fish or PowerShell or Zsh: `./gradlew clean`
 + using Windows Command Prompt: `.\gradlew clean`
 
