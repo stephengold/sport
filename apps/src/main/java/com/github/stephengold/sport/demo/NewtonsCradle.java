@@ -35,7 +35,9 @@ import com.github.stephengold.sport.physics.BasePhysicsApp;
 import com.github.stephengold.sport.physics.ConstraintGeometry;
 import com.jme3.bullet.PhysicsSpace;
 import com.jme3.bullet.collision.shapes.SphereCollisionShape;
+import com.jme3.bullet.joints.Constraint;
 import com.jme3.bullet.joints.JointEnd;
+import com.jme3.bullet.joints.PhysicsJoint;
 import com.jme3.bullet.joints.Point2PointJoint;
 import com.jme3.bullet.objects.PhysicsRigidBody;
 import com.jme3.math.Vector3f;
@@ -277,11 +279,26 @@ public class NewtonsCradle extends BasePhysicsApp<PhysicsSpace> {
                         }
                         return;
 
+                    case GLFW.GLFW_KEY_E:
+                        if (isPressed) {
+                            disableAllConstraints();
+                        }
+                        return;
+
                     default:
                 }
                 super.onKeyboard(keyId, isPressed);
             }
         });
+    }
+
+    /**
+     * Disable all constraints in the PhysicsSpace.
+     */
+    private void disableAllConstraints() {
+        for (PhysicsJoint j : physicsSpace.getJointList()) {
+            ((Constraint) j).setEnabled(false);
+        }
     }
 
     /**
