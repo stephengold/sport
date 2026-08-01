@@ -346,9 +346,9 @@ abstract public class BaseApplication {
     /**
      * Alter the direction to the distant light.
      *
-     * @param x the X component of the desired direction
-     * @param y the Y component of the desired direction
-     * @param z the Z component of the desired direction
+     * @param x the X component of the desired direction (in world coordinates)
+     * @param y the Y component of the desired direction (in world coordinates)
+     * @param z the Z component of the desired direction (in world coordinates)
      */
     public static void setLightDirection(float x, float y, float z) {
         LightDirection.set(x, y, z);
@@ -482,7 +482,7 @@ abstract public class BaseApplication {
     /**
      * Return the initial window title.
      *
-     * @return the title text (not null)
+     * @return the title text (not {@code null})
      */
     protected static String initialWindowTitle() {
         return initialWindowTitle;
