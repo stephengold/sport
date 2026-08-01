@@ -115,7 +115,7 @@ abstract public class BaseApplication {
     /**
      * view-to-clip coordinate transform for rendering
      */
-    private static Projection projection;
+    final private static Projection projection = new Projection(1f, 1_000f);
     /**
      * initial text for the window's title bar (not null)
      */
@@ -200,10 +200,6 @@ abstract public class BaseApplication {
      * @return the pre-existing instance (not null)
      */
     public static Projection getProjection() {
-        if (projection == null) {
-            projection = new Projection(1f, 1_000f);
-        }
-
         return projection;
     }
 
