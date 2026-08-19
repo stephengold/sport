@@ -304,7 +304,7 @@ abstract public class BaseApplication {
     /**
      * Alter the background color of the window.
      *
-     * @param desiredColor the desired color (not null, unaffected,
+     * @param desiredColor the desired color (not {@code null}, unaffected,
      * default=black)
      */
     public static void setBackgroundColor(Vector4fc desiredColor) {
@@ -329,7 +329,7 @@ abstract public class BaseApplication {
     /**
      * Alter the color and intensity of lights.
      *
-     * @param desiredColor the desired color (not null, unaffected,
+     * @param desiredColor the desired color (not {@code null}, unaffected,
      * default=white)
      */
     public static void setLightColor(Vector4fc desiredColor) {
