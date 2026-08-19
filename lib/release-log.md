@@ -1,6 +1,6 @@
 # release log for the SPORT Library
 
-## Version 1.0.1 released on TBD
+## Version 1.0.1 released on 19 August 2026
 
 + Bugfix: window creation fails on Wayland platforms with NVIDIA graphics
 + Bugfix: window positioning crashes on Wayland platforms
