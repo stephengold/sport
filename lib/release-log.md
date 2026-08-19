@@ -1,5 +1,14 @@
 # release log for the SPORT Library
 
+## Version 1.0.1 released on TBD
+
++ Bugfix: window creation fails on Wayland platforms with NVIDIA graphics
++ Bugfix: window positioning crashes on Wayland platforms
+
++ Stopped rendering disabled constraints in `ConstraintGeometry`.
++ Updated the Libbulletjme library to v23.1.0 .
++ Updated the LWJGL libraries to v3.4.2 .
+
 ## Version 1.0.0 released on 18 June 2026
 
 + Renamed 3 enum values, because `None` is a reserved word in Python:
