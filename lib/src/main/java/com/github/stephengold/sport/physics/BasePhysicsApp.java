@@ -412,11 +412,11 @@ abstract public class BasePhysicsApp<T extends PhysicsSpace>
     private void cleanUpGeometries() {
         Collection<Geometry> geometriesToHide
                 = new ArrayList<>(); // TODO garbage
-        //System.out.println();
+        // System.out.println();
         for (Geometry geometry : listVisible()) {
-            //System.out.println(
+            // System.out.println(
             //       "geometry type=" + geometry.getClass().getSimpleName());
-            //System.out.println("  " + geometry.toString());
+            // System.out.println("  " + geometry.toString());
             if (geometry.wasRemovedFrom(physicsSpace)) {
                 geometriesToHide.add(geometry);
             }
