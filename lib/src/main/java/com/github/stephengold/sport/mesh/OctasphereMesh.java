@@ -1,5 +1,5 @@
 /*
- Copyright (c) 2020-2023, Stephen Gold and Yanis Boudiaf
+ Copyright (c) 2020-2026 Stephen Gold and Yanis Boudiaf
 
  Redistribution and use in source and binary forms, with or without
  modification, are permitted provided that the following conditions are met:
@@ -251,7 +251,6 @@ public class OctasphereMesh extends Mesh {
         // System.out.println("numFaces        = " + faces.size() / vpt);
         // System.out.println("numCacheEntries = " + midpointCache.size());
         // System.out.println();
-        //
         assert locations.size() == uOverrides.size();
         midpointCache.clear();
         assert faces.size() == 3 << (3 + 2 * numRefineSteps);
