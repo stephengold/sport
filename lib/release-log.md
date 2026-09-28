@@ -1,6 +1,6 @@
 # release log for the SPORT Library
 
-## Version 1.1.0 released on TBD
+## Version 1.1.0 released on 27 September 2026
 
 + Added the `FunctionalPhysicsApp` class.
 + Updated the Libbulletjme library to v23.1.2 .
