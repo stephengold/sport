@@ -1,5 +1,11 @@
 # release log for the SPORT Library
 
+## Version 1.1.0 released on TBD
+
++ Added the `FunctionalPhysicsApp` class.
++ Updated the Libbulletjme library to v23.1.2 .
++ Updated the LWJGL libraries to v3.4.3 .
+
 ## Version 1.0.1 released on 19 August 2026
 
 + Bugfix: window creation fails on Wayland platforms with NVIDIA graphics
