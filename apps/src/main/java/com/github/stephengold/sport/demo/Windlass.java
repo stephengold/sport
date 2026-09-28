@@ -257,7 +257,7 @@ public class Windlass
 
         orientation.fromAngles(FastMath.HALF_PI, 0f, 0f);
 
-        // Attach successive segments in vertical drop:
+        // Attach successive segments in a vertical drop chain:
         for (int segmentI = 0; segmentI < numPendantSegments; ++segmentI) {
             // Calculate the location of the next segment:
             center.y -= segmentLength;
