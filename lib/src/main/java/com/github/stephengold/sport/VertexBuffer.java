@@ -1,5 +1,5 @@
 /*
- Copyright (c) 2022-2025 Stephen Gold and Yanis Boudiaf
+ Copyright (c) 2022-2026 Stephen Gold and Yanis Boudiaf
 
  Redistribution and use in source and binary forms, with or without
  modification, are permitted provided that the following conditions are met:
@@ -329,7 +329,7 @@ final public class VertexBuffer {
      * shaders (not null, not empty)
      * @param fpv the number of floats per vertex (&ge;1, &le;4)
      * @param floatBuffer the initial data (not null, unaffected)
-     * @return a new buffer (not null)
+     * @return a new flipped buffer (not {@code null})
      */
     static VertexBuffer newInstance(
             String attribName, int fpv, FloatBuffer floatBuffer) {

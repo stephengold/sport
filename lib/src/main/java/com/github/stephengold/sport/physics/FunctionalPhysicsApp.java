@@ -59,7 +59,7 @@ public class FunctionalPhysicsApp<T extends PhysicsSpace>
      */
     private Consumer<BasePhysicsApp> initialize;
     /**
-     * callback to populate the PhysicsSystem during initialization
+     * callback to populate the PhysicsSpace during initialization
      */
     private Consumer<BasePhysicsApp> populateSpace;
     /**
@@ -299,10 +299,10 @@ public class FunctionalPhysicsApp<T extends PhysicsSpace>
     // PhysicsTickListener methods
 
     /**
-     * Callback invoked (by Sport-Jolt, not by Jolt Physics) after the system
-     * has been stepped.
+     * Callback invoked just after the physics has been stepped. A good time to
+     * re-activate deactivated objects.
      *
-     * @param space the space that was just stepped (not null)
+     * @param space the space that was just stepped (not {@code null})
      * @param timeStep the duration of the simulation step (in seconds, &ge;0)
      */
     @Override
@@ -313,10 +313,10 @@ public class FunctionalPhysicsApp<T extends PhysicsSpace>
     }
 
     /**
-     * Callback invoked (by Sport-Jolt, not by Jolt Physics) before the system
-     * is stepped.
+     * Callback invoked just before the physics is stepped. A good time to apply
+     * impulses and reposition kinematic objects.
      *
-     * @param space the space that's about to be stepped (not null)
+     * @param space the space that's about to be stepped (not {@code null})
      * @param timeStep the duration of the simulation step (in seconds, &ge;0)
      */
     @Override
