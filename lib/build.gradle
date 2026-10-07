@@ -50,7 +50,6 @@ jar {
         attributes 'Created-By': "${JavaVersion.current()} (${System.getProperty("java.vendor")})"
     }
 }
-
 java.withJavadocJar()
 javadocJar { archiveBaseName = project.ext.baseName }
 tasks.register('sourcesJar', Jar) {
