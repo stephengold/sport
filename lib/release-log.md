@@ -1,5 +1,10 @@
 # release log for the SPORT Library
 
+## Version 1.1.1 released on TBD
+
++ Updated the Libbulletjme library to v23.2.0 .
++ Updated the jSnapLoader library to v1.2.0-stable .
+
 ## Version 1.1.0 released on 27 September 2026
 
 + Added the `FunctionalPhysicsApp` class.
