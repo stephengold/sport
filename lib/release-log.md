@@ -1,9 +1,10 @@
 # release log for the SPORT Library
 
-## Version 1.1.1 released on TBD
+## Version 1.1.1 released on 27 October 2026
 
 + Updated the Libbulletjme library to v23.2.0 .
 + Updated the jSnapLoader library to v1.2.0-stable .
++ Began publishing releases from GitHub Actions.
 
 ## Version 1.1.0 released on 27 September 2026
 
