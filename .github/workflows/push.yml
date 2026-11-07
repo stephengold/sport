@@ -46,7 +46,7 @@ jobs:
             -p '${{ secrets.CENTRAL_PASSWORD }}' \
             -u '${{ secrets.CENTRAL_USERNAME }}'
 
-  Java25-Windows:
+  Java25-Windows64:
     if: contains(toJson(github.event.commits), '[ci skip] ') == false
     runs-on: windows-2025
     steps:
